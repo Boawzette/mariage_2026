@@ -32,7 +32,7 @@ export default function Home() {
   // Detect the browser's language and set it if supported, else default to English
   useEffect(() => {
     const browserLanguage = navigator.language || navigator.userLanguage;
-    const supportedLanguages = ["en", "it", "pl"]; // English, Italian and Polish are the current languages available for this website
+    const supportedLanguages = ["en", "it", "pt"]; // English, Italian and Portugais are the current languages available for this website
     const detectedLanguage = supportedLanguages.includes(
       browserLanguage.slice(0, 2)
     )
