@@ -12,7 +12,7 @@
 - Tailwind CSS
 - Firebase (Firestore, Authentication)
 - Framer Motion
-- EmailJS
+- EmailJS eeeee
 - Spotify
 
 ---
