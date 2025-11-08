@@ -876,6 +876,7 @@ pt: {
     message: "A página que você procura não existe.",
     button: "Voltar",
   },
+},
 }
 
 export default translations;
