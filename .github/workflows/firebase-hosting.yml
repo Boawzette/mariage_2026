@@ -3,11 +3,14 @@ name: Deploy to Firebase Hosting
 on:
   push:
     branches:
-      - main  # remplace par 'master' si ta branche par défaut est "master"
+      - main
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+      SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
     steps:
       - uses: actions/checkout@v3
 
