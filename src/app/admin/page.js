@@ -1,6 +1,6 @@
 /**
  * @file page.js
- * @description Admin panel for managing wedding guest list, bank payment details, and dashboard. It includes Google authentication and access control for authorizing the access only to the admin gmail account.
+ * @description Admin panel for managing wedding guest list, and dashboard. It includes Google authentication and access control for authorizing the access only to the admin gmail account.
  * @author Emanuele Sgroi
  * @date 19 October 2024
  */
@@ -16,7 +16,7 @@ import Loading from "@/components/Loading/Loading";
 import {
   Dashboard,
   GuestManagement,
-  PaymentDetails,
+
 } from "@/components/Admin/adminIndex";
 import { MdDashboard } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
