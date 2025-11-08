@@ -605,291 +605,276 @@ const translations = {
     },
   },
 
-  // POLISH <---------------------------------------------------------------------------------------
-  pl: {
-    couple: {
-      her: "Karoliny",
-      him: "Emanuela",
-      footer_her: "Karoline",
-      footer_him: "Emanuela",
+  // PORTUGUÊS <---------------------------------------------------------------------------------------
+pt: {
+  couple: {
+    her: "Karolina",
+    him: "Emanuele",
+    footer_her: "Karolina",
+    footer_him: "Emanuele",
+  },
+  navbar: {
+    welcome: "Bem-vindo",
+    save_the_date: "Reserve a Data",
+    schedule: "Cronograma do Casamento",
+    info: "Detalhes",
+    rsvp: "RSVP",
+    registry: "Lista de Presentes",
+    music: "Playlist",
+  },
+  welcome_section: {
+    small_text: "O casamento de...",
+    days: "dias",
+    day: "dia",
+    hours: "horas",
+    hour: "hora",
+    minutes: "minutos",
+    minute: "minuto",
+    seconds: "segundos",
+    second: "segundo",
+    button: "Reserve a Data",
+  },
+  saveTheDate_section: {
+    title: "RESERVE",
+    title_cursive: "a Data",
+    date: "26 de julho de 2025",
+    place: 'no espaço "Przy Patykach" em Kolonia Łobudzice, Zelów',
+    story_1: "Nos Conhecemos",
+    story_2: "Noivamos",
+    story_3_future: "Vamos nos Casar",
+    story_3_past: "Nos Casamos",
+  },
+  schedule_section: {
+    title: {
+      main: "CRONOGRAMA",
+      sub: "do Casamento",
     },
-    navbar: {
-      welcome: "Witamy",
-      save_the_date: "Zarezerwuj Datę",
-      schedule: "Harmonogram Przyjęcia",
-      info: "Szczegóły",
-      rsvp: "RSVP",
-      registry: "Lista Prezentów",
-      music: "Playlista",
-    },
-    welcome_section: {
-      small_text: "Ślub...",
-      days: "dni",
-      day: "dzień",
-      hours: "godziny",
-      hour: "godzina",
-      minutes: "minuty",
-      minute: "Minuta",
-      seconds: "sekundy",
-      second: "sekunda",
-      button: "Zarezerwuj Datę",
-    },
-    saveTheDate_section: {
-      title: "ZAREZERWUJ", //DATĘ
-      title_cursive: "Datę",
-      date: "26 lipca 2025 roku",
-      place: 'na sali "Przy Patykach" w Kolonii Łobudzice, Zelów',
-      story_1: "Spotkaliśmy Się",
-      story_2: "Zaręczyliśmy Się",
-      story_3_future: "Weźmiemy Ślub",
-      story_3_past: "Pobraliśmy Się",
-    },
-    schedule_section: {
-      title: {
-        main: "HARMONOGRAM",
-        sub: "Przyjęcia",
-      },
-      description:
-        "Ślub oraz wesele odbędą się 26 lipca 2025 roku. Następnego dnia serdecznie zapraszamy na poprawiny!",
-      day_1: {
-        title: "Dzień 1",
-        events: {
-          ceremony: {
-            time: "16:00",
-            title: "Ceremonia Ślubu",
-          },
-          dinner: {
-            time: "18:00",
-            title: "Uroczysty Obiad",
-          },
-          dance: {
-            time: "18:00",
-            title: "Pierwszy Taniec",
-          },
-          photo: {
-            time: "20:00 - 23:00",
-            title: "Fotobudka",
-          },
-          pig: {
-            time: "00:00",
-            title: "Danie Specjalne",
-          },
-          cake_cutting: {
-            time: "22:30",
-            title: "Tort",
-          },
-          games: {
-            time: "00:30",
-            title: "Oczepiny",
-          },
-          party: {
-            time: "Do Białego Rana",
-            title: "Jedzenie, Picie, i Zabawa!",
-          },
+    description:
+      "O casamento será no dia 26 de julho de 2025. No dia seguinte, convidamos você para a celebração pós-casamento!",
+    day_1: {
+      title: "Dia 1",
+      events: {
+        ceremony: {
+          time: "16:00",
+          title: "Cerimônia de Casamento",
         },
-      },
-      day_2: {
-        title: "Dzień 2",
-        events: {
-          after: {
-            time: "15:00",
-            title: "Rozpoczęcie Poprawin",
-          },
-          vespa: {
-            time: "15:00 - 20:00",
-            title: "Bar Vespa",
-          },
-          party_continues: {
-            time: "Cały Dzień",
-            title: "Jedzenie, Picie, i Zabawa!",
-          },
-          end: {
-            time: "21:00",
-            title: "Koniec",
-          },
+        dinner: {
+          time: "18:00",
+          title: "Jantar",
+        },
+        dance: {
+          time: "18:00",
+          title: "Primeira Dança",
+        },
+        photo: {
+          time: "20:00 - 23:00",
+          title: "Cabine de Fotos",
+        },
+        pig: {
+          time: "00:00",
+          title: "Prato Especial",
+        },
+        cake_cutting: {
+          time: "22:30",
+          title: "Corte do Bolo",
+        },
+        games: {
+          time: "00:30",
+          title: "Jogos Tradicionais",
+        },
+        party: {
+          time: "Até de Manhã",
+          title: "Comer, Beber e Dançar!",
         },
       },
     },
-    info_section: {
-      title: {
-        main: "WIĘCEJ",
-        sub: "Szczegółów",
-      },
-      details: {
-        when_where: "Kiedy i Gdzie",
-        dates: [
-          {
-            bold: true,
-            text: "Daty: ",
-          },
-          "Sobota, 26 Lipca & Niedziela, 27 Lipca 2025 roku",
-        ],
-        location: [
-          {
-            bold: true,
-            text: "Lokalizacja: ",
-          },
-          'Sala "Przy Patykach", Kolonia Łobudzice 18c, 97-425',
-        ],
-        button_loc: "ZOBACZ LOKALIZACJĘ",
-      },
-      accommodations: {
-        title: "Zakwaterowanie",
-        description_1: [
-          "Dla naszych zagranicznych gości oferujemy zakwaterowanie w hotelu przy sali w dniach: ",
-          {
-            bold: true,
-            text: "Piątek, 25 lipca, Sobota, 26 lipca i Niedziela, 27 lipca.",
-          },
-          "",
-        ],
-        breakfast: [
-          { bold: true, text: "Śniadanie" },
-          " jest wliczone w cenę pobytu i będzie serwowane od ",
-          { bold: true, text: "9:00 do 12:00" },
-          " każdego ranka.",
-        ],
-        checkout: [{ bold: true, text: "" }, ""],
-      },
-      travel_transport: {
-        title: "Transport",
-        description_1: [
-          "Naszym międzynarodowym gościom zapewniamy transport z lotniska na salę w piątek 25 lipca oraz z sali na lotnisko w poniedziałek 28 lipca.",
-        ],
-        description_2: [
-          {
-            bold: true,
-            text: "",
-          },
-        ],
-        description_3: [""],
-        description_4: [
-          "Dołożymy wszelkich starań, aby zadowolić każdego. Jeśli nie możesz wylądować/wylecieć tego samego dnia/godziny co wszyscy inni, pomożemy Ci zorganizować inny sposób dotarcia na miejsce i z powrotem.",
-        ],
-        transport_details: {
-          arrival: {
-            title: "",
-            desc1: [{ bold: true, text: "" }, ""],
-            desc2: [{ bold: true, text: "" }, ""],
-          },
-          departure: {
-            title: "",
-            desc1: [{ bold: true, text: "" }, ""],
-          },
+    day_2: {
+      title: "Dia 2",
+      events: {
+        after: {
+          time: "15:00",
+          title: "After Party",
         },
-      },
-      contact: {
-        title: "Skontaktuj się z Nami",
-        // Email added on the front end
-        // numbers added on the front end
+        vespa: {
+          time: "15:00 - 20:00",
+          title: "Bar Vespa",
+        },
+        party_continues: {
+          time: "O Dia Todo",
+          title: "Comer, Beber e Dançar!",
+        },
+        end: {
+          time: "21:00",
+          title: "Fim",
+        },
       },
     },
-    rsvp_section: {
-      top_title: "RSVP",
-      title: { main: "Potwierdź Swoją", sub: "Obecność" },
-      description_1: [
-        {
-          bold: true,
-          text: "Prosimy o potwierdzenie obecności do 26 maja 2025 roku!",
-        },
-        " Wpisz swoje imię i nazwisko w formularzu obok i potwierdź swoją obecność.",
+  },
+  info_section: {
+    title: {
+      main: "MAIS",
+      sub: "Detalhes",
+    },
+    details: {
+      when_where: "Quando e Onde",
+      dates: [
+        { bold: true, text: "Datas: " },
+        "Sábado, 26 de Julho & Domingo, 27 de Julho de 2025",
       ],
-      description_2:
-        "Zostaw nam wiadomość, jeśli masz jakieś specjalne życzenia, ograniczenia dietetyczne lub jeśli jest coś jeszcze, co chciałbyś z Nami omówić. Zależy nam na tym, aby każdy czuł się komfortowo i świetnie się bawił!",
-      label: "Wyszukaj swoje imię na liście gości",
-      placeholder: "Wyszukaj swoje imię",
-      no_found: "Nie znaleziono osoby o tym imieniu i nazwisku na liście gości",
-      multiple_guests_1: {
-        hi: "Cześć ",
-        you: "! Ty, ",
-        and: " i ",
-        are_invited:
-          ", jesteście serdecznie zaproszeni na nasz wyjątkowy dzień. Nie możemy się doczekać by świętować razem z Wami!",
-      },
-      multiple_guests_2:
-        "Wybierz, kto weźmie udział w weselu. Mamy nadzieję, że wszyscy będziecie mogli przyjść.",
-      single_guest_1: {
-        hi: "Cześć",
-        are_invited:
-          " Cieszymy się, że jesteś na naszej liście gości. Nie możemy się doczekać by świętować razem z Tobą!",
-      },
-      single_guest_2: "Czy weźmiesz udział w weselu?",
-      answers: { yes: "Tak", no: "Nie", unknown: "Jeszcze nie wiem" },
-      note_placeholder: "Chcesz zostawić wiadomość?",
-      rsvp_success: {
-        thanks: "Dziękujemy!",
-        submitted: " Twoje potwierdzenie zostało przesłane.",
-        change_by: [
-          "Pamiętaj, że możesz zmienić swoją obecność do ",
-          { bold: true, text: "26 maja 2025 roku" },
-          ".",
-        ],
-      },
-      error_enter_name: "Proszę podać odpowiedź przed wysłaniem",
-      error_submitting: "Błąd podczas wysyłania RSVP. Spróbuj ponownie.",
-      button: {
-        submit: "Potwierdź Obecność",
-        loading: "Ładowanie...",
+      location: [
+        { bold: true, text: "Local: " },
+        'Espaço "Przy Patykach", Kolonia Łobudzice 18c, 97-425',
+      ],
+      button_loc: "VER LOCAL",
+    },
+    accommodations: {
+      title: "Hospedagem",
+      description_1: [
+        "Para nossos convidados internacionais, oferecemos hospedagem no hotel do espaço nos dias: ",
+        { bold: true, text: "sexta-feira, 25 de julho, sábado, 26 de julho e domingo, 27 de julho." },
+      ],
+      breakfast: [
+        { bold: true, text: "Café da manhã" },
+        " está incluído e será servido das ",
+        { bold: true, text: "9:00 às 12:00" },
+        " todas as manhãs.",
+      ],
+      checkout: [
+        { bold: true, text: "Check-out do Hotel/Apartamento:" },
+        " O check-out é na segunda-feira às 11:00. Por favor, faça o café da manhã antes.",
+      ],
+    },
+    travel_transport: {
+      title: "Transporte",
+      description_1: [
+        "Para nossos convidados internacionais, providenciaremos transporte do aeroporto para o espaço na sexta-feira, 25 de julho, e do espaço para o aeroporto na segunda-feira, 28 de julho.",
+      ],
+      description_2: [
+        { bold: true, text: "Antes de reservar sua viagem, entre em contato conosco informando o horário e o aeroporto que melhor se adequam à sua agenda. Organizaremos um transporte em grupo que atenda a maioria. Faça isso até 26 de maio de 2025." },
+      ],
+      description_3: [
+        "Os aeroportos mais próximos são Aeroporto de Katowice (KTW), Aeroporto de Varsóvia Modlin (WMI) e Aeroporto de Varsóvia Chopin (WAW).",
+      ],
+      description_4: [
+        "Faremos o nosso melhor para acomodar todos. Se você não puder chegar/partir no mesmo dia/horário que os demais, ajudaremos a organizar outro transporte.",
+      ],
+      transport_details: {
+        arrival: {
+          title: "Sexta-feira, 25 de julho",
+          desc1: [
+            { bold: true, text: "Aeroporto de Varsóvia (WAW):" },
+            " O ônibus sai por volta das 19:30 - Karolina estará aguardando na chegada.",
+          ],
+          desc2: [
+            { bold: true, text: "Aeroporto de Katowice:" },
+            " O ônibus sai por volta das 17:00 - Emanuele estará aguardando na chegada.",
+          ],
+        },
+        departure: {
+          title: "Segunda-feira, 28 de julho",
+          desc1: [
+            { bold: true, text: "" },
+            " Os ônibus para ambos os aeroportos partem às 12:00",
+          ],
+        },
       },
     },
-    registry_section: {
-      title: { main: "LISTA", sub: "Prezentów" },
-      description_1:
-        "Wasza obecność w tym wyjątkowym dniu będzie dla Nas największym prezentem!",
-      description_2:
-        "Jeśli jednak chcielibyście obdarować nas w tym najważniejszym dla nas dniu, będziemy wdzięczni o wsparcie finansowe na budowę naszej wspólnej przyszłości.",
-      description_3:
-        "Zamiast kwiatów, alkoholu i innych prezentów fizycznych, serdecznie prosimy o zdrapki lub losy na loterię!",
-      description_4:
-        "Uprzejmie prosimy naszych gości z zagranicy o rozważenie przesłania prezentu przelewem bankowym. Aby uzyskać dostęp do danych bankowych, kliknij poniższy przycisk i wprowadź hasło znajdujące się w zaproszeniu. Jak zawsze, jeśli masz jakiekolwiek pytania, skontaktuj się z nami bezpośrednio!",
-      button: "Dostęp do danych przelewu",
-      thanks: "DZIĘKUJEMY!",
-      error_from_api:
-        "Wystąpił problem. Spróbuj ponownie później lub skontaktuj się z nami",
-      error_incorrect_password: "Nieprawidłowe hasło",
-      error_insert_password: "Wprowadź hasło",
-      account_holder: "Odbiorca: ",
-      iban: "IBAN: ",
-      bank_name: "Adres: ",
-      bic: "BIC / SWIFT: ",
-      sort_code: "Sort code: ",
-      account_number: "Numer konta: ",
-      eur: "Euro",
-      gbp: "Funt",
-      pln: "Złoty",
-      toast_copied: "Skopiowano do schowka",
-      toast_error: "Nie udało się skopiować",
-      dialog_title: { before: "Wprowadź hasło", after: "Hasło jest poprawne" },
-      placeholder: "Wprowadź hasło",
-      submit_button: { submit: "Wyślij", loading: "Sprawdzanie..." },
-      copy_all: "Kopiuj wszystko",
+    contact: {
+      title: "Contate-nos",
+      // Email added on the front end
+      // numbers added on the front end
     },
-    music_section: {
-      title: { main: "NASZA", sub: "Playlista" },
-      description:
-        "Dodaj swoje ulubione piosenki do naszej playlisty i pomóż nam stworzyć idealną ścieżkę dźwiękową na nasze wesele!",
-      placeholder: "Wpisz nazwę utworu",
-      small_note:
-        "* Niektóre piosenki nie mogą być odtworzone, ale nadal możesz je dodać do naszej playlisty.",
-      toast_success: {
-        title: "Piosenka dodana do playlisty",
-        description: "Czy chcesz dodać kolejną piosenkę?",
-      },
-      toast_error: {
-        title: "Nie udało się dodać piosenki",
-        description:
-          "Przepraszamy, coś poszło nie tak. Spróbuj ponownie później.",
-      },
+  },
+  rsvp_section: {
+    top_title: "RSVP",
+    title: { main: "Confirme sua", sub: "Presença" },
+    description_1: [
+      { bold: true, text: "Por favor, confirme sua presença até 26 de maio de 2025!" },
+      " Basta digitar seu nome no formulário e confirmar sua presença.",
+    ],
+    description_2: "Deixe-nos uma mensagem se tiver pedidos especiais, restrições alimentares ou qualquer outra coisa que queira discutir. Queremos garantir que todos estejam confortáveis e se divirtam!",
+    label: "Procure seu nome na lista de convidados",
+    placeholder: "Digite seu nome",
+    no_found: "Nenhum convidado encontrado com este nome",
+    multiple_guests_1: {
+      hi: "Oi ",
+      you: "! Você, ",
+      and: " e ",
+      are_invited: ", estão calorosamente convidados para nosso dia especial. Celebrar com vocês será inesquecível!",
     },
-    footer: {
-      text_1: "Strona stworzona z ",
-      text_2: "przez ",
-      text_3: "Fotografie autorstwa",
+    multiple_guests_2: "Selecione quem participará do casamento. Esperamos que todos possam comparecer.",
+    single_guest_1: {
+      hi: "Oi ",
+      are_invited: " você está calorosamente convidado para nosso dia especial. Celebrar com você será inesquecível!",
     },
-    not_found: {
-      message: "Strona, której szukasz, nie istnieje.",
-      button: "Wróć",
+    single_guest_2: "Você vai participar do casamento?",
+    answers: { yes: "Sim", no: "Não", unknown: "Ainda não sei" },
+    note_placeholder: "Deseja deixar uma mensagem?",
+    rsvp_success: {
+      thanks: "Obrigado!",
+      submitted: " Sua confirmação foi enviada.",
+      change_by: [
+        "Lembre-se que você pode alterar sua presença a qualquer momento até ",
+        { bold: true, text: "26 de maio de 2025" },
+        ".",
+      ],
     },
+    error_enter_name: "Por favor, insira sua resposta antes de enviar",
+    error_submitting: "Erro ao enviar RSVP. Por favor, tente novamente.",
+    button: {
+      submit: "Enviar RSVP",
+      loading: "Carregando...",
+    },
+  },
+  registry_section: {
+    title: { main: "LISTA", sub: "de Presentes" },
+    description_1: "Sua presença no nosso casamento é o maior presente que poderíamos desejar!",
+    description_2: "No entanto, se desejar nos presentear, apreciaríamos uma contribuição monetária para construir nosso futuro juntos.",
+    description_3: "Em vez de flores, bebidas e outros presentes físicos, adoraríamos receber raspadinhas ou bilhetes de loteria como forma divertida de celebrar nosso novo começo.",
+    description_4: "Pedimos gentilmente aos nossos convidados internacionais que considerem enviar o presente via transferência bancária. Para acessar nossos dados bancários, clique no botão abaixo e insira a senha do convite. Como sempre, entre em contato diretamente se tiver dúvidas!",
+    button: "Acessar Dados Bancários",
+    thanks: "OBRIGADO!",
+    error_from_api: "Houve um problema. Tente novamente mais tarde ou entre em contato conosco",
+    error_incorrect_password: "Senha incorreta",
+    error_insert_password: "Insira a senha",
+    account_holder: "Beneficiário: ",
+    iban: "IBAN: ",
+    bank_name: "Banco: ",
+    bic: "BIC / SWIFT: ",
+    sort_code: "Código Sort: ",
+    account_number: "Número da Conta: ",
+    eur: "Euro",
+    gbp: "Libra",
+    pln: "Zloty",
+    toast_copied: "Copiado para a área de transferência",
+    toast_error: "Não foi possível copiar",
+    dialog_title: { before: "Insira a senha", after: "Senha correta" },
+    placeholder: "Insira a senha",
+    submit_button: { submit: "Enviar", loading: "Verificando..." },
+    copy_all: "Copiar Tudo",
+  },
+  music_section: {
+    title: { main: "NOSSA", sub: "Playlist" },
+    description: "Adicione suas músicas favoritas à nossa playlist e nos ajude a criar a trilha sonora perfeita para nosso casamento!",
+    placeholder: "Digite o nome da música",
+    small_note: "* Algumas músicas não podem ser reproduzidas aqui, mas você ainda pode adicioná-las à playlist.",
+    toast_success: {
+      title: "Música adicionada à playlist",
+      description: "Deseja adicionar outra música?",
+    },
+    toast_error: {
+      title: "Não foi possível adicionar a música",
+      description: "Desculpe, algo deu errado. Por favor, tente novamente mais tarde.",
+    },
+  },
+  footer: {
+    text_1: "Site criado com ",
+    text_2: "por ",
+    text_3: "Fotos por",
+  },
+  not_found: {
+    message: "A página que você procura não existe.",
+    button: "Voltar",
   },
 };
 
