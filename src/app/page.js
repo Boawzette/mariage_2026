@@ -22,16 +22,16 @@ import {
 import LanguageDetector from "@/components/LanguageDetector/LanguageDetector";
 
 export default function Home() {
-  const [language, setLanguage] = useState("en"); // Default language
+  const [language, setLanguage] = useState("en");
 
-  // Scroll to top on mount (only client-side)
+  // Scroll to top on mount — safe on client only
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.scrollTo(0, 0);
     }
   }, []);
 
-  // ✅ Safe language detection (won’t run during SSR)
+  // Detect browser language — safe check for SSR
   useEffect(() => {
     if (typeof navigator !== "undefined") {
       const browserLanguage = navigator.language || navigator.userLanguage;
@@ -41,7 +41,6 @@ export default function Home() {
       )
         ? browserLanguage.slice(0, 2)
         : "en";
-
       setLanguage(detectedLanguage);
     }
   }, []);
@@ -65,22 +64,11 @@ export default function Home() {
       <WelcomeSection language={language} />
 
       <div className="relative z-10">
-        {/* Save the Date Section */}
         <SaveTheDate language={language} />
-
-        {/* Wedding Agenda / Schedule Section */}
         <ScheduleSection language={language} />
-
-        {/* Information Section */}
         <InfoSection language={language} />
-
-        {/* RSVP Section */}
         <RSVPSection language={language} />
-
-        {/* Gift Registry Section */}
         <RegistrySection language={language} />
-
-        {/* Song Requests Section */}
         <MusicSection language={language} />
       </div>
     </main>
