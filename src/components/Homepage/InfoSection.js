@@ -20,15 +20,16 @@ const InfoSection = ({ language }) => {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
+
   // Destructure translation strings
   const { title, details, accommodations, travel_transport, contact } =
     translations[language].info_section;
 
-  //Extract couple contacts from env
-  const coupleEmail = process.env.NEXT_PUBLIC_EMAIL;
-  const herNumber = process.env.NEXT_PUBLIC_K_NUM;
-  const hisNumberUk = process.env.NEXT_PUBLIC_E_NUM_UK;
-  const hisNumberIt = process.env.NEXT_PUBLIC_E_NUM_IT;
+  // Extract couple contacts from env
+  const coupleEmail = process.env.NEXT_PUBLIC_EMAIL || "";
+  const herNumber = process.env.NEXT_PUBLIC_K_NUM || "";
+  const hisNumberUk = process.env.NEXT_PUBLIC_E_NUM_UK || "";
+  const hisNumberIt = process.env.NEXT_PUBLIC_E_NUM_IT || "";
 
   return (
     <section
@@ -68,7 +69,7 @@ const InfoSection = ({ language }) => {
         translate="no"
         className=" w-full text-center flex flex-col items-center gap-8 md:gap-12 z-10"
       >
-        {/* Top Detail*/}
+        {/* Top Detail */}
         <div className="flex flex-col justify-center items-center">
           <h5 translate="no" className="mb-4">
             {details.when_where}
@@ -220,7 +221,9 @@ const InfoSection = ({ language }) => {
             </p>
           </div>
         </div>
+
         <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
+
         {/* bottom Detail*/}
         <div className=" max-w-[700px] flex flex-col justify-center items-center">
           <h5 translate="no" className="mb-4">
@@ -233,33 +236,36 @@ const InfoSection = ({ language }) => {
               target="_blank"
               className="underline underline-offset-4 decoration-1"
             >
-              {coupleEmail}
+              {coupleEmail || "N/A"}
             </a>
           </p>
           <p translate="no" className="max-sm:flex max-sm:flex-col">
             <span className="font-bold">Karolina: </span>{" "}
-            <a href={`tel:${herNumber.replace(/\s+/g, "")}`} target="_blank">
-              {herNumber}
+            <a
+              href={`tel:${herNumber ? herNumber.replace(/\s+/g, "") : ""}`}
+              target="_blank"
+            >
+              {herNumber || "N/A"}
             </a>
           </p>
           <p translate="no" className="max-sm:flex max-sm:flex-col">
             <span className="font-bold">Emanuele: </span>{" "}
             <span>
               <a
-                href={`tel:${hisNumberUk.replace(/\s+/g, "")}`}
+                href={`tel:${hisNumberUk ? hisNumberUk.replace(/\s+/g, "") : ""}`}
                 target="_blank"
               >
-                {hisNumberUk}
+                {hisNumberUk || "N/A"}
               </a>{" "}
               {"(UK)"}
               <span className="max-sm:hidden">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
             </span>
             <span>
               <a
-                href={`tel:${hisNumberIt.replace(/\s+/g, "")}`}
+                href={`tel:${hisNumberIt ? hisNumberIt.replace(/\s+/g, "") : ""}`}
                 target="_blank"
               >
-                {hisNumberIt}
+                {hisNumberIt || "N/A"}
               </a>{" "}
               {"(IT)"}
             </span>
