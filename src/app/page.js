@@ -22,17 +22,25 @@ import {
 import LanguageDetector from "@/components/LanguageDetector/LanguageDetector";
 
 export default function Home() {
-  const [language, setLanguage] = useState("en"); // Set default Language
+  const [language, setLanguage] = useState("en"); // Default language
 
   // Scroll to top on page load
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   // Detect the browser's language and set it if supported, else default to English
   useEffect(() => {
-    const browserLanguage = navigator.language || navigator.userLanguage;
-    const supportedLanguages = ["en", "it", "pt"]; // English, Italian and Portugais are the current languages available for this website
+    let browserLanguage = "en"; // Default fallback for SSR
+
+    // ✅ Ensure this runs only in the browser
+    if (typeof window !== "undefined") {
+      browserLanguage = navigator.language || navigator.userLanguage || "en";
+    }
+
+    const supportedLanguages = ["en", "it", "pt"]; // English, Italian, Portuguese
     const detectedLanguage = supportedLanguages.includes(
       browserLanguage.slice(0, 2)
     )
@@ -43,7 +51,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className={`relative w-full h-full`}>
+    <main className="relative w-full h-full">
       {/* Splash Screen */}
       <SplashScreen />
 
