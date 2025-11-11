@@ -16,14 +16,13 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { TfiClose } from "react-icons/tfi";
 
 const Navbar = ({ language, detectedLanguage, setLanguage }) => {
-  const [isScrolled, setIsScrolled] = useState(false); // State for the navbar to change style after scrolling
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for the menu visible from small screen
-  const [isMobile, setIsMobile] = useState(false); // If false, we are in large screen
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // usEffect that defines if the website is opened from a large screen or small screen
+  // ✅ handleResize only runs in browser
   useEffect(() => {
     const handleResize = () => {
-      // define the desired screen size
       if (window.innerWidth < 1024) {
         setIsMobile(true);
       } else {
@@ -31,14 +30,19 @@ const Navbar = ({ language, detectedLanguage, setLanguage }) => {
       }
     };
 
-    window.addEventListener("resize", handleResize);
+    if (typeof window !== "undefined") {
+      handleResize();
+      window.addEventListener("resize", handleResize);
+    }
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
     };
   }, []);
 
-  // useEffect that handle the scolling behavior for changing the styles of the navbar
+  // ✅ handleScroll only runs in browser
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -48,15 +52,29 @@ const Navbar = ({ language, detectedLanguage, setLanguage }) => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
   }, []);
 
-  // Destructure translation strings
-  const { welcome, save_the_date, schedule, info, rsvp, registry, music } =
-    translations[language].navbar;
+  // ✅ Safely get translation strings (avoid undefined access during SSR)
+  const safeLanguage = translations[language] ? language : "en";
+  const {
+    welcome,
+    save_the_date,
+    schedule,
+    info,
+    rsvp,
+    registry,
+    music,
+  } = translations[safeLanguage].navbar;
 
-  // Group Navbar elements for convenience
   const navElements = [
     { name: welcome, link: "welcome-section" },
     { name: save_the_date, link: "savethedate-section" },
@@ -75,6 +93,7 @@ const Navbar = ({ language, detectedLanguage, setLanguage }) => {
           : "bg-transparent text-white"
       } max-lg:bg-cream max-lg:text-black`}
     >
+      {/* Desktop Navbar */}
       <ul className="w-full hidden lg:flex justify-center max-[1130px]:justify-start px-4 gap-5 xl:gap-8">
         {navElements.map((el) => (
           <li key={el.link}>
@@ -91,17 +110,22 @@ const Navbar = ({ language, detectedLanguage, setLanguage }) => {
           </li>
         ))}
       </ul>
+
+      {/* Mobile menu button */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className={`lg:hidden text-black`}
+        className="lg:hidden text-black"
       >
         <RxHamburgerMenu size={18} />
       </button>
+
+      {/* Language Selector */}
       <LanguageDropdown
         detectedLanguage={detectedLanguage}
         setLanguage={setLanguage}
       />
-      {/* mobile */}
+
+      {/* Mobile Menu */}
       <div
         className={`fixed top-0 left-0 w-full h-screen bg-cream transition-transform duration-700 ease-in-out z-50 lg:hidden ${
           !isMenuOpen ? "-translate-y-full" : "translate-y-0"
@@ -111,14 +135,14 @@ const Navbar = ({ language, detectedLanguage, setLanguage }) => {
           {/* Close Button */}
           <button
             onClick={() => setIsMenuOpen(false)}
-            className="absolute top-4  text-black focus:outline-none"
+            className="absolute top-4 text-black focus:outline-none"
             aria-label="Close Menu"
           >
             <TfiClose size={24} />
           </button>
 
           {/* Navigation Links */}
-          <ul className="w-full h-full flex flex-col gap-8 justify-center items-center px-6  ">
+          <ul className="w-full h-full flex flex-col gap-8 justify-center items-center px-6">
             {navElements.map((el) => (
               <li key={el.link}>
                 <ScrollLink
