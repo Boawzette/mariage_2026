@@ -1,20 +1,15 @@
 {
   "hosting": {
     "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
-        "function": "nextApp"
+        "function": "nextjsFunc"
       }
     ]
   },
   "functions": {
-    "source": ".",
-    "runtime": "nodejs20"
+    "source": "."
   }
 }
