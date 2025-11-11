@@ -37,11 +37,10 @@ jobs:
       - name: Build Next.js
         run: npm run build
 
-      - name: Deploy to Firebase Hosting + Functions
+      - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          projectId: "mariage-anais-louis"
-          # Pour SSR, le "entryPoint" doit pointer sur le dossier où est firebase.json
-          entryPoint: "."
+                repoToken: "${{ secrets.GITHUB_TOKEN }}"
+                firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+                channelId: live
+                projectId: "mariage-anais-louis"
