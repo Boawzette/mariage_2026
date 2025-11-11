@@ -9,6 +9,10 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     env:
+      NEXT_PUBLIC_EMAIL: ${{ secrets.NEXT_PUBLIC_EMAIL }}
+      NEXT_PUBLIC_K_NUM: ${{ secrets.NEXT_PUBLIC_K_NUM }}
+      NEXT_PUBLIC_E_NUM_UK: ${{ secrets.NEXT_PUBLIC_E_NUM_UK }}
+      NEXT_PUBLIC_E_NUM_IT: ${{ secrets.NEXT_PUBLIC_E_NUM_IT }}
       SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
       SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
       NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
