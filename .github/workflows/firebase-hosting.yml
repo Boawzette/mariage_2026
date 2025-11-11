@@ -34,14 +34,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build and export
-        run: npm run build:export
+      - name: Build Next.js
+        run: npm run build
 
-      - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          channelId: live
-          projectId: "mariage-anais-louis"
-          # entryPoint: "out"  # uncomment if firebase.json is in another folder
+      - name: Deploy to Firebase
+        run: npm run deploy
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
