@@ -24,30 +24,26 @@ import LanguageDetector from "@/components/LanguageDetector/LanguageDetector";
 export default function Home() {
   const [language, setLanguage] = useState("en"); // Default language
 
-  // Scroll to top on page load
+  // Scroll to top on mount (only client-side)
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.scrollTo(0, 0);
     }
   }, []);
 
-  // Detect the browser's language and set it if supported, else default to English
+  // ✅ Safe language detection (won’t run during SSR)
   useEffect(() => {
-    let browserLanguage = "en"; // Default fallback for SSR
+    if (typeof navigator !== "undefined") {
+      const browserLanguage = navigator.language || navigator.userLanguage;
+      const supportedLanguages = ["en", "it", "pt"];
+      const detectedLanguage = supportedLanguages.includes(
+        browserLanguage.slice(0, 2)
+      )
+        ? browserLanguage.slice(0, 2)
+        : "en";
 
-    // ✅ Ensure this runs only in the browser
-    if (typeof window !== "undefined") {
-      browserLanguage = navigator.language || navigator.userLanguage || "en";
+      setLanguage(detectedLanguage);
     }
-
-    const supportedLanguages = ["en", "it", "pt"]; // English, Italian, Portuguese
-    const detectedLanguage = supportedLanguages.includes(
-      browserLanguage.slice(0, 2)
-    )
-      ? browserLanguage.slice(0, 2)
-      : "en";
-
-    setLanguage(detectedLanguage);
   }, []);
 
   return (
