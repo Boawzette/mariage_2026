@@ -21,7 +21,7 @@ export default function LoginPage() {
     const data = await res.json();
 
     if (data.ok) {
-      router.push("/"); // Redirige vers la homepage
+      router.push("/"); // redirige vers la homepage
     } else {
       setError(data.error || "Authentication failed");
     }
