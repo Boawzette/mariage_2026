@@ -22,7 +22,7 @@ export default function LoginPage() {
       const data = await res.json();
 
       if (data.ok) {
-        router.push("/"); // redirige vers homepage
+        router.push("/"); // redirige vers la homepage
       } else {
         setError(data.error || "Mot de passe incorrect");
       }
