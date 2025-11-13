@@ -1,28 +1,29 @@
 import { NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
 
-export function middleware(request) {
-  const token = request.cookies.get("token")?.value;
-  const url = request.nextUrl.clone();
+export function middleware(req) {
+  const cookie = req.cookies.get("wedding_auth");
+  const isLogged = cookie === process.env.SITE_PASSWORD;
 
-  // Laisse passer /login
-  if (url.pathname.startsWith("/login") || url.pathname.startsWith("/api")) {
+  const url = req.nextUrl.pathname;
+
+  // 🔥 PUBLIC ROUTE : /login
+  if (url.startsWith("/login")) {
     return NextResponse.next();
   }
 
-  // Vérifie JWT
-  if (!token) {
-    url.pathname = "/login";
-    return NextResponse.redirect(url);
+  // 🔥 PROTECTED ROUTES (tout le site sauf /login)
+  if (!isLogged) {
+    const loginUrl = new URL("/login", req.url);
+    return NextResponse.redirect(loginUrl);
   }
 
-  try {
-    jwt.verify(token, process.env.SESSION_SECRET);
-    return NextResponse.next();
-  } catch {
-    url.pathname = "/login";
-    return NextResponse.redirect(url);
-  }
+  // 🔥 Si connecté → autorisé
+  return NextResponse.next();
 }
 
-export const config = { matcher: ["/"] };
+// 🔥 IMPORTANT : on protège absolument TOUT sauf les assets
+export const config = {
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|images|videos|icons).*)"
+  ],
+};
