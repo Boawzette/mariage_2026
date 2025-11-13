@@ -15,32 +15,42 @@ import {
 import LanguageDetector from "@/components/LanguageDetector/LanguageDetector";
 
 export default function Home() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [language, setLanguage] = useState("en");
 
+  // Always run — no conditions around it
   useEffect(() => {
-    const checkAuth = async () => {
-      const res = await fetch("/api/auth/check-password");
-      setIsAuthenticated(res.ok);
-      setLoading(false);
-
-      if (!res.ok) window.location.href = "/login";
-    };
-    checkAuth();
+    window.scrollTo(0, 0);
   }, []);
 
-  if (loading || !isAuthenticated) return null;
-
+  // Detect language — always runs, not conditionally
   useEffect(() => {
-    if (typeof window !== "undefined") window.scrollTo(0, 0);
+    const browserLanguage = navigator.language || navigator.userLanguage;
+    const supported = ["en", "it", "pt"];
+    const detected = supported.includes(browserLanguage.slice(0, 2))
+      ? browserLanguage.slice(0, 2)
+      : "en";
+
+    setLanguage(detected);
   }, []);
 
   return (
     <main className="relative w-full h-full">
+      {/* Splash Screen */}
       <SplashScreen />
+
+      {/* Detect Language */}
       <LanguageDetector />
-      <Navbar language={language} detectedLanguage={language} setLanguage={setLanguage} />
+
+      {/* Navbar */}
+      <Navbar
+        language={language}
+        detectedLanguage={language}
+        setLanguage={setLanguage}
+      />
+
+      {/* Sections */}
+      <WelcomeSection language={language} />
+
       <div className="relative z-10">
         <SaveTheDate language={language} />
         <ScheduleSection language={language} />
