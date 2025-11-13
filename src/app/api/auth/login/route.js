@@ -1,24 +1,43 @@
-/**
- * @file route.js
- * @description API endpoint to generate the Spotify login URL for user authentication. This URL includes the required permissions (scopes) to modify playlists on the user's behalf, and redirects the user to Spotify's login page for authorization.
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
+// app/api/login/route.js
+import { NextResponse } from "next/server";
+import { sign } from "jsonwebtoken";
+import cookie from "cookie";
 
-export async function GET() {
-  // Retrieve Spotify client credentials from environment variables
-  const clientId = process.env.SPOTIFY_CLIENT_ID;
-  const redirectUri = process.env.SPOTIFY_REDIRECT_URI; // e.g. http://localhost:3000/api/auth/callback
-  // Define the Spotify scopes (permissions) required for playlist modification
-  const scope = "playlist-modify-public playlist-modify-private";
+export async function POST(req) {
+  try {
+    const { password } = await req.json();
 
-  // Generate the Spotify authorization URL
-  const loginUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(
-    redirectUri
-  )}&scope=${encodeURIComponent(scope)}`;
+    if (!password) {
+      return NextResponse.json({ error: "Password required" }, { status: 400 });
+    }
 
-  // Return the generated login URL in a JSON response
-  return new Response(JSON.stringify({ loginUrl }), {
-    headers: { "Content-Type": "application/json" },
-  });
+    const SITE_PASSWORD = process.env.SITE_PASSWORD;
+    const SESSION_SECRET = process.env.SESSION_SECRET;
+
+    if (!SITE_PASSWORD || !SESSION_SECRET) {
+      return NextResponse.json({ error: "Server not configured" }, { status: 500 });
+    }
+
+    if (password !== SITE_PASSWORD) {
+      return NextResponse.json({ error: "Invalid password" }, { status: 401 });
+    }
+
+    // Génère un token JWT
+    const token = sign({ authenticated: true }, SESSION_SECRET, { expiresIn: "12h" });
+
+    const headers = {
+      "Set-Cookie": cookie.serialize("site_session", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        path: "/",
+        maxAge: 12 * 60 * 60, // 12h
+      }),
+    };
+
+    return NextResponse.json({ ok: true }, { headers });
+  } catch (err) {
+    console.error(err);
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+  }
 }
