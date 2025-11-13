@@ -1,6 +1,6 @@
+import { serialize } from "cookie"; // <--- ici, import nommé
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
-import cookie from "cookie";
 
 export async function POST(req) {
   const { password } = await req.json();
@@ -15,7 +15,7 @@ export async function POST(req) {
     { ok: true },
     {
       headers: {
-        "Set-Cookie": cookie.serialize("token", token, {
+        "Set-Cookie": serialize("token", token, {
           httpOnly: true,
           secure: process.env.NODE_ENV === "production",
           sameSite: "strict",
