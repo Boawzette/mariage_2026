@@ -42,7 +42,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "tilt": "^0.2.0",
-    "cookie": "^1.0.2"
+    "cookie": "^1.0.2",
     "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
