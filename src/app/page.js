@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import AuthGuard from "@/components/AuthGuard";
+
 import {
   SplashScreen,
   Navbar,
@@ -12,6 +14,7 @@ import {
   RegistrySection,
   MusicSection,
 } from "@/components";
+
 import LanguageDetector from "@/components/LanguageDetector/LanguageDetector";
 
 export default function Home() {
@@ -34,31 +37,33 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative w-full h-full">
-      {/* Splash Screen */}
-      <SplashScreen />
+    <AuthGuard>
+      <main className="relative w-full h-full">
+        {/* Splash Screen */}
+        <SplashScreen />
 
-      {/* Detect Language */}
-      <LanguageDetector />
+        {/* Detect Language */}
+        <LanguageDetector />
 
-      {/* Navbar */}
-      <Navbar
-        language={language}
-        detectedLanguage={language}
-        setLanguage={setLanguage}
-      />
+        {/* Navbar */}
+        <Navbar
+          language={language}
+          detectedLanguage={language}
+          setLanguage={setLanguage}
+        />
 
-      {/* Sections */}
-      <WelcomeSection language={language} />
+        {/* Sections */}
+        <WelcomeSection language={language} />
 
-      <div className="relative z-10">
-        <SaveTheDate language={language} />
-        <ScheduleSection language={language} />
-        <InfoSection language={language} />
-        <RSVPSection language={language} />
-        <RegistrySection language={language} />
-        <MusicSection language={language} />
-      </div>
-    </main>
+        <div className="relative z-10">
+          <SaveTheDate language={language} />
+          <ScheduleSection language={language} />
+          <InfoSection language={language} />
+          <RSVPSection language={language} />
+          <RegistrySection language={language} />
+          <MusicSection language={language} />
+        </div>
+      </main>
+    </AuthGuard>
   );
 }
