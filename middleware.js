@@ -1,17 +1,28 @@
 import { NextResponse } from "next/server";
+import jwt from "jsonwebtoken";
 
 export function middleware(request) {
-  const token = request.cookies.get("token"); // JWT créé par /api/auth/login
+  const token = request.cookies.get("token")?.value;
   const url = request.nextUrl.clone();
 
-  // Si pas de token et qu'on n'est pas déjà sur /login → redirige
-  if (!token && !url.pathname.startsWith("/login")) {
+  // Laisse passer /login
+  if (url.pathname.startsWith("/login")) {
+    return NextResponse.next();
+  }
+
+  // Vérifie JWT
+  if (!token) {
     url.pathname = "/login";
     return NextResponse.redirect(url);
   }
 
-  // Sinon, laisse passer
-  return NextResponse.next();
+  try {
+    jwt.verify(token, process.env.SESSION_SECRET);
+    return NextResponse.next();
+  } catch (err) {
+    url.pathname = "/login";
+    return NextResponse.redirect(url);
+  }
 }
 
 export const config = {
