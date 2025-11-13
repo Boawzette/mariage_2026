@@ -6,7 +6,7 @@ export function middleware(request) {
   const url = request.nextUrl.clone();
 
   // Laisse passer /login
-  if (url.pathname.startsWith("/login")) {
+  if (url.pathname.startsWith("/login") || url.pathname.startsWith("/api")) {
     return NextResponse.next();
   }
 
@@ -19,12 +19,10 @@ export function middleware(request) {
   try {
     jwt.verify(token, process.env.SESSION_SECRET);
     return NextResponse.next();
-  } catch (err) {
+  } catch {
     url.pathname = "/login";
     return NextResponse.redirect(url);
   }
 }
 
-export const config = {
-  matcher: ["/"], // protège la homepage et toutes ses sous-routes
-};
+export const config = { matcher: ["/"] };
