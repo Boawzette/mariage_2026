@@ -1,69 +1,69 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import AuthGuard from "@/components/AuthGuard";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-import {
-  SplashScreen,
-  Navbar,
-  WelcomeSection,
-  SaveTheDate,
-  ScheduleSection,
-  InfoSection,
-  RSVPSection,
-  RegistrySection,
-  MusicSection,
-} from "@/components";
+export default function LoginPage() {
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
 
-import LanguageDetector from "@/components/LanguageDetector/LanguageDetector";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
 
-export default function Home() {
-  const [language, setLanguage] = useState("en");
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ password }),
+      });
 
-  // Always run — no conditions around it
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+      const data = await res.json();
 
-  // Detect language — always runs, not conditionally
-  useEffect(() => {
-    const browserLanguage = navigator.language || navigator.userLanguage;
-    const supported = ["en", "it", "pt"];
-    const detected = supported.includes(browserLanguage.slice(0, 2))
-      ? browserLanguage.slice(0, 2)
-      : "en";
+      if (!res.ok) {
+        setError(data.error || "Mot de passe incorrect");
+        return;
+      }
 
-    setLanguage(detected);
-  }, []);
+      // Mot de passe correct → redirection
+      router.push("/");
+    } catch (err) {
+      setError("Erreur serveur");
+    }
+  };
 
   return (
-    <AuthGuard>
-      <main className="relative w-full h-full">
-        {/* Splash Screen */}
-        <SplashScreen />
+    <div className="min-h-screen flex items-center justify-center p-6">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white shadow-lg p-8 rounded-lg max-w-sm w-full"
+      >
+        <h1 className="text-xl font-semibold mb-4 text-center">Accès sécurisé</h1>
 
-        {/* Detect Language */}
-        <LanguageDetector />
-
-        {/* Navbar */}
-        <Navbar
-          language={language}
-          detectedLanguage={language}
-          setLanguage={setLanguage}
+        <label className="block mb-2 font-medium">Mot de passe</label>
+        <input
+          type="password"
+          className="w-full border p-2 rounded mb-4"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Entrez le mot de passe"
         />
 
-        {/* Sections */}
-        <WelcomeSection language={language} />
+        {error && (
+          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
+        )}
 
-        <div className="relative z-10">
-          <SaveTheDate language={language} />
-          <ScheduleSection language={language} />
-          <InfoSection language={language} />
-          <RSVPSection language={language} />
-          <RegistrySection language={language} />
-          <MusicSection language={language} />
-        </div>
-      </main>
-    </AuthGuard>
+        {/* ⭐ BOUTON VALIDER ⭐ */}
+        <button
+          type="submit"
+          className="w-full bg-black text-white py-2 rounded hover:bg-gray-900 transition"
+        >
+          Valider
+        </button>
+      </form>
+    </div>
   );
 }
