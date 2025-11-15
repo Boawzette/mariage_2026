@@ -1,6 +1,6 @@
 /**
  * @file translation.js
- * @description Contains translations for the website in English, Italian, and Polish, covering various sections such as navbar, RSVP, registry, and more.
+ * @description Contains translations for the website in English, Italian, Portuguese, and Polish, covering various sections such as navbar, RSVP, registry, and more.
  * @author Louis Sgroi
  * @date 19 October 2024
  */
@@ -121,32 +121,32 @@ const translations = {
         dates: [
           {
             bold: true,
-            text: "Date: ",
+            text: "Date : ",
           },
           "Samedi 13 Juin 2026.",
         ],
         location: [
           {
             bold: true,
-            text: "Lieu: ",
+            text: "Lieu de cérémonie religieuse : ",
           },
-          'Réception "Chateau de la Croix Laval" au 1171 Av. de Lacroix-Laval, 69280 Marcy-l Étoile.',
+          'Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.',
         ],
         button_loc: "Voir le lieu de réception",
       },
       accommodations: {
-        title: "Hotels",
+        title: "Hôtels",
         description_1: [
-          "Pour les invités venant de loin vous trouverez des hôtels à côtés. Vous pourrez en profitez pour visiter Lyon ou profitez de l'ouest lyonnais.",
+          "Pour les invités venant de loin, vous trouverez des hôtels à proximité. ",
           {
             bold: true,
-            text: "Vous pourrez en profitez pour profitez de l'ouest lyonnais ou visiter Lyon.",
+            text: "Vous pourrez en profiter pour visiter l'ouest lyonnais ou Lyon." 
           },
         ],
         breakfast: [
-          { bold: true, text: "Hotel le beaulieu" },
+          { bold: true, text: "Hotel le Beaulieu" },
           " 19 Av. Général de Gaulle, 69260 Charbonnières-les-Bains ",
-          { bold: true, text: "Pavillon de la rotonde" },
+          { bold: true, text: "Pavillon de la Rotonde" },
           " 3 Av. Georges Bassinet, 69260 Charbonnières-les-Bains ",
           { bold: true, text: "Appart Hotel" },
           " 80 Av. Marcel Mérieux, 69280 Marcy-l'Étoile ",
@@ -172,40 +172,40 @@ const translations = {
         ],
         transport_details: {
           arrival: {
-            title: "Samedi 13 juin à 16h00",
+            title: "La cérémonie commence à 16h00",
             desc1: [
               { bold: true, text: "Merci d'arriver au moins 15 minutes AVANT" },
-              " ou vous ferez parti du cortège d'honneur ! ",
+              " ou vous ferez partie du cortège d'honneur ! ",
             ],
             desc2: [
-              { bold: true, text: "La cérémonie durera environ 30 minutes " },
+              { bold: true, text: "La cérémonie durera environ 30 minutes. " },
               " Nous ferons quelques photos à la fin avant de partir au lieu de réception.",
             ],
           },
           departure: {
             title: "Le cocktail/vin d'honneur commencera vers 17h00",
             desc1: [
-              { bold: true, text: "Le parking du chateau de la Croix Laval est assez grand pour acceuillir tous les invités en voiture." },
-              " Le parking n'est pas surveillé donc ne laissez rien de valeurs dans vos voitures, un vestiaire sera mis à disposition sur le lieu de réception.",
+              { bold: true, text: "Le parking du chateau de la Croix Laval est assez grand pour accueillir tous les invités en voiture." },
+              " Le parking n'est pas surveillé donc ne laissez rien de valeur dans vos voitures, un vestiaire sera mis à disposition sur le lieu de réception.",
             ],
           },
         },
       },
       contact: {
-        title: "Contactez nous",
+        title: "Contactez-nous",
         // Email added on the front end
         // numbers added on the front end
       },
     },
     rsvp_section: {
-      top_title: "Réponse",
-      title: { main: "Confirez votre", sub: "Présence" },
+      top_title: "Réponses",
+      title: { main: "Confirmez votre", sub: "Présence" },
       description_1: [
-        { bold: true, text: "Répondez avant le 1er avril s'il vous plait ! Sinon venez avec un sandwich !" },
-        " Chercher votre nom dans le formulaire et répondez à notre invitation.",
+        { bold: true, text: "Répondez avant le 1er avril s'il vous plaît ! Sinon venez avec un sandwich !" },
+        " Cherchez votre nom dans le formulaire et répondez à notre invitation.",
       ],
       description_2:
-        "Laissez nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question.On souhaiterais que tout le monde passe un bon moment et soit à l'aise !",
+        "Laissez-nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question.On souhaiterait que tout le monde passe un bon moment et soit à l'aise !",
       label: "Cherchez votre nom",
       placeholder: "Cherchez votre nom...",
       no_found: "Pas d'invité trouvé avec ce nom...",
@@ -223,7 +223,7 @@ const translations = {
         are_invited:
           "  êtes chaleureusement invité à vous joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable ! ",
       },
-      single_guest_2: "Are you attending the wedding?",
+      single_guest_2: "Participerez-vous au mariage ?",
       answers: { yes: "Oui", no: "Non", unknown: "Je ne sais pas encore" },
       note_placeholder: "Souhaiteriez-vous nous laisser un mot ?",
       rsvp_success: {
@@ -236,9 +236,9 @@ const translations = {
         ],
       },
       error_enter_name: "Saisissez votre réponse avant de l'envoyer.",
-      error_submitting: "Error d'envoi. Essayez encore.",
+      error_submitting: "Erreur d'envoi. Essayez encore.",
       button: {
-        submit: "Envoi RSVP",
+        submit: "Envoyer RSVP",
         loading: "Chargement...",
       },
     },
@@ -247,7 +247,7 @@ const translations = {
       description_1:
         "Votre présence à notre mariage est déjà un gros cadeau surtout de la part de ceux venant de loin !",
       description_2:
-        "Cependant, si vous souhaItez nous laisser un cadeau, nous apprécierons une contribution à notre fond de lune de miel.",
+        "Cependant, si vous souhaitez nous laisser un cadeau, nous apprécierons une contribution à notre fond de lune de miel.",
       description_3:
         "Cela nous permettrait de nous envoler pour le Japon et vivre l'expérience pleinement.",
       description_4:
@@ -290,7 +290,7 @@ const translations = {
       toast_error: {
         title: "Impossible d'ajouter la chanson",
         description:
-          "Nous sommes désolé une erreur est apparue de notre côté. Essayez plus tard ou contactez-nous.",
+          "Nous sommes désolés une erreur est apparue de notre côté. Essayez plus tard ou contactez-nous.",
       },
     },
     footer: {
