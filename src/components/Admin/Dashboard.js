@@ -1,9 +1,9 @@
 /**
  * @file Dashboard.js
- * @description Displays the dashboard summary of guest data, including total guests and attending status, for both his side (Emanuele in this case) and
- *              her side (Karolina in this case).
+ * @description Displays the dashboard summary of guest data, including total guests and attending status, for both his side (Louis in this case) and
+ *              her side (Anais in this case).
  * @note Admin Panel is doen in English only.
- * @author Emanuele Sgroi
+ * @author Louis 
  * @date 19 October 2024
  */
 
@@ -14,11 +14,11 @@ import React from "react";
 const Dashboard = ({ guests }) => {
   // Calculations for each section
   const totalGuests = guests?.length;
-  const emanueleSideGuests = guests?.filter(
-    (guest) => guest?.guestSide === "Emanuele"
+  const LouisSideGuests = guests?.filter(
+    (guest) => guest?.guestSide === "Louis"
   );
-  const karolinaSideGuests = guests.filter(
-    (guest) => guest.guestSide === "Karolina"
+  const AnaisSideGuests = guests.filter(
+    (guest) => guest.guestSide === "Anais"
   );
 
   // Status totals for all guests
@@ -30,25 +30,25 @@ const Dashboard = ({ guests }) => {
     (guest) => guest.attending === "Unknown"
   ).length;
 
-  // Status totals for Emanuele's side
-  const emanueleAttendingYes = emanueleSideGuests.filter(
+  // Status totals for Louis's side
+  const LouisAttendingYes = LouisSideGuests.filter(
     (guest) => guest.attending === "Yes"
   ).length;
-  const emanueleAttendingNo = emanueleSideGuests.filter(
+  const LouisAttendingNo = LouisSideGuests.filter(
     (guest) => guest.attending === "No"
   ).length;
-  const emanueleAttendingUnknown = emanueleSideGuests.filter(
+  const LouisAttendingUnknown = LouisSideGuests.filter(
     (guest) => guest.attending === "Unknown"
   ).length;
 
-  // Status totals for Karolina's side
-  const karolinaAttendingYes = karolinaSideGuests.filter(
+  // Status totals for Anais's side
+  const AnaisAttendingYes = AnaisSideGuests.filter(
     (guest) => guest.attending === "Yes"
   ).length;
-  const karolinaAttendingNo = karolinaSideGuests.filter(
+  const AnaisAttendingNo = AnaisSideGuests.filter(
     (guest) => guest.attending === "No"
   ).length;
-  const karolinaAttendingUnknown = karolinaSideGuests.filter(
+  const AnaisAttendingUnknown = AnaisSideGuests.filter(
     (guest) => guest.attending === "Unknown"
   ).length;
 
@@ -71,12 +71,12 @@ const Dashboard = ({ guests }) => {
               Total guests: <span className="font-bold">{totalGuests}</span>
             </p>
             <p className="font-sans text-left">
-              Emanuele&apos;s side:{" "}
-              <span className="font-bold">{emanueleSideGuests.length}</span>
+              Louis&apos;s side:{" "}
+              <span className="font-bold">{LouisSideGuests.length}</span>
             </p>
             <p className="font-sans text-left">
-              Karolina&apos;s side:{" "}
-              <span className="font-bold">{karolinaSideGuests.length}</span>
+              Anais&apos;s side:{" "}
+              <span className="font-bold">{AnaisSideGuests.length}</span>
             </p>
           </div>
 
@@ -99,36 +99,36 @@ const Dashboard = ({ guests }) => {
           {/* Section 3: Guests attending status from his side */}
           <div className="mb-6 flex flex-col items-start border-b">
             <h6 className="font-sans font-bold text-left">
-              Guests Attending Status {"("}Emanuele&apos;s Side{")"}
+              Guests Attending Status {"("}Louis&apos;s Side{")"}
             </h6>
             <p className="font-sans text-left">
-              Coming: <span className="font-bold">{emanueleAttendingYes}</span>
+              Coming: <span className="font-bold">{LouisAttendingYes}</span>
             </p>
             <p className="font-sans text-left">
               Not coming:{" "}
-              <span className="font-bold">{emanueleAttendingNo}</span>
+              <span className="font-bold">{LouisAttendingNo}</span>
             </p>
             <p className="font-sans text-left">
               Unsure:{" "}
-              <span className="font-bold">{emanueleAttendingUnknown}</span>
+              <span className="font-bold">{LouisAttendingUnknown}</span>
             </p>
           </div>
 
           {/* Section 4: Guests attending status from her side */}
           <div className="mb-6 flex flex-col items-start ">
             <h6 className="font-sans font-bold text-left">
-              Guests Attending Status {"("}Karolina&apos;s Side{")"}
+              Guests Attending Status {"("}Anais&apos;s Side{")"}
             </h6>
             <p className="font-sans text-left">
-              Coming: <span className="font-bold">{karolinaAttendingYes}</span>
+              Coming: <span className="font-bold">{AnaisAttendingYes}</span>
             </p>
             <p className="font-sans text-left">
               Not coming:{" "}
-              <span className="font-bold">{karolinaAttendingNo}</span>
+              <span className="font-bold">{AnaisAttendingNo}</span>
             </p>
             <p className="font-sans text-left">
               Unsure:{" "}
-              <span className="font-bold">{karolinaAttendingUnknown}</span>
+              <span className="font-bold">{AnaisAttendingUnknown}</span>
             </p>
           </div>
         </>
