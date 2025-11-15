@@ -1,7 +1,7 @@
 /**
  * @file translation.js
  * @description Contains translations for the website in English, Italian, and Polish, covering various sections such as navbar, RSVP, registry, and more.
- * @author Emanuele Sgroi
+ * @author Louis Sgroi
  * @date 19 October 2024
  */
 
@@ -9,91 +9,91 @@ const translations = {
   // ENGLISH <---------------------------------------------------------------------------------------
   en: {
     couple: {
-      her: "Karolina",
-      him: "Emanuele",
-      footer_her: "Karolina",
-      footer_him: "Emanuele",
+      her: "Anaïs",
+      him: "Louis",
+      footer_her: "Anaïs",
+      footer_him: "Louis",
     },
     navbar: {
-      welcome: "Welcome",
-      save_the_date: "Save the Date",
-      schedule: "Wedding Timeline",
+      welcome: "Bienvenu",
+      save_the_date: "Notez la date",
+      schedule: "Organisation",
       info: "Details",
-      rsvp: "RSVP",
-      registry: "Registry",
-      music: "Playlist",
+      rsvp: "Réponses",
+      registry: "Cadeaux",
+      music: "Playlist de la soirée",
     },
     welcome_section: {
-      small_text: "The wedding of...",
-      days: "Days",
-      day: "Day",
-      hours: "Hours",
-      hour: "Hours",
+      small_text: "Le mariage de...",
+      days: "Jours",
+      day: "Jour",
+      hours: "Heures",
+      hour: "Heure",
       minutes: "Minutes",
       minute: "Minute",
-      seconds: "Seconds",
-      second: "second",
-      button: "Save the Date",
+      seconds: "Secondes",
+      second: "seconde",
+      button: "Notez la date",
     },
     saveTheDate_section: {
       title: "SAVE",
       title_cursive: "The Date",
       date: "26th of July 2025",
       place: "in Kolonia Łobudzice, Poland",
-      story_1: "We Met",
-      story_2: "We Got Engaged",
-      story_3_future: "We Will Marry",
-      story_3_past: "We Got Married",
+      story_1: "On se rencontre",
+      story_2: "On se fiance",
+      story_3_future: "On se marrie",
+      story_3_past: "On s'est marié",
     },
     schedule_section: {
       title: {
-        main: "WEDDING",
-        sub: "Timeline",
+        main: "Mariage",
+        sub: "Organisation",
       },
       description:
-        "The wedding celebration will start on Saturday, 26th of July, and end on Sunday, 27th of July 2025.",
+        "Le mariage prendra place le samedi 13 juin 2026.",
       day_1: {
         title: "Day 1",
         events: {
           ceremony: {
-            time: "4:00 PM",
-            title: "Ceremony Begins",
+            time: "4h00",
+            title: "Ceremonie à l'église",
           },
           dinner: {
-            time: "6:00 PM",
-            title: "Dinner Served",
+            time: "5h00",
+            title: "Cocktail dinatoire",
           },
           dance: {
-            time: "6:00 PM",
-            title: "First Dance",
+            time: "6h00",
+            title: "Première dance",
           },
           photo: {
-            time: "8:00 - 11:00 PM",
-            title: "Photo Booth",
+            time: "8h00 h 11:00",
+            title: "Photos",
           },
           pig: {
-            time: "12:00 AM",
-            title: "Special Dish",
+            time: "12h00",
+            title: "Plat spécial",
           },
           cake_cutting: {
-            time: "22:30 PM",
-            title: "Cake Cutting",
+            time: "22h30",
+            title: "Desserts",
           },
           games: {
-            time: "12:30 AM",
-            title: "Party Games",
+            time: "12h30",
+            title: "Jeux de soirée",
           },
           party: {
-            time: "All Night",
-            title: "Eat, Drink, Dance, Repeat!",
+            time: "Toute la nuit",
+            title: "Mangez, Buvez, Dancez, on repeat!",
           },
         },
       },
       day_2: {
-        title: "Day 2",
+        title: "Jour 2",
         events: {
           after: {
-            time: "3:00 PM",
+            time: "3h00",
             title: "After Party Starts",
           },
           vespa: {
@@ -113,148 +113,147 @@ const translations = {
     },
     info_section: {
       title: {
-        main: "THE",
-        sub: "Details",
+        main: "LES",
+        sub: "Détails",
       },
       details: {
-        when_where: "When & Where",
+        when_where: "Quand & Où",
         dates: [
           {
             bold: true,
-            text: "Dates: ",
+            text: "Date: ",
           },
-          "Saturday, 26th of July & Sunday, 27th of July 2025.",
+          "Samedi 13 Juin 2026.",
         ],
         location: [
           {
             bold: true,
-            text: "Location: ",
+            text: "Lieu: ",
           },
-          'Venue "Przy Patykach", Kolonia Łobudzice 18c, 97-425, Poland.',
+          'Réception "Chateau de la Croix Laval" au 1171 Av. de Lacroix-Laval, 69280 Marcy-l'Étoile.',
         ],
-        button_loc: "SEE THE VENUE",
+        button_loc: "Voir le lieu de réception",
       },
       accommodations: {
-        title: "Accommodations",
+        title: "Hotels",
         description_1: [
-          "For our international guests, we are pleased to offer accommodation at the venue's hotel on the ",
+          "Pour les invités venant de loin vous trouverez des hôtels à côtés. Vous pourrez en profitez pour visiter Lyon ou profitez de l'ouest lyonnais.",
           {
             bold: true,
-            text: "Friday 25th of July, Saturday 26th of July, and Sunday 27th of July.",
+            text: "...",
           },
         ],
         breakfast: [
-          { bold: true, text: "Breakfast" },
-          " is included with your stay and will be served from ",
-          { bold: true, text: "9 AM to 12 PM" },
-          " each morning.",
+          { bold: true, text: "Hotel le beaulieu" },
+          " 19 Av. Général de Gaulle, 69260 Charbonnières-les-Bains ",
+          { bold: true, text: "Pavillon de la rotonde" },
+          " 3 Av. Georges Bassinet, 69260 Charbonnières-les-Bains ",
+          { bold: true, text: "Appart Hotel" },
+          " 80 Av. Marcel Mérieux, 69280 Marcy-l'Étoile ",
         ],
         checkout: [
-          { bold: true, text: "Hotel/Apartment Checkout:" },
-          " The checkout is on Monday at 11:00 AM, please have your breakfast before then.",
+          { bold: true, text: "Et en cas de soucis" },
+          " N'hésitez pas à nous contacter. ",
         ],
       },
       travel_transport: {
-        title: "Travel & Transportation",
+        title: "Pour l'église",
         description_1: [
-          "For our international guests, we will provide transportation from the airport to the venue on Friday, 25th of July, and from the venue to the airport on Monday, 28th of July.",
+          "Merci de laisser les places autour de l'église pour les personnes handicapées. Vous trouverez des places :",
         ],
         description_2: [
-          {
-            bold: true,
-            text: "Before booking your travel, please contact us to let us know the time and the airport that works best for you. We will then organize a group transport that fits the majority. Please do it before the 26th of May 2025.",
-          },
+          "au parking de la gare de Tassin - 1 All. des Tilleuls, 69160 Tassin-la-Demi-Lune.",
         ],
         description_3: [
-          "The closest airports are Katowice Airport (KTW), Warsaw Modlin Airport (WMI), and Warsaw Chopin Airport (WAW).",
+          "au parking du cimetière - 12b Chem. de la Mansion, 69160 Tassin-la-Demi-Lune",
         ],
         description_4: [
-          "We will try our best to accommodate everyone. If you cannot land/depart at the same day/time as everyone else, we will help you organize another way of getting to and from the venue.",
+          "à la pharmacie - 2 Rue Professeur Deperet, 69160 Tassin-la-Demi-Lune",
         ],
         transport_details: {
           arrival: {
-            title: "Friday 25th of July",
+            title: "Samedi 13 juin à 16h00",
             desc1: [
-              { bold: true, text: "Warsaw Airport (WAW):" },
-              " Bus leaves around 7:30PM - Karolina will be waiting at the arrivals.",
+              { bold: true, text: "Merci d'arriver au moins 15 minutes avant" },
+              " Afin d'éviter de rentrer en même temps que la mariée ! ",
             ],
             desc2: [
-              { bold: true, text: "Katowice Airport:" },
-              " Bus leaves around 5:00PM - Emanuele will be waiting at the arrivals.",
+              { bold: true, text: "La cérémonie durera environ 30 minutes " },
+              " Nous ferons quelques photos à la fin avant de partir au lieu de réception.",
             ],
           },
           departure: {
-            title: "Monday 28th of July",
+            title: "Le cocktail/vin d'honneur commencera vers 17h00",
             desc1: [
-              { bold: true, text: "" },
-              " Buses for both airports leave at 12:00 PM",
+              { bold: true, text: "Le parking du chateau de la Croix Laval est assez grand pour acceuillir tous les invités en voiture." },
+              " Le parking n'est pas surveillé donc ne laissez rien de valeurs dans vos voitures, un vestiaire sera mis à disposition sur le lieu de réception.",
             ],
           },
         },
       },
       contact: {
-        title: "Contact Us",
+        title: "Contactez nous",
         // Email added on the front end
         // numbers added on the front end
       },
     },
     rsvp_section: {
-      top_title: "RSVP",
-      title: { main: "Confirm your", sub: "Attendance" },
+      top_title: "Réponse",
+      title: { main: "Confirez votre", sub: "Présence" },
       description_1: [
-        { bold: true, text: "Please RSVP by the 26th of May 2025!" },
-        " Simply search for your name on the form and confirm your attendance.",
+        { bold: true, text: "Répondez avant le 1er avril s'il vous plait ! Sinon venez avec un sandwich !" },
+        " Chercher votre nom dans le formulaire et répondez à notre invitation.",
       ],
       description_2:
-        "Please leave us a note if you have any special requests, dietary restrictions, or if there’s anything else you’d like to discuss. We want to make sure everyone is comfortable and has an amazing time!",
-      label: "Search your name in the guests list",
-      placeholder: "Search for your name",
-      no_found: "No guests found with this name",
+        "Laissez nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question.On souhaiterais que tout le monde passe un bon moment et soit à l'aise !",
+      label: "Cherchez votre nom",
+      placeholder: "Cherchez votre nom",
+      no_found: "Pas d'invité trouvé avec ce nom",
       multiple_guests_1: {
-        hi: "Hi ",
-        you: " You, ",
-        and: " and ",
+        hi: "Hey ",
+        you: " Vous, ",
+        and: " et ",
         are_invited:
-          ", are warmly invited to join us on our special day. Celebrating with all of you will make it unforgettable!",
+          ", êtes chaleureusement invité à vous joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable !",
       },
       multiple_guests_2:
-        "Select who is attending the wedding. We hope all of you can make it.",
+        "Choisissez qui se rend au mariage. On espère vous y voir.",
       single_guest_1: {
-        hi: "Hi ",
+        hi: "Bonjour ",
         are_invited:
-          " you are warmly invited to join us on our special day. Celebrating with you will make it unforgettable!",
+          "  êtes chaleureusement invité à vous joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable ! ",
       },
       single_guest_2: "Are you attending the wedding?",
-      answers: { yes: "Yes", no: "No", unknown: "Don't know yet" },
-      note_placeholder: "Would you like to leave a note?",
+      answers: { yes: "Oui", no: "Non", unknown: "Je ne sais pas encore" },
+      note_placeholder: "Souhaiteriez-vous nous laisser un mot ?",
       rsvp_success: {
-        thanks: "Thank you!",
-        submitted: " Your RSVP has been submitted.",
+        thanks: "Merci !",
+        submitted: " Votre réponse a été envoyée.",
         change_by: [
-          "Remember that you can change the attendance any time before the ",
-          { bold: true, text: "26th of May 2025" },
+          "Souvenez-vous que vous pouvez changer votre disponibilité jusqu'au",
+          { bold: true, text: "1er avril 2026" },
           ".",
         ],
       },
-      error_enter_name: "Please enter your answer before submitting",
-      error_submitting: "Error submitting RSVP. Please try again.",
+      error_enter_name: "Saisissez votre réponse avant de l'envoyer.",
+      error_submitting: "Error d'envoi. Essayez encore.",
       button: {
-        submit: "Send RSVP",
-        loading: "Loading...",
+        submit: "Envoi RSVP",
+        loading: "Chargement...",
       },
     },
     registry_section: {
-      title: { main: "GIFT", sub: "Registry" },
+      title: { main: "Cadeaux", sub: "" },
       description_1:
-        "Your presence at our wedding is truly the greatest gift we could ask for!",
+        "Votre présence à notre mariage est déjà un gros cadeau surtout de la part de ceux venant de loin !",
       description_2:
-        "However, if you wish to honor us with a gift, we would greatly appreciate a monetary contribution to help us build our future together.",
+        "Cependant, si vous souhiatez nous laisser un cadeau, nous apprécierons un contribution à notre fond de lune de miel.",
       description_3:
-        "In lieu of flowers, alcohol, and other physical gifts, we would be delighted to receive scratch cards or lottery tickets as a fun and exciting way to celebrate our new beginning.",
+        "Cela nous permettrait de nous envoler pour le Japon et vivre l'expérience pleinement.",
       description_4:
-        "We kindly ask our international guests to consider sending their gift via a bank transfer. To access our bank details, please click the button below and enter the password that’s on your invitation. As always, feel free to contact us directly if you have any questions!",
-      button: "Access Bank Details",
-      thanks: "THANK YOU!",
+        "Une urne sera installée sur le lieu de réception, si vous souhaitez contribuer.",
+      button: "",
+      thanks: "Merci!",
       error_from_api: "There is a problem. Try again later or contact us",
       error_incorrect_password: "Incorrect password",
       error_insert_password: "Insert password",
@@ -278,40 +277,40 @@ const translations = {
       copy_all: "Copy All",
     },
     music_section: {
-      title: { main: "OUR", sub: "Playlist" },
+      title: { main: "NOTRE", sub: "Playlist" },
       description:
-        "Add your favorite party songs to our playlist and help us shape the perfect soundtrack for our wedding! ",
-      placeholder: "Enter the song name",
+        "Ajoutez vos chansons favorites à notre playlist de soirée ! Nous sélectionnerons nos favorites ! ",
+      placeholder: "Saisissez le nom de votre chanson",
       small_note:
-        "* Some songs can't be played here, but you can still add them to the playlist.",
+        "* Les chansons ne peuvent pas tourner sur le site, mais vous pouvez toujours les ajouter à la playlist.",
       toast_success: {
-        title: "Song added to the playlist",
-        description: "Would you like to add another song?",
+        title: "Musique ajoutée à la playlist",
+        description: "Y a t-il une autre musique à laquelle vous pensez ?",
       },
       toast_error: {
-        title: "Unable to add the song",
+        title: "Impossible d'ajouter la chanson",
         description:
-          "We're sorry, but something went wrong on our end. Please try again later.",
+          "Nous sommes désolé une erreur est apparue de notre côté. Essayez plus tard ou contactez-nous.",
       },
     },
     footer: {
-      text_1: "Website created with ",
-      text_2: "by ",
-      text_3: "Photos by",
+      text_1: "Site créé avec ",
+      text_2: "par ",
+      text_3: "Photos de",
     },
     not_found: {
-      message: "The page you are looking for does not exist.",
-      button: "Go Back",
+      message: "La page que vous cherchez n'existe pas.",
+      button: "Retournez en arrière",
     },
   },
 
   // ITALIAN <---------------------------------------------------------------------------------------
   it: {
     couple: {
-      her: "Karolina",
-      him: "Emanuele",
-      footer_her: "Karolina",
-      footer_him: "Emanuele",
+      her: "Anaïs",
+      him: "Louis",
+      footer_her: "Anaïs",
+      footer_him: "Louis",
     },
     navbar: {
       welcome: "Vetrina",
@@ -472,11 +471,11 @@ const translations = {
             title: "Venerdí 25 Luglio",
             desc1: [
               { bold: true, text: "Aereoporto di Varsavia (WAW):" },
-              " Le navette partono intorno le 19:30 - Karolina vi aspetterá agli arrivi.",
+              " Le navette partono intorno le 19:30 - Anaïs vi aspetterá agli arrivi.",
             ],
             desc2: [
               { bold: true, text: "Aereoporto di Katowice:" },
-              " Le navette partono intorno le 17:00 - Emanuele vi aspetterá agli arrivi.",
+              " Le navette partono intorno le 17:00 - Louis vi aspetterá agli arrivi.",
             ],
           },
           departure: {
@@ -608,10 +607,10 @@ const translations = {
   // PORTUGUÊS <---------------------------------------------------------------------------------------
 pt: {
   couple: {
-    her: "Karolina",
-    him: "Emanuele",
-    footer_her: "Karolina",
-    footer_him: "Emanuele",
+    her: "Anaïs",
+    him: "Louis",
+    footer_her: "Anaïs",
+    footer_him: "Louis",
   },
   navbar: {
     welcome: "Bem-vindo",
@@ -763,11 +762,11 @@ pt: {
           title: "Sexta-feira, 25 de julho",
           desc1: [
             { bold: true, text: "Aeroporto de Varsóvia (WAW):" },
-            " O ônibus sai por volta das 19:30 - Karolina estará aguardando na chegada.",
+            " O ônibus sai por volta das 19:30 - Anaïs estará aguardando na chegada.",
           ],
           desc2: [
             { bold: true, text: "Aeroporto de Katowice:" },
-            " O ônibus sai por volta das 17:00 - Emanuele estará aguardando na chegada.",
+            " O ônibus sai por volta das 17:00 - Louis estará aguardando na chegada.",
           ],
         },
         departure: {
