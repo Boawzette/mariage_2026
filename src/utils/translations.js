@@ -130,7 +130,7 @@ const translations = {
             bold: true,
             text: "Lieu: ",
           },
-          'Réception "Chateau de la Croix Laval" au 1171 Av. de Lacroix-Laval, 69280 Marcy-l'Étoile.',
+          'Réception "Chateau de la Croix Laval" au 1171 Av. de Lacroix-Laval, 69280 Marcy-l Étoile.',
         ],
         button_loc: "Voir le lieu de réception",
       },
