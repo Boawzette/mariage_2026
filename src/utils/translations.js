@@ -57,7 +57,7 @@ const translations = {
         events: {
           ceremony: {
             time: "16h00",
-            title: "Ceremonie à l'église",
+            title: "Cérémonie à l'église",
           },
           dinner: {
             time: "5h00",
@@ -68,7 +68,7 @@ const translations = {
             title: "Première dance",
           },
           photo: {
-            time: "8h00 h 11:00",
+            time: "16h30",
             title: "Photos",
           },
           pig: {
@@ -90,8 +90,12 @@ const translations = {
         },
       },
       day_2: {
-        title: "Jour 2",
+        title: "Réception",
         events: {
+          party_continues: {
+            time: "17h00",
+            title: "Cocktail dinatoire & Vin d'honneur",
+          },
           after: {
             time: "3h00",
             title: "After Party Starts",
@@ -100,12 +104,9 @@ const translations = {
             time: "3:00 - 8:00 PM",
             title: "Vespa Bar",
           },
-          party_continues: {
-            time: "All Day",
-            title: "Eat, Drink, Dance, Repeat!",
-          },
+
           end: {
-            time: "9:00 PM",
+            time: "4h00",
             title: "The End",
           },
         },
