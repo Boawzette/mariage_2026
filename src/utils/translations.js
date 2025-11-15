@@ -111,7 +111,12 @@ const translations = {
           },
           'Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.',
         ],
-        button_loc:"Voir le lieu de réception",
+        location_reception: [
+          { bold: true, text: "Lieu de réception : " },
+          'Chateau de la Croix Laval, 1171 Av. de Lacroix-Laval, 69280 Marcy-l’Étoile.',
+        ],
+        button_loc: "Voir le lieu de cérémonie",
+        button_loc_reception: "Voir le lieu de réception",
       },
       accommodations: {
         title: "Hôtels",
@@ -355,8 +360,15 @@ const translations = {
             text: "Luogo della cerimonia religiosa: " 
           },
         "Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.",
+      
         ],
-        button_loc: "VISITA IL LOCALE",
+        
+      location_reception: [
+        { bold: true, text: "Luogo del ricevimento: " },
+        "Chateau de la Croix Laval, 1171 Av. de Lacroix-Laval, 69280 Marcy-l’Étoile.",
+      ],
+      button_loc: "Vedi il luogo della cerimonia",
+      button_loc_reception: "Vedi il luogo del ricevimento",
       },
       accommodations: {
       title: "Hotel",
@@ -560,14 +572,19 @@ pt: {
     details: {
       when_where: "Quando & Onde",
       dates: [
-        { bold: true, text: "Data : " },
+        { bold: true, text: "Data: " },
         "Sábado, 13 de Junho de 2026.",
       ],
       location: [
         { bold: true, text: "Local da cerimônia religiosa: " },
         "Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.",
       ],
-      button_loc: "VER LOCAL",
+      location_reception: [
+        { bold: true, text: "Local da recepção: " },
+        "Chateau de la Croix Laval, 1171 Av. de Lacroix-Laval, 69280 Marcy-l’Étoile.",
+      ],
+      button_loc: "Ver local da cerimônia",
+      button_loc_reception: "Ver local da recepção",
     },
     accommodations: {
       title: "Hotéis",
