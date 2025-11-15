@@ -3,7 +3,7 @@
  * @description This component renders the information section of the homepage,
  * including wedding details, accommodations, and travel information. Multilingual!
  *
- * @author Emanuele Sgroi
+ * @author Louis Sgroi
  * @date 19 October 2024
  */
 
@@ -15,13 +15,12 @@ import { motion } from "framer-motion";
 import translations from "@/utils/translations";
 
 const InfoSection = ({ language }) => {
-  // Variants for framer motion animation
   const primaryVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  // Destructure translation strings
+  // translations
   const { title, details, accommodations, travel_transport, contact } =
     translations[language].info_section;
 
@@ -29,7 +28,6 @@ const InfoSection = ({ language }) => {
   const coupleEmail = process.env.NEXT_PUBLIC_EMAIL || "";
   const herNumber = process.env.NEXT_PUBLIC_K_NUM || "";
   const hisNumberUk = process.env.NEXT_PUBLIC_E_NUM_UK || "";
-  const hisNumberIt = process.env.NEXT_PUBLIC_E_NUM_IT || "";
 
   return (
     <section
@@ -83,197 +81,3 @@ const InfoSection = ({ language }) => {
                   {item.text}
                 </span>
               )
-            )}
-          </p>
-          <p translate="no" className="mt-[-16px]">
-            {details.location.map((item, index) =>
-              typeof item === "string" ? (
-                <span key={index}>{item}</span>
-              ) : (
-                <span key={index} className="font-bold">
-                  {item.text}
-                </span>
-              )
-            )}
-          </p>
-
-          <Link
-            href={`https://przypatykach.pl/`}
-            target="_blank"
-            className="flex justify-center items-center gap-1 border border-gold rounded-lg px-2 py-1 mt-2 font-light text-sm"
-          >
-            <Image
-              src={images.location}
-              alt="Location"
-              className="w-auto h-[25px]"
-            />
-            {details.button_loc}
-          </Link>
-        </div>
-
-        <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
-
-        {/* Middle Details (Left & Right) */}
-        <div className="w-full flex flex-col md:flex-row md:justify-evenly max-md:items-center gap-8 md:gap-20">
-          {/* Left Detail */}
-          <div className="w-full md:w-1/2 max-w-[700px] flex flex-col justify-start items-center text-center">
-            <h5 translate="no" className="mb-4">
-              {accommodations.title}
-            </h5>
-            <p translate="no">
-              {accommodations.description_1.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
-            <p translate="no" className=" mt-3">
-              {accommodations.breakfast.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
-            <p translate="no" className=" mt-3">
-              {accommodations.checkout.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
-          </div>
-          <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
-
-          {/* Right Detail */}
-          <div className="w-full md:w-1/2 max-w-[700px] flex flex-col justify-start items-center text-center">
-            <h5 translate="no" className="mb-4">
-              {travel_transport.title}
-            </h5>
-
-            <p translate="no">
-              {travel_transport.description_1.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
-
-            <p translate="no" className="font-bold mb-1">
-              {travel_transport.transport_details.arrival.title}
-            </p>
-
-            <p translate="no" className="mb-1">
-              {travel_transport.transport_details.arrival.desc1.map(
-                (item, index) =>
-                  typeof item === "string" ? (
-                    item
-                  ) : (
-                    <span key={index} className="font-bold">
-                      {item.text}
-                    </span>
-                  )
-              )}
-            </p>
-            <p translate="no">
-              {travel_transport.transport_details.arrival.desc2.map(
-                (item, index) =>
-                  typeof item === "string" ? (
-                    item
-                  ) : (
-                    <span key={index} className="font-bold">
-                      {item.text}
-                    </span>
-                  )
-              )}
-            </p>
-
-            <p translate="no" className="font-bold mb-1">
-              {travel_transport.transport_details.departure.title}
-            </p>
-
-            <p translate="no">
-              {travel_transport.transport_details.departure.desc1.map(
-                (item, index) =>
-                  typeof item === "string" ? (
-                    item
-                  ) : (
-                    <span key={index} className="font-bold">
-                      {item.text}
-                    </span>
-                  )
-              )}
-            </p>
-          </div>
-        </div>
-
-        <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
-
-        {/* bottom Detail*/}
-        <div className=" max-w-[700px] flex flex-col justify-center items-center">
-          <h5 translate="no" className="mb-4">
-            {contact.title}
-          </h5>
-          <p translate="no" className="max-sm:flex max-sm:flex-col">
-            <span className="font-bold">Email: </span>{" "}
-            <a
-              href={`mailto:${coupleEmail}`}
-              target="_blank"
-              className="underline underline-offset-4 decoration-1"
-            >
-              {coupleEmail || "N/A"}
-            </a>
-          </p>
-          <p translate="no" className="max-sm:flex max-sm:flex-col">
-            <span className="font-bold">Karolina: </span>{" "}
-            <a
-              href={`tel:${herNumber ? herNumber.replace(/\s+/g, "") : ""}`}
-              target="_blank"
-            >
-              {herNumber || "N/A"}
-            </a>
-          </p>
-          <p translate="no" className="max-sm:flex max-sm:flex-col">
-            <span className="font-bold">Emanuele: </span>{" "}
-            <span>
-              <a
-                href={`tel:${hisNumberUk ? hisNumberUk.replace(/\s+/g, "") : ""}`}
-                target="_blank"
-              >
-                {hisNumberUk || "N/A"}
-              </a>{" "}
-              {"(UK)"}
-              <span className="max-sm:hidden">&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-            </span>
-            <span>
-              <a
-                href={`tel:${hisNumberIt ? hisNumberIt.replace(/\s+/g, "") : ""}`}
-                target="_blank"
-              >
-                {hisNumberIt || "N/A"}
-              </a>{" "}
-              {"(IT)"}
-            </span>
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default InfoSection;
