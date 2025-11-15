@@ -169,6 +169,10 @@ const translations = {
           departure: {
             title: "Le cocktail/vin d'honneur commencera vers 17h00",
             desc1: [
+              { bold: true, text: "Parking Château - Potager" },
+              " 1171 Rte de Marcy, 69280 Marcy-l'Étoile ",
+            ],
+            desc2: [
               { bold: true, text: "Le parking du chateau de la Croix Laval est assez grand pour accueillir tous les invités en voiture." },
               " Le parking n'est pas surveillé donc ne laissez rien de valeur dans vos voitures, un vestiaire sera mis à disposition sur le lieu de réception.",
             ],
