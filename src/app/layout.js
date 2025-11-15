@@ -1,7 +1,7 @@
 /**
  * @file layout.js
  * @description Defines the global layout structure for the website, including providers and components like LanguageDetector and Toaster.
- * @author Emanuele Sgroi
+ * @author Louis Sgroi
  * @date 19 October 2024
  */
 
@@ -14,21 +14,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 // Metadata configuration (nice for social sharing)
 export const metadata = {
-  title: "Karolina & Emanuele",
+  title: "Anaïs & Louis",
   description:
-    "You are invited to our Wedding | Sei invitato al nostro Matrimonio |  Jesteś zaproszony na nasz Ślub",
+    "Vous êtes invités à notre mariage | Sei invitato al nostro Matrimonio |  Jesteś zaproszony na nasz Ślub",
   openGraph: {
-    title: "Karolina & Emanuele",
+    title: "Anaïs & Louis",
     description:
-      "You are invited to our Wedding | Sei invitato al nostro Matrimonio |  Jesteś zaproszony na nasz Ślub",
-    url: "https://emanuelekarolina.vercel.app/",
-    siteName: "Karolina & Emanuele",
+      "Vous êtes invités à notre mariage | Sei invitato al nostro Matrimonio |  Jesteś zaproszony na nasz Ślub",
+    url: "https://mariage-2026-six.vercel.app/",
+    siteName: "Anaïs & Louis",
     images: [
       {
-        url: "https://emanuelekarolina.vercel.app/images/og-image.jpg",
+        url: "https://mariage-2026-six.vercel.app/images/og-image.jpg",
         width: 1200,
         height: 600,
-        alt: "Karolina & Emanuele Wedding Website",
+        alt: "Anaïs & Louis Wedding Website",
       },
     ],
     type: "website",
