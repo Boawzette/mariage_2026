@@ -60,36 +60,29 @@ const translations = {
             title: "Ceremonie à l'église",
           },
           photo: {
-            time: "16h30",
+            time: "8h30",
             title: "Photos",
           },
         },
       },
       day_2: {
-        title: "Réception",
+        title: "Jour 2",
         events: {
+        
+          after: {
+            time: "3h00",
+            title: "After Party Starts",
+          },
+          vespa: {
+            time: "3:00 - 8:00 PM",
+            title: "Vespa Bar",
+          },
           party_continues: {
-            time: "17h00",
-            title: "Cocktail dinatoire & Vin d'honneur",
-          },
-          dance: {
-            time: "19h00",
-            title: "Jeter de bouquet et de saucissons",
-          },
-          photo: {
-            time: "17h00 à 20h00",
-            title: "Photos",
-          },
-          cake_cutting: {
-            time: "23h00",
-            title: "Desserts",
-          },
-          party: {
-            time: "Toute la nuit",
-            title: "Mangez, Buvez, Dancez, on repeat!",
+            time: "All Day",
+            title: "Eat, Drink, Dance, Repeat!",
           },
           end: {
-            time: "4h00",
+            time: "9:00 PM",
             title: "The End",
           },
         },
@@ -98,39 +91,39 @@ const translations = {
     info_section: {
       title: {
         main: "LES",
-        sub: "DétaAils",
+        sub: "Détails",
       },
       details: {
         when_where: "Quand & Où",
         dates: [
           {
             bold: true,
-            text: "Date: ",
+            text: "Date : ",
           },
           "Samedi 13 Juin 2026.",
         ],
         location: [
           {
             bold: true,
-            text: "Lieu: ",
+            text: "Lieu de cérémonie religieuse : " ,
           },
-          'Réception "Chateau de la Croix Laval" au 1171 Av. de Lacroix-Laval, 69280 Marcy-l Étoile.',
+          'Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.',
         ],
         button_loc: "Voir le lieu de réception",
       },
       accommodations: {
-        title: "Hotels",
+        title: "Hôtels",
         description_1: [
-          "Pour les invités venant de loin vous trouverez des hôtels à côtés. Vous pourrez en profitez pour visiter Lyon ou profitez de l'ouest lyonnais.",
+          "Pour les invités venant de loin, vous trouverez des hôtels à proximité. ",
           {
             bold: true,
-            text: "Vous pourrez en profitez pour profitez de l'ouest lyonnais ou visiter Lyon.",
+            text: "Vous pourrez en profiter pour visiter l'ouest lyonnais ou Lyon." 
           },
         ],
         breakfast: [
-          { bold: true, text: "Hotel le beaulieu" },
+          { bold: true, text: "Hotel le Beaulieu" },
           " 19 Av. Général de Gaulle, 69260 Charbonnières-les-Bains ",
-          { bold: true, text: "Pavillon de la rotonde" },
+          { bold: true, text: "Pavillon de la Rotonde" },
           " 3 Av. Georges Bassinet, 69260 Charbonnières-les-Bains ",
           { bold: true, text: "Appart Hotel" },
           " 80 Av. Marcel Mérieux, 69280 Marcy-l'Étoile ",
@@ -156,40 +149,39 @@ const translations = {
         ],
         transport_details: {
           arrival: {
-            title: "Samedi 13 juin à 16h00",
+            title: "La cérémonie commence à 16h00",
             desc1: [
               { bold: true, text: "Merci d'arriver au moins 15 minutes AVANT" },
-              " ou vous ferez parti du cortège d'honneur ! ",
+              " ou vous ferez partie du cortège d'honneur ! ",
             ],
             desc2: [
-              { bold: true, text: "La cérémonie durera environ 30 minutes " },
+              { bold: true, text: "La cérémonie durera environ 30 minutes. " },
               " Nous ferons quelques photos à la fin avant de partir au lieu de réception.",
             ],
           },
           departure: {
             title: "Le cocktail/vin d'honneur commencera vers 17h00",
             desc1: [
-              { bold: true, text: "Le parking du chateau de la Croix Laval est assez grand pour acceuillir tous les invités en voiture." },
-              " Le parking n'est pas surveillé donc ne laissez rien de valeurs dans vos voitures, un vestiaire sera mis à disposition sur le lieu de réception.",
+              { bold: true, text: "Le parking du chateau de la Croix Laval est assez grand pour accueillir tous les invités en voiture." },
+              " Le parking n'est pas surveillé donc ne laissez rien de valeur dans vos voitures, un vestiaire sera mis à disposition sur le lieu de réception.",
             ],
           },
         },
       },
       contact: {
-        title: "Contactez nous",
-        // Email added on the front end
-        // numbers added on the front end
+        title: "Contactez-nous",
+        // Email and numbers added on the front end
       },
     },
     rsvp_section: {
-      top_title: "Réponse",
-      title: { main: "Confirez votre", sub: "Présence" },
+      top_title: "Réponses",
+      title: { main: "Confirmez votre", sub: "Présence" },
       description_1: [
-        { bold: true, text: "Répondez avant le 1er avril s'il vous plait ! Sinon venez avec un sandwich !" },
-        " Chercher votre nom dans le formulaire et répondez à notre invitation.",
+        { bold: true, text: "Répondez avant le 1er avril s'il vous plaît ! Sinon venez avec un sandwich !" },
+        " Cherchez votre nom dans le formulaire et répondez à notre invitation.",
       ],
       description_2:
-        "Laissez nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question.On souhaiterais que tout le monde passe un bon moment et soit à l'aise !",
+        "Laissez-nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question. On souhaite que tout le monde passe un bon moment et soit à l'aise !",
       label: "Cherchez votre nom",
       placeholder: "Cherchez votre nom...",
       no_found: "Pas d'invité trouvé avec ce nom...",
