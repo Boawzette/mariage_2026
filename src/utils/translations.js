@@ -145,14 +145,16 @@ const translations = {
         description_1: [
           "Merci de laisser les places autour de l'église pour les personnes handicapées. Vous trouverez des places :",
         ],
-        description_2: [
-          "au parking de la gare de Tassin - 1 All. des Tilleuls, 69160 Tassin-la-Demi-Lune.",
-        ],
-        description_3: [
-          "au parking du cimetière - 12b Chem. de la Mansion, 69160 Tassin-la-Demi-Lune",
-        ],
-        description_4: [
-          "à la pharmacie - 2 Rue Professeur Deperet, 69160 Tassin-la-Demi-Lune",
+      
+        parkings: [
+          { bold: true, text: "Parking de la gare de Tassin" },
+          " 1 All. des Tilleuls, 69160 Tassin-la-Demi-Lune",
+      
+          { bold: true, text: "Parking du cimetière" },
+          " 12b Chem. de la Mansion, 69160 Tassin-la-Demi-Lune",
+      
+          { bold: true, text: "Parking de la pharmacie" },
+          " 2 Rue Professeur Deperet, 69160 Tassin-la-Demi-Lune",
         ],
         transport_details: {
           arrival: {
