@@ -927,5 +927,4 @@ pt: {
     }
   },
 
-
-export default translations;
+  export default translations;
