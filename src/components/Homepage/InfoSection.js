@@ -76,6 +76,7 @@ const InfoSection = ({ language }) => {
             )}
           </p>
 
+          {/* Ceremony Location */}
           <p className="mt-[-16px]">
             {details.location.map((item, index) =>
               typeof item === "string" ? (
@@ -93,14 +94,40 @@ const InfoSection = ({ language }) => {
             target="_blank"
             className="flex justify-center items-center gap-1 border border-gold rounded-lg px-2 py-1 mt-2 font-light text-sm"
           >
-            <Image
-              src={images.location}
-              alt="Location"
-              width={25}
-              height={25}
-            />
+            <Image src={images.location} alt="Location" width={25} height={25} />
             {details.button_loc}
           </Link>
+
+          {/* ⭐️ NEW — Reception Location */}
+          {details.location_reception && (
+            <>
+              <p className="mt-3">
+                {details.location_reception.map((item, index) =>
+                  typeof item === "string" ? (
+                    <span key={index}>{item}</span>
+                  ) : (
+                    <span key={index} className="font-bold">
+                      {item.text}
+                    </span>
+                  )
+                )}
+              </p>
+
+              <Link
+                href="https://maps.app.goo.gl/VxXyM5SJ7AdmU8pq9"
+                target="_blank"
+                className="flex justify-center items-center gap-1 border border-gold rounded-lg px-2 py-1 mt-2 font-light text-sm"
+              >
+                <Image
+                  src={images.location}
+                  alt="Reception Location"
+                  width={25}
+                  height={25}
+                />
+                {details.button_loc_reception}
+              </Link>
+            </>
+          )}
         </div>
 
         <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
