@@ -90,7 +90,7 @@ const InfoSection = ({ language }) => {
           </p>
 
           <Link
-            href="https://przypatykach.pl/"
+            href="https://maps.app.goo.gl/Dks6L2cjrELejWtZ6"
             target="_blank"
             className="flex justify-center items-center gap-1 border border-gold rounded-lg px-2 py-1 mt-2 font-light text-sm"
           >
@@ -114,7 +114,7 @@ const InfoSection = ({ language }) => {
               </p>
 
               <Link
-                href="https://maps.app.goo.gl/VxXyM5SJ7AdmU8pq9"
+                href="https://maps.app.goo.gl/vLYTxx8TgUNxWVA789"
                 target="_blank"
                 className="flex justify-center items-center gap-1 border border-gold rounded-lg px-2 py-1 mt-2 font-light text-sm"
               >
