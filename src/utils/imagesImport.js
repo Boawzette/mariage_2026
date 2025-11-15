@@ -45,9 +45,7 @@ import divider from "../../public/icons/divider.png";
 import location from "../../public/icons/location.png";
 
 const images = {
-  welcome_1,
   welcome_2,
-  welcome_3,
   curved_it,
   curved_en,
   curved_pl,
