@@ -30,7 +30,7 @@ const SplashScreen = () => {
     <>
       <div className={styles.splashScreen}>
         {/* Italian, Polish and English */}
-        {["Ciao", "Cześć", "Hello"].map((text, index) => (
+        {["Ciao", "Bonjour", "Bom dia"].map((text, index) => (
           <div key={index} className={styles.textContainer}>
             <p translate="no" className={`${styles.word} alex-brush`}>
               {text}
@@ -38,7 +38,7 @@ const SplashScreen = () => {
           </div>
         ))}
         {/* Italian, Polish and English */}
-        {["Ciao", "Cześć", "Hello"].map((text, index) => (
+        {["Ciao", "Bonjour", "Bom dia"].map((text, index) => (
           <p
             key={index}
             translate="no"
