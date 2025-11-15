@@ -275,11 +275,10 @@ const translations = {
     footer: {
       text_1: "Site créé avec ",
       text_2: "par ",
-      text_3: "Photos de",
+        text_3: "Photos de" 
     },
     not_found: {
-      message: "La page que vous cherchez n'existe pas.",
-      button: "Retournez en arrière",
+        message: "La page que vous cherchez n'existe pas.", button: "Retournez en arrière"
     },
   },
 
@@ -292,107 +291,61 @@ const translations = {
       footer_him: "Louis",
     },
     navbar: {
-      welcome: "Vetrina",
-      save_the_date: "Segna la Data",
-      schedule: "Timeline Matrimonio",
-      info: "Dettagli",
-      rsvp: "Conferma la Presenza",
-      registry: "Lista Nozze",
-      music: "Playlist",
+    welcome: "Benvenuti",
+    save_the_date: "Segnate la data",
+    schedule: "Programma",
+    info: "Dettagli",
+    rsvp: "RSVP",
+    registry: "Regali",
+    music: "Playlist della festa",
     },
     welcome_section: {
-      small_text: "Il matrimonio di...",
-      days: "Giorni",
-      day: "Giorno",
-      hours: "Ore",
-      hour: "Ora",
-      minutes: "Minuti",
-      minute: "Minuto",
-      seconds: "Secondi",
-      second: "secondo",
-      button: "Segna la Data",
+    small_text: "Il matrimonio di...",
+    days: "Giorni",
+    day: "Giorno",
+    hours: "Ore",
+    hour: "Ora",
+    minutes: "Minuti",
+    minute: "Minuto",
+    seconds: "Secondi",
+    second: "Secondo",
+    button: "Segnate la data",
     },
     saveTheDate_section: {
-      title: "SEGNA",
-      title_cursive: "La Data",
-      date: "26 Luglio 2025",
-      place: "a Kolonia Łobudzice, Polonia",
-      story_1: "Ci Siamo Conosciuti",
-      story_2: "Ci Siamo Fidanzati",
-      story_3_future: "Ci Sposiamo",
-      story_3_past: "Ci Siamo Sposati",
+    title: "Segnate",
+    title_cursive: "La Data",
+    date: "13 Giugno 2026",
+    place: "a Charbonnière-les-Bains, Francia",
+    story_1: "Ci incontriamo",
+    story_2: "Ci fidanzamo",
+    story_3_future: "Ci sposiamo",
+    story_3_past: "Ci siamo sposati",
     },
     schedule_section: {
-      title: {
-        main: "TIMELINE",
-        sub: "Matrimonio",
-      },
-      description:
-        "I festeggiamenti per il matrimonio inizieranno sabato 26 luglio e termineranno domenica 27 luglio 2025.",
+    title: { main: "Matrimonio", sub: "Programma" },
+    description: "Il matrimonio si terrà sabato 13 giugno 2026.",
       day_1: {
-        title: "Giorno 1",
+      title: "Cerimonia",
         events: {
-          ceremony: {
-            time: "16:00",
-            title: "Inizio della Cerimonia",
-          },
-          dinner: {
-            time: "18:00",
-            title: "Cena Servita",
-          },
-          dance: {
-            time: "18:00",
-            title: "Primo Ballo",
-          },
-          photo: {
-            time: "20:00 - 23:00",
-            title: "Cabina Fotografica",
-          },
-          pig: {
-            time: "00:00",
-            title: "Piatto Speciale",
-          },
-          cake_cutting: {
-            time: "22:30",
-            title: "Taglio della Torta",
-          },
-          games: {
-            time: "00:30",
-            title: "Animazione con Giochi di Gruppo",
-          },
-          party: {
-            time: "Tutta la notte",
-            title: "Mangia, Bevi, Balla, Ripeti!",
-          },
+        ceremony: { time: "16:00", title: "Cerimonia in chiesa" },
+        photo: { time: "16:30", title: "Foto" },
         },
       },
       day_2: {
-        title: "Giorno 2",
+      title: "Ricevimento",
         events: {
-          after: {
-            time: "15:00",
-            title: "Inizia L'After!",
-          },
-          vespa: {
-            time: "15:00 - 20:00",
-            title: "Vespa Bar",
-          },
-          party_continues: {
-            time: "Tutta la Giornata",
-            title: "Mangia, Bevi, Balla, Ripeti!",
-          },
-          end: {
-            time: "21:00",
-            title: "Finita La Commedia!",
-          },
+        party_continues: { time: "17:00", title: "Cocktail & Aperitivo" },
+        dance: { time: "19:00", title: "Lanciatore del bouquet e dei salumi" },
+        photo: { time: "17:00-20:00", title: "Foto" },
+        dinner2: { time: "20:00", title: "Cena" },
+        cake_cutting: { time: "23:00", title: "Dolci" },
+        party: { time: "Tutta la notte", title: "Mangiate, Bevete, Ballate, repeat!" },
+        end: { time: "4:00", title: "Fine" },
         },
       },
     },
     info_section: {
-      title: {
-        main: "I",
-        sub: "Dettagli",
-      },
+    title: { main: "I", sub: "Dettagli" },
       details: {
         when_where: "Quando e Dove",
         dates: [
@@ -592,107 +545,61 @@ pt: {
     footer_him: "Louis",
   },
   navbar: {
-    welcome: "Bem-vindo",
+    welcome: "Bem-vindos",
     save_the_date: "Reserve a Data",
-    schedule: "Cronograma do Casamento",
+    schedule: "Programação",
     info: "Detalhes",
     rsvp: "RSVP",
-    registry: "Lista de Presentes",
-    music: "Playlist",
+    registry: "Presentes",
+    music: "Playlist da Festa",
   },
   welcome_section: {
     small_text: "O casamento de...",
-    days: "dias",
-    day: "dia",
-    hours: "horas",
-    hour: "hora",
-    minutes: "minutos",
-    minute: "minuto",
-    seconds: "segundos",
-    second: "segundo",
+    days: "Dias",
+    day: "Dia",
+    hours: "Horas",
+    hour: "Hora",
+    minutes: "Minutos",
+    minute: "Minuto",
+    seconds: "Segundos",
+    second: "Segundo",
     button: "Reserve a Data",
   },
   saveTheDate_section: {
-    title: "RESERVE",
-    title_cursive: "a Data",
-    date: "26 de julho de 2025",
-    place: 'no espaço "Przy Patykach" em Kolonia Łobudzice, Zelów',
-    story_1: "Nos Conhecemos",
+    title: "Reserve",
+    title_cursive: "A Data",
+    date: "13 de Junho de 2026",
+    place: "em Charbonnière-les-Bains, França",
+    story_1: "Nós nos conhecemos",
     story_2: "Noivamos",
-    story_3_future: "Vamos nos Casar",
-    story_3_past: "Nos Casamos",
+    story_3_future: "Vamos nos casar",
+    story_3_past: "Casamo-nos",
   },
   schedule_section: {
-    title: {
-      main: "CRONOGRAMA",
-      sub: "do Casamento",
-    },
-    description:
-      "O casamento será no dia 26 de julho de 2025. No dia seguinte, convidamos você para a celebração pós-casamento!",
+    title: { main: "Casamento", sub: "Programação" },
+    description: "O casamento ocorrerá no sábado, 13 de junho de 2026.",
     day_1: {
-      title: "Dia 1",
+      title: "Cerimônia",
       events: {
-        ceremony: {
-          time: "16:00",
-          title: "Cerimônia de Casamento",
-        },
-        dinner: {
-          time: "18:00",
-          title: "Jantar",
-        },
-        dance: {
-          time: "18:00",
-          title: "Primeira Dança",
-        },
-        photo: {
-          time: "20:00 - 23:00",
-          title: "Cabine de Fotos",
-        },
-        pig: {
-          time: "00:00",
-          title: "Prato Especial",
-        },
-        cake_cutting: {
-          time: "22:30",
-          title: "Corte do Bolo",
-        },
-        games: {
-          time: "00:30",
-          title: "Jogos Tradicionais",
-        },
-        party: {
-          time: "Até de Manhã",
-          title: "Comer, Beber e Dançar!",
-        },
+        ceremony: { time: "16:00", title: "Cerimônia na igreja" },
+        photo: { time: "16:30", title: "Fotos" },
       },
     },
     day_2: {
-      title: "Dia 2",
+      title: "Recepção",
       events: {
-        after: {
-          time: "15:00",
-          title: "After Party",
-        },
-        vespa: {
-          time: "15:00 - 20:00",
-          title: "Bar Vespa",
-        },
-        party_continues: {
-          time: "O Dia Todo",
-          title: "Comer, Beber e Dançar!",
-        },
-        end: {
-          time: "21:00",
-          title: "Fim",
-        },
+        party_continues: { time: "17:00", title: "Coquetel & Aperitivo" },
+        dance: { time: "19:00", title: "Lançamento do buquê e frios" },
+        photo: { time: "17:00-20:00", title: "Fotos" },
+        dinner: { time: "20:00", title: "Jantar" },
+        cake_cutting: { time: "23:00", title: "Bolo" },
+        party: { time: "Durante toda a noite", title: "Coma, Beba, Dance, repita!" },
+        end: { time: "4:00", title: "Fim" },
       },
     },
   },
   info_section: {
-    title: {
-      main: "MAIS",
-      sub: "Detalhes",
-    },
+    title: { main: "I", sub: "Detalhes" },
     details: {
       when_where: "Quando e Onde",
       dates: [
