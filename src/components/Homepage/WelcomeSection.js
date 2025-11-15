@@ -75,7 +75,7 @@ const WelcomeSection = ({ language }) => {
                   ? images.curved_pl
                   : images.curved_en
               }
-              alt="we did it"
+              alt="on l'a fait !"
               width={200}
               height={200}
               className="relative w-[180px] md:w-[280px] h-[180px] md:h-[280px] animate-spin-slow z-[3]"
@@ -131,7 +131,7 @@ const WelcomeSection = ({ language }) => {
 
         <Image
           src={images.welcome_2}
-          alt="welcome"
+          alt="Bienvenue"
           fill
           priority
           quality={100}
