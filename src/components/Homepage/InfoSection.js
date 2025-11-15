@@ -241,8 +241,7 @@ const InfoSection = ({ language }) => {
             <span className="font-bold">Louis: </span>{" "}
             <a href={`tel:${hisNumberUk.replace(/\s+/g, "")}`} target="_blank">
               {hisNumberUk || "N/A"}
-            </a>{" "}
-            (UK)
+            </a>
           </p>
         </div>
       </div>
