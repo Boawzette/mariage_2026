@@ -53,23 +53,36 @@ const translations = {
       description:
         "Le mariage prendra place le samedi 13 juin 2026.",
       day_1: {
-        title: "Day 1",
+        title: "Cérémonie",
         events: {
           ceremony: {
             time: "16h00",
             title: "Cérémonie à l'église",
           },
+          photo: {
+            time: "16h30",
+            title: "Photos",
+          },
+        },
+      },
+      day_2: {
+        title: "Réception",
+        party_continues: {
           dinner: {
             time: "17h00",
             title: "Cocktail dinatoire & Vin d'honneur",
           },
           dance: {
-            time: "18h00",
-            title: "Première dance",
+            time: "19h00",
+            title: "Jeter de bouquet et de saucissons",
           },
           photo: {
             time: "17h00 à 20h00",
             title: "Photos",
+          },
+          dinner: {
+            time: "20h00",
+            title: "Dinner",
           },
           cake_cutting: {
             time: "23h00",
@@ -78,6 +91,10 @@ const translations = {
           party: {
             time: "Toute la nuit",
             title: "Mangez, Buvez, Dancez, on repeat !",
+          },
+          end: {
+            time: "4h00",
+            title: "The End",
           },
         },
       },
