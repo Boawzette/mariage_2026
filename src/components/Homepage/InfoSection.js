@@ -153,10 +153,14 @@ const InfoSection = ({ language }) => {
             <p className="mt-3">
               {accommodations.breakfast.map((item, index) =>
                 typeof item === "string" ? (
-                  item
+                  <span key={index}>
+                    {item}
+                    <br />
+                  </span>
                 ) : (
                   <span key={index} className="font-bold">
                     {item.text}
+                    <br />
                   </span>
                 )
               )}
