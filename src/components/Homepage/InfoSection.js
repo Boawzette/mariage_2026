@@ -192,6 +192,39 @@ const InfoSection = ({ language }) => {
                 )
               )}
             </p>
+            <p>
+              {travel_transport.description_2.map((item, index) =>
+                typeof item === "string" ? (
+                  item
+                ) : (
+                  <span key={index} className="font-bold">
+                    {item.text}
+                  </span>
+                )
+              )}
+            </p>
+            <p>
+              {travel_transport.description_3.map((item, index) =>
+                typeof item === "string" ? (
+                  item
+                ) : (
+                  <span key={index} className="font-bold">
+                    {item.text}
+                  </span>
+                )
+              )}
+            </p>
+            <p>
+              {travel_transport.description_4.map((item, index) =>
+                typeof item === "string" ? (
+                  item
+                ) : (
+                  <span key={index} className="font-bold">
+                    {item.text}
+                  </span>
+                )
+              )}
+            </p>
 
             <p className="font-bold mb-1">
               {travel_transport.transport_details.arrival.title}
