@@ -98,16 +98,17 @@ const InfoSection = ({ language }) => {
             {details.button_loc}
           </Link>
 
-          {/* NEW — Reception Location */}
+          {/* Reception Location */}
           {details.location_reception && (
             <>
               <p className="mt-3">
                 {details.location_reception.map((item, index) =>
                   typeof item === "string" ? (
-                    <span key={index}>{item}</span>
+                    <span key={index}>{item}<br /></span>
                   ) : (
                     <span key={index} className="font-bold">
                       {item.text}
+                      <br />
                     </span>
                   )
                 )}
@@ -181,10 +182,11 @@ const InfoSection = ({ language }) => {
 
           <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
 
-          {/* Right */}
+          {/* Right — travel transport */}
           <div className="w-full md:w-1/2 max-w-[700px] flex flex-col items-center text-center">
             <h5 className="mb-4">{travel_transport.title}</h5>
 
+            {/* Description générale */}
             <p>
               {travel_transport.description_1.map((item, index) =>
                 typeof item === "string" ? (
@@ -196,40 +198,22 @@ const InfoSection = ({ language }) => {
                 )
               )}
             </p>
-            <p>
-              {travel_transport.description_2.map((item, index) =>
+
+            {/* Parkings / Lieux avec gras + retour à la ligne */}
+            <p className="mt-3">
+              {travel_transport.parkings.map((item, index) =>
                 typeof item === "string" ? (
-                  item
+                  <span key={index}>- {item}<br /></span>
                 ) : (
                   <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
-            <p>
-              {travel_transport.description_3.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
-            <p>
-              {travel_transport.description_4.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
+                    - {item.text}
+                    <br />
                   </span>
                 )
               )}
             </p>
 
+            {/* Transport details */}
             <p className="font-bold mb-1">
               {travel_transport.transport_details.arrival.title}
             </p>
