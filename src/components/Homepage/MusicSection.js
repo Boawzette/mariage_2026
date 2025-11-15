@@ -170,7 +170,7 @@ const MusicSection = ({ language }) => {
         });
         setIsAddingTrack(false);
       } else {
-        console.error("Failed to add track to playlist:", data);
+        console.error("Echec d'ajout à la playlist:", data);
         // error toast
         toast({
           variant: "destructive",
@@ -180,7 +180,7 @@ const MusicSection = ({ language }) => {
         setIsAddingTrack(false);
       }
     } catch (error) {
-      console.error("Error adding track to playlist:", error);
+      console.error("Erreur d'ajout à la playlist:", error);
       toast({
         variant: "destructive",
         title: toast_error.title,
