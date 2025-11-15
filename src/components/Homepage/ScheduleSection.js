@@ -76,31 +76,6 @@ const ScheduleSection = ({ language }) => {
         },
       ],
     },
-    {
-      day: day_2.title,
-      events: [
-        {
-          time: day_2.events.after.time,
-          title: day_2.events.after.title,
-          icon: "/icons/after.svg",
-        },
-        {
-          time: day_2.events.vespa.time,
-          title: day_2.events.vespa.title,
-          icon: "/icons/vespa.svg",
-        },
-        {
-          time: day_2.events.party_continues.time,
-          title: day_2.events.party_continues.title,
-          icon: "/icons/repeat2.svg",
-        },
-        {
-          time: day_2.events.end.time,
-          title: day_2.events.end.title,
-          icon: "/icons/end.svg",
-        },
-      ],
-    },
   ];
 
   return (
