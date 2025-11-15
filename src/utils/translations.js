@@ -15,9 +15,12 @@ const translations = {
       footer_him: "Louis",
     },
     navbar: {
+      welcome: "Bienvenu",
+      save_the_date: "Notez la date",
       welcome: "Bienvenue",
       save_the_date: "Notez bien la date",
       schedule: "Organisation",
+      info: "Details",
       info: "Détails",
       rsvp: "Réponses",
       registry: "Cadeaux",
@@ -32,16 +35,21 @@ const translations = {
       minutes: "Minutes",
       minute: "Minute",
       seconds: "Secondes",
-      second: "Seconde",
+      second: "seconde",
       button: "Notez la date",
     },
     saveTheDate_section: {
+      title: "SAVE",
+      title_cursive: "The Date",
+      date: "26th of July 2025",
+      place: "in Kolonia Łobudzice, Poland",
       title: "Notez",
       title_cursive: "La Date",
-      date: "13 Juin 2026",
-      place: "à Charbonnière-les-Bains, France",
+      date: "13 Juin 202-",
+      place: "à Charbonnière les bains, France",
       story_1: "On se rencontre",
       story_2: "On se fiance",
+      story_3_future: "On se marrie",
       story_3_future: "On se marie",
       story_3_past: "On s'est marié",
     },
@@ -53,22 +61,53 @@ const translations = {
       description:
         "Le mariage prendra place le samedi 13 juin 2026.",
       day_1: {
-        title: "Cérémonie",
+        title: "Day 1",
         events: {
           ceremony: {
-            time: "16h00",
+            time: "4h00",
             title: "Ceremonie à l'église",
+            time: "16h00",
+            title: "Cérémonie à l'église",
+          },
+          dinner: {
+            time: "5h00",
+            title: "Cocktail dinatoire",
+            time: "17h00",
+            title: "Cocktail dinatoire & Vin d'honneur",
+          },
+          dance: {
+            time: "6h00",
+            time: "18h00",
+            title: "Première dance",
           },
           photo: {
-            time: "8h30",
+            time: "8h00 h 11:00",
+            time: "17h00 à 20h00",
             title: "Photos",
+          },
+          pig: {
+            time: "12h00",
+            title: "Plat spécial",
+          },
+          cake_cutting: {
+            time: "22h30",
+            title: "Desserts",
+          },
+          games: {
+            time: "12h30",
+            title: "Jeux de soirée",
+            time: "23h00",
+            title: "DessertS",
+          },
+          party: {
+            time: "Toute la nuit",
+            title: "Mangez, Buvez, Dancez, on repeat!",
           },
         },
       },
       day_2: {
         title: "Jour 2",
         events: {
-        
           after: {
             time: "3h00",
             title: "After Party Starts",
@@ -84,6 +123,7 @@ const translations = {
           end: {
             time: "9:00 PM",
             title: "The End",
+            title: "Mangez, Buvez, Dancez, on repeat !",
           },
         },
       },
@@ -98,6 +138,7 @@ const translations = {
         dates: [
           {
             bold: true,
+            text: "Date: ",
             text: "Date : ",
           },
           "Samedi 13 Juin 2026.",
@@ -105,31 +146,53 @@ const translations = {
         location: [
           {
             bold: true,
-            text: "Lieu de cérémonie religieuse : " ,
+            text: "Lieu: ",
+            text: "Lieu de cérémonie religieuse : ",
           },
-          'Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.',
+          ' "Paroisse St Claude Tassin" au 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.',
+        ],
+        button_loc: "Voir le lieu de cérémonie",
+      },
+      {
+            bold: true,
+            text: "Lieu de réception : ",
+          },
+          'Réception "Chateau de la Croix Laval" au 1171 Av. de Lacroix-Laval, 69280 Marcy-l Étoile.',
+          ' "Chateau de la Croix Laval" au 1171 Av. de Lacroix-Laval, 69280 Marcy-l Étoile.',
         ],
         button_loc: "Voir le lieu de réception",
       },
       accommodations: {
+        title: "Hotels",
         title: "Hôtels",
         description_1: [
-          "Pour les invités venant de loin, vous trouverez des hôtels à proximité. ",
+          "Pour les invités venant de loin vous trouverez des hôtels à côtés. Vous pourrez en profitez pour visiter Lyon ou profitez de l'ouest lyonnais.",
+          "Pour les invités venant de loin vous trouverez des hôtels à côtés. ",
           {
             bold: true,
-            text: "Vous pourrez en profiter pour visiter l'ouest lyonnais ou Lyon." 
+            text: "...",
+            text: "Vous pourrez en profitez pour profitez de l'ouest lyonnais ou visiter Lyon.",
           },
         ],
         breakfast: [
-          { bold: true, text: "Hotel le Beaulieu" },
+          { bold: true, text: "Hotel le beaulieu" },
           " 19 Av. Général de Gaulle, 69260 Charbonnières-les-Bains ",
-          { bold: true, text: "Pavillon de la Rotonde" },
+          { bold: true, text: "Pavillon de la rotonde" },
           " 3 Av. Georges Bassinet, 69260 Charbonnières-les-Bains ",
           { bold: true, text: "Appart Hotel" },
           " 80 Av. Marcel Mérieux, 69280 Marcy-l'Étoile ",
         ],
+      breakfast: [
+        { bold: true, text: "Hotel le beaulieu" },
+        " 19 Av. Général de Gaulle, 69260 Charbonnières-les-Bains ",
+        { bold: true, text: "Pavillon de la rotonde" },
+        " 3 Av. Georges Bassinet, 69260 Charbonnières-les-Bains ",
+        { bold: true, text: "Appart Hotel" },
+        " 80 Av. Marcel Mérieux, 69280 Marcy-l'Étoile ",
+      ],
         checkout: [
           { bold: true, text: "Et en cas de soucis" },
+          " N'hésitez pas à nous contacter. ",
           " n'hésitez pas à nous contacter. ",
         ],
       },
@@ -149,12 +212,16 @@ const translations = {
         ],
         transport_details: {
           arrival: {
+            title: "Samedi 13 juin à 16h00",
             title: "La cérémonie commence à 16h00",
             desc1: [
+              { bold: true, text: "Merci d'arriver au moins 15 minutes avant" },
+              " Afin d'éviter de rentrer en même temps que la mariée ! ",
               { bold: true, text: "Merci d'arriver au moins 15 minutes AVANT" },
-              " ou vous ferez partie du cortège d'honneur ! ",
+              " ou vous ferez parti du cortège d'honneur ! ",
             ],
             desc2: [
+              { bold: true, text: "La cérémonie durera environ 30 minutes " },
               { bold: true, text: "La cérémonie durera environ 30 minutes. " },
               " Nous ferons quelques photos à la fin avant de partir au lieu de réception.",
             ],
@@ -162,27 +229,34 @@ const translations = {
           departure: {
             title: "Le cocktail/vin d'honneur commencera vers 17h00",
             desc1: [
-              { bold: true, text: "Le parking du chateau de la Croix Laval est assez grand pour accueillir tous les invités en voiture." },
-              " Le parking n'est pas surveillé donc ne laissez rien de valeur dans vos voitures, un vestiaire sera mis à disposition sur le lieu de réception.",
+              { bold: true, text: "Le parking du chateau de la Croix Laval est assez grand pour acceuillir tous les invités en voiture." },
+              " Le parking n'est pas surveillé donc ne laissez rien de valeurs dans vos voitures, un vestiaire sera mis à disposition sur le lieu de réception.",
             ],
           },
         },
       },
       contact: {
+        title: "Contactez nous",
         title: "Contactez-nous",
-        // Email and numbers added on the front end
+        // Email added on the front end
+        // numbers added on the front end
       },
     },
     rsvp_section: {
+      top_title: "Réponse",
+      title: { main: "Confirez votre", sub: "Présence" },
       top_title: "Réponses",
       title: { main: "Confirmez votre", sub: "Présence" },
       description_1: [
-        { bold: true, text: "Répondez avant le 1er avril s'il vous plaît ! Sinon venez avec un sandwich !" },
-        " Cherchez votre nom dans le formulaire et répondez à notre invitation.",
+        { bold: true, text: "Répondez avant le 1er avril s'il vous plait ! Sinon venez avec un sandwich !" },
+        " Chercher votre nom dans le formulaire et répondez à notre invitation.",
       ],
       description_2:
-        "Laissez-nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question. On souhaite que tout le monde passe un bon moment et soit à l'aise !",
+        "Laissez nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question.On souhaiterais que tout le monde passe un bon moment et soit à l'aise !",
+        "Laissez-nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question. On souhaiterait que tout le monde passe un bon moment et soit à l'aise !",
       label: "Cherchez votre nom",
+      placeholder: "Cherchez votre nom",
+      no_found: "Pas d'invité trouvé avec ce nom",
       placeholder: "Cherchez votre nom...",
       no_found: "Pas d'invité trouvé avec ce nom...",
       multiple_guests_1: {
@@ -223,12 +297,14 @@ const translations = {
       description_1:
         "Votre présence à notre mariage est déjà un gros cadeau surtout de la part de ceux venant de loin !",
       description_2:
+        "Cependant, si vous souhiatez nous laisser un cadeau, nous apprécierons un contribution à notre fond de lune de miel.",
         "Cependant, si vous souhaItez nous laisser un cadeau, nous apprécierons une contribution à notre fond de lune de miel.",
       description_3:
         "Cela nous permettrait de nous envoler pour le Japon et vivre l'expérience pleinement.",
       description_4:
         "Une urne sera installée sur le lieu de réception, si vous souhaitez contribuer.",
       button: "",
+      thanks: "Merci!",
       thanks: "Merci !",
       error_from_api: "There is a problem. Try again later or contact us",
       error_incorrect_password: "Incorrect password",
