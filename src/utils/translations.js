@@ -93,25 +93,25 @@ const translations = {
     info_section: {
       title: {
         main: "LES",
-        sub: "Détails",
+        sub: "Détails" 
       },
       details: {
         when_where: "Quand & Où",
         dates: [
           {
             bold: true,
-            text: "Date : ",
+            text: "Date : " ,
           },
           "Samedi 13 Juin 2026.",
         ],
         location: [
           {
             bold: true,
-            text: "Lieu de cérémonie religieuse : ",
+            text: "Lieu de cérémonie religieuse : " 
           },
           'Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.',
         ],
-        button_loc: "Voir le lieu de réception",
+        button_loc:"Voir le lieu de réception",
       },
       accommodations: {
         title: "Hôtels",
@@ -172,8 +172,7 @@ const translations = {
       },
       contact: {
         title: "Contactez-nous",
-        // Email added on the front end
-        // numbers added on the front end
+        // Email and numbers added on the front end
       },
     },
     rsvp_section: {
@@ -184,7 +183,7 @@ const translations = {
         " Cherchez votre nom dans le formulaire et répondez à notre invitation.",
       ],
       description_2:
-        "Laissez-nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question.On souhaiterait que tout le monde passe un bon moment et soit à l'aise !",
+        "Laissez-nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question. On souhaiterait que tout le monde passe un bon moment et soit à l'aise !",
       label: "Cherchez votre nom",
       placeholder: "Cherchez votre nom...",
       no_found: "Pas d'invité trouvé avec ce nom...",
@@ -200,7 +199,7 @@ const translations = {
       single_guest_1: {
         hi: "Bonjour ",
         are_invited:
-          "  êtes chaleureusement invité à vous joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable ! ",
+        " êtes chaleureusement invité à vous joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable ! ",
       },
       single_guest_2: "Participerez-vous au mariage ?",
       answers: { yes: "Oui", no: "Non", unknown: "Je ne sais pas encore" },
@@ -218,7 +217,7 @@ const translations = {
       error_submitting: "Erreur d'envoi. Essayez encore.",
       button: {
         submit: "Envoyer RSVP",
-        loading: "Chargement...",
+        loading: "Chargement..." 
       },
     },
     registry_section: {
@@ -249,8 +248,7 @@ const translations = {
       toast_error: "Couldn't copy it",
       dialog_title: {
         before: "Enter the password",
-        after: "The password is correct",
-      },
+        after: "The password is correct" },
       placeholder: "Enter password",
       submit_button: { submit: "Submit", loading: "Checking..." },
       copy_all: "Copy All",
@@ -258,13 +256,13 @@ const translations = {
     music_section: {
       title: { main: "NOTRE", sub: "Playlist" },
       description:
-        "Ajoutez vos chansons favorites à notre playlist de soirée ! Nous sélectionnerons nos favorites ! ",
+      "Ajoutez vos chansons favorites à notre playlist de soirée ! Nous sélectionnerons nos favorites !",
       placeholder: "Saisissez le nom de votre chanson",
       small_note:
         "* Les chansons ne peuvent pas tourner sur le site, mais vous pouvez toujours les ajouter à la playlist.",
       toast_success: {
         title: "Musique ajoutée à la playlist",
-        description: "Y a t-il une autre musique à laquelle vous pensez ?",
+        description: "Y a t-il une autre musique à laquelle vous pensez ?" 
       },
       toast_error: {
         title: "Impossible d'ajouter la chanson",
@@ -281,7 +279,6 @@ const translations = {
         message: "La page que vous cherchez n'existe pas.", button: "Retournez en arrière"
     },
   },
-
   // ITALIAN <---------------------------------------------------------------------------------------
   it: {
     couple: {
@@ -347,196 +344,156 @@ const translations = {
     info_section: {
     title: { main: "I", sub: "Dettagli" },
       details: {
-        when_where: "Quando e Dove",
+        when_where: "Quando & Dove",
         dates: [
-          { bold: true, text: "Date: " },
-          "Sabato 26 e Domenica 27 Luglio 2025",
+        { bold: true, text: "Data: " },
+        "Sabato 13 Giugno 2026.",
         ],
         location: [
           {
             bold: true,
-            text: "Location: ",
+            text: "Luogo della cerimonia religiosa: " 
           },
-          'Agriturismo "Przy Patykach", Kolonia Łobudzice 18c, 97-425, Polonia',
+        "Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.",
         ],
         button_loc: "VISITA IL LOCALE",
       },
       accommodations: {
-        title: "Alloggi",
+      title: "Hotel",
         description_1: [
-          "Per i nostri ospiti internazionali, offriamo alloggio in hotel per ",
-          {
-            bold: true,
-            text: "Venerdì 25, Sabato 26 e Domenica 27 Luglio.",
-          },
+        "Per gli ospiti che arrivano da lontano, troverete hotel nelle vicinanze. ",
+        { bold: true, text: "Potrete approfittarne per visitare l'ovest di Lione o Lione." },
         ],
         breakfast: [
-          { bold: true, text: "La colazione" },
-          " è inclusa con il soggiorno e verrà servita dalle ",
-          { bold: true, text: "9:00 alle 12:00" },
-          " ogni mattina.",
+        { bold: true, text: "Hotel le Beaulieu" },
+        " 19 Av. Général de Gaulle, 69260 Charbonnières-les-Bains ",
+        { bold: true, text: "Pavillon de la Rotonde" },
+        " 3 Av. Georges Bassinet, 69260 Charbonnières-les-Bains ",
+        { bold: true, text: "Appart Hotel" },
+        " 80 Av. Marcel Mérieux, 69280 Marcy-l'Étoile ",
         ],
         checkout: [
-          { bold: true, text: "Hotel/Appartamenti Checkout:" },
-          " Il checkout é il Lunedí alle 11:00, perfavore fate colazione prima.",
+        { bold: true, text: "In caso di problemi" },
+        " non esitate a contattarci. ",
         ],
       },
       travel_transport: {
-        title: "Viaggio",
+      title: "Per la chiesa",
         description_1: [
-          "Per i nostri ospiti internazionali, forniremo il trasporto dall'aeroporto alla location venerdì 25 luglio e dalla location all'aeroporto lunedì 28 luglio.",
+        "Grazie di lasciare posti vicini alla chiesa per le persone con disabilità. Troverete parcheggi:",
         ],
         description_2: [
-          {
-            bold: true,
-            text: "Prima di prenotare il viaggio, vi preghiamo di contattarci e comunicarci l’orario e l’aeroporto che meglio si adattano al vostro programma. Organizzeremo quindi un trasporto di gruppo che soddisfi la maggioranza. Vi preghiamo di farlo entro il 26 maggio 2025.",
-          },
+        "al parcheggio della stazione di Tassin - 1 All. des Tilleuls, 69160 Tassin-la-Demi-Lune.",
         ],
         description_3: [
-          "Gli aeroporti più vicini sono l'Aeroporto di Katowice (KTW), l'Aeroporto di Varsavia Modlin (WMI) e l'Aeroporto di Varsavia Chopin (WAW).",
+        "al parcheggio del cimitero - 12b Chem. de la Mansion, 69160 Tassin-la-Demi-Lune",
         ],
         description_4: [
-          "Faremo del nostro meglio per accontentare tutti. Se non riuscite ad arrivare o partire nello stesso giorno e/o orario degli altri, vi aiuteremo a organizzare un altro modo per raggiungere e lasciare la location.",
+        "alla farmacia - 2 Rue Professeur Deperet, 69160 Tassin-la-Demi-Lune",
         ],
         transport_details: {
           arrival: {
-            title: "Venerdí 25 Luglio",
+          title: "La cerimonia inizia alle 16:00",
             desc1: [
-              { bold: true, text: "Aereoporto di Varsavia (WAW):" },
-              " Le navette partono intorno le 19:30 - Anaïs vi aspetterá agli arrivi.",
+            { bold: true, text: "Arrivate almeno 15 minuti PRIMA" },
+            " o farete parte del corteo d'onore! ",
             ],
             desc2: [
-              { bold: true, text: "Aereoporto di Katowice:" },
-              " Le navette partono intorno le 17:00 - Louis vi aspetterá agli arrivi.",
+            { bold: true, text: "La cerimonia durerà circa 30 minuti. " },
+            "Faremo alcune foto alla fine prima di partire per il ricevimento.",
             ],
           },
           departure: {
-            title: "Lunedí 28 luglio",
+          title: "Il cocktail/aperitivo inizierà verso le 17:00",
             desc1: [
-              { bold: true, text: "" },
-              " Le navette per entrambi gli aereoporti partono alle 12:00.",
+            { bold: true, text: "Il parcheggio del Chateau de la Croix Laval è abbastanza grande per tutti gli ospiti." },
+            " Il parcheggio non è sorvegliato, quindi non lasciate oggetti di valore nelle auto; sarà disponibile un guardaroba sul luogo del ricevimento.",
             ],
           },
         },
       },
       contact: {
         title: "Contattaci",
-        // Email added on the front end
-        // numbers added on the front end
+      // Email e numeri aggiunti nel front-end
       },
     },
     rsvp_section: {
       top_title: "RSVP",
-      title: { main: "Conferma la tua", sub: "Presenza" },
+    title: { main: "Confermate", sub: "Presenza" },
       description_1: [
-        {
-          bold: true,
-          text: "Vi preghiamo di confermare la vostra presenza entro il 26 maggio 2025!",
-        },
-        "  Basta cercare il vostro nome nell'apposito campo e confermare la partecipazione.",
+      { bold: true, text: "Rispondete entro il 1° aprile! Altrimenti venite con un panino!" },
+      " Cercate il vostro nome nel modulo e rispondete al nostro invito.",
       ],
-      description_2:
-        "Vi preghiamo di lasciarci un messaggio se avete richieste speciali, restrizioni alimentari o qualsiasi altra cosa di cui vorreste parlarci. Vogliamo assicurarci che tutti siano a proprio agio e si divertano al massimo!",
-      label: "Cerca il tuo nome nella lista",
-      placeholder: "Digita il tuo nome",
-      no_found: "Nessun invitato trovato con questo nome",
+    description_2: "Lasciateci un messaggio in caso di dieta speciale o intolleranza, oppure se avete domande. Vogliamo che tutti si divertano e siano a loro agio!",
+    label: "Cerca il tuo nome",
+    placeholder: "Cerca il tuo nome...",
+    no_found: "Nessun ospite trovato con questo nome...",
       multiple_guests_1: {
-        hi: "Ciao",
-        you: " Tu ",
+      hi: "Ciao ",
+      you: " voi, ",
         and: " e ",
-        are_invited:
-          ", siete calorosamente invitati a partecipare al nostro giorno speciale. Festeggiare con tutti voi lo renderà indimenticabile!",
+      are_invited: ", siete cordialmente invitati a unirvi a noi per questo giorno speciale. Festeggiarlo con tutti voi lo renderà indimenticabile!",
       },
-      multiple_guests_2:
-        "Seleziona chi parteciperà al matrimonio. Speriamo possiate venire tutti.",
+    multiple_guests_2: "Scegli chi parteciperà al matrimonio. Speriamo di vedervi tutti lì.",
       single_guest_1: {
         hi: "Ciao ",
-        are_invited:
-          " Con grande piacere, ti invitiamo a partecipare al nostro giorno speciale. La tua presenza lo renderà indimenticabile!",
+      are_invited: " sei cordialmente invitato a unirti a noi per questo giorno speciale. Festeggiarlo con te lo renderà indimenticabile!",
       },
       single_guest_2: "Parteciperai al matrimonio?",
-      answers: { yes: "Sì", no: "No", unknown: "Non lo so" },
-      note_placeholder: "Vuoi lasciare un messaggio?",
+    answers: { yes: "Sì", no: "No", unknown: "Non so ancora" },
+    note_placeholder: "Vuoi lasciarci un messaggio?",
       rsvp_success: {
         thanks: "Grazie!",
-        submitted: " La tua conferma è stata inviata.",
+      submitted: " La tua risposta è stata inviata.",
         change_by: [
-          "Ricorda che puoi cambiare la tua partecipazione entro il ",
-          { bold: true, text: "26 Maggio 2025" },
+        "Ricorda che puoi modificare la tua disponibilità fino al",
+        { bold: true, text: "1° aprile 2026" },
           ".",
         ],
       },
-      error_enter_name: "Per favore inserisci la tua risposta prima di inviare",
-      error_submitting: "Errore nell'invio della conferma. Per favore riprova.",
-      button: {
-        submit: "Conferma",
-        loading: "Un Momento...",
-      },
+    error_enter_name: "Inserisci la tua risposta prima di inviare.",
+    error_submitting: "Errore nell'invio. Riprova.",
+    button: { submit: "Invia RSVP", loading: "Caricamento..." },
     },
     registry_section: {
-      title: { main: "LISTA", sub: "Nozze" },
-      description_1:
-        "La vostra presenza al nostro matrimonio è davvero il regalo più grande che potremmo desiderare!",
-      description_2:
-        "Tuttavia, se desiderate onorarci con un regalo, vi saremmo immensamente grati per un contributo monetario che ci aiuti a costruire il nostro futuro insieme.",
-      description_3:
-        "In alternativa a fiori, liquori e altri regali materiali, saremmo felici di ricevere gratta e vinci o biglietti della lotteria come modo divertente ed emozionante per celebrare il nostro nuovo inizio.",
-      description_4:
-        "Chiediamo gentilmente ai nostri ospiti internazionali di considerare l’opzione di inviare il regalo tramite bonifico bancario. Per accedere ai nostri dati bancari, cliccate sul pulsante qui sotto e inserite la password indicata nell’invito. Come sempre, non esitate a contattarci direttamente se avete domande!",
-      button: "Accedi Dettagli Bancari",
-      thanks: "GRAZIE!",
-      error_from_api:
-        "Si è verificato un problema. Riprova più tardi o contattaci",
+    title: { main: "Regali", sub: "" },
+    description_1: "La tua presenza al nostro matrimonio è già un grande regalo, soprattutto da chi viene da lontano!",
+    description_2: "Tuttavia, se desideri farci un regalo, apprezzeremmo un contributo per la nostra luna di miele.",
+    description_3: "Ci permetterà di volare in Giappone e vivere l'esperienza appieno.",
+    description_4: "Sarà presente un'urna al ricevimento, se desideri contribuire.",
+    button: "",
+    thanks: "Grazie!",
+    error_from_api: "C'è un problema. Riprova più tardi o contattaci",
       error_incorrect_password: "Password errata",
       error_insert_password: "Inserisci la password",
       account_holder: "Beneficiario: ",
       iban: "IBAN: ",
-      bank_name: "Intestato a: ",
+    bank_name: "Banca: ",
       bic: "BIC / SWIFT: ",
-      sort_code: "Codice Sort: ",
-      account_number: "Numero di conto: ",
+    sort_code: "Codice filiale: ",
+    account_number: "Numero conto: ",
       eur: "Euro",
       gbp: "Sterlina",
-      pln: "Zloty",
+    pln: "Zloty polacco",
       toast_copied: "Copiato negli appunti",
-      toast_error: "Non è stato possibile copiare",
-      dialog_title: {
-        before: "Inserisci la password",
-        after: "La password è corretta",
-      },
+    toast_error: "Impossibile copiare",
+    dialog_title: { before: "Inserisci la password", after: "Password corretta" },
       placeholder: "Inserisci la password",
-      submit_button: { submit: "Invia", loading: "Verifica in corso..." },
+    submit_button: { submit: "Invia", loading: "Controllo..." },
       copy_all: "Copia tutto",
     },
     music_section: {
-      title: { main: "LA", sub: "Playlist" },
-      description:
-        "Aggiungi le tue canzoni preferite alla nostra playlist e aiutaci a creare la colonna sonora perfetta per il nostro matrimonio!",
-      placeholder: "Nome della canzone",
-      small_note:
-        "* Alcune canzoni non possono essere riprodotte qui, ma puoi comunque aggiungerle alla playlist.",
-      toast_success: {
-        title: "Canzone aggiunta alla playlist",
-        description: "Vuoi aggiungerne un'altra?",
-      },
-      toast_error: {
-        title: "Impossibile aggiungere la canzone alla playlist!",
-        description:
-          "Siamo spiacenti, ma qualcosa è andato storto da parte nostra. Per favore, riprova più tardi.",
-      },
+    title: { main: "LA NOSTRA", sub: "Playlist" },
+    description: "Aggiungi le tue canzoni preferite alla nostra playlist della festa! Selezioneremo le nostre preferite!",
+    placeholder: "Inserisci il nome della canzone",
+    small_note: "* Le canzoni non possono essere riprodotte sul sito, ma puoi comunque aggiungerle alla playlist.",
+    toast_success: { title: "Musica aggiunta alla playlist", description: "C'è un'altra canzone a cui pensi?" },
+    toast_error: { title: "Impossibile aggiungere la canzone", description: "Ci dispiace, si è verificato un errore. Riprova più tardi o contattaci." },
     },
-    footer: {
-      text_1: "Sito creato con ",
-      text_2: "da ",
-      text_3: "Fotografie da",
-    },
-    not_found: {
-      message: "La pagina che stai cercando non esiste.",
-      button: "Torna Indietro",
-    },
+  footer: { text_1: "Sito creato con ", text_2: "da ", text_3: "Foto di" },
+  not_found: { message: "La pagina che stai cercando non esiste.", button: "Torna indietro" },
   },
-
-  // PORTUGUÊS <---------------------------------------------------------------------------------------
+// PORTUGUESE <---------------------------------------------------------------------------------------
 pt: {
   couple: {
     her: "Anaïs",
@@ -601,167 +558,152 @@ pt: {
   info_section: {
     title: { main: "I", sub: "Detalhes" },
     details: {
-      when_where: "Quando e Onde",
+      when_where: "Quando & Onde",
       dates: [
-        { bold: true, text: "Datas: " },
-        "Sábado, 26 de Julho & Domingo, 27 de Julho de 2025",
+        { bold: true, text: "Data : " },
+        "Sábado, 13 de Junho de 2026.",
       ],
       location: [
-        { bold: true, text: "Local: " },
-        'Espaço "Przy Patykach", Kolonia Łobudzice 18c, 97-425',
+        { bold: true, text: "Local da cerimônia religiosa: " },
+        "Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.",
       ],
       button_loc: "VER LOCAL",
     },
     accommodations: {
-      title: "Hospedagem",
+      title: "Hotéis",
       description_1: [
-        "Para nossos convidados internacionais, oferecemos hospedagem no hotel do espaço nos dias: ",
-        { bold: true, text: "sexta-feira, 25 de julho, sábado, 26 de julho e domingo, 27 de julho." },
+        "Para os convidados que vêm de longe, há hotéis próximos. ",
+        { bold: true, text: "Aproveite para visitar o oeste de Lyon ou a própria Lyon." },
       ],
       breakfast: [
-        { bold: true, text: "Café da manhã" },
-        " está incluído e será servido das ",
-        { bold: true, text: "9:00 às 12:00" },
-        " todas as manhãs.",
+        { bold: true, text: "Hotel le Beaulieu" },
+        " 19 Av. Général de Gaulle, 69260 Charbonnières-les-Bains ",
+        { bold: true, text: "Pavillon de la Rotonde" },
+        " 3 Av. Georges Bassinet, 69260 Charbonnières-les-Bains ",
+        { bold: true, text: "Appart Hotel" },
+        " 80 Av. Marcel Mérieux, 69280 Marcy-l'Étoile ",
       ],
       checkout: [
-        { bold: true, text: "Check-out do Hotel/Apartamento:" },
-        " O check-out é na segunda-feira às 11:00. Por favor, faça o café da manhã antes.",
+        { bold: true, text: "Em caso de problemas" },
+        " não hesite em nos contatar. ",
       ],
     },
     travel_transport: {
-      title: "Transporte",
+      title: "Para a igreja",
       description_1: [
-        "Para nossos convidados internacionais, providenciaremos transporte do aeroporto para o espaço na sexta-feira, 25 de julho, e do espaço para o aeroporto na segunda-feira, 28 de julho.",
+        "Por favor, deixe vagas próximas à igreja para pessoas com mobilidade reduzida. Há estacionamento disponível:",
       ],
       description_2: [
-        { bold: true, text: "Antes de reservar sua viagem, entre em contato conosco informando o horário e o aeroporto que melhor se adequam à sua agenda. Organizaremos um transporte em grupo que atenda a maioria. Faça isso até 26 de maio de 2025." },
+        "No estacionamento da estação Tassin - 1 All. des Tilleuls, 69160 Tassin-la-Demi-Lune.",
       ],
       description_3: [
-        "Os aeroportos mais próximos são Aeroporto de Katowice (KTW), Aeroporto de Varsóvia Modlin (WMI) e Aeroporto de Varsóvia Chopin (WAW).",
+        "No estacionamento do cemitério - 12b Chem. de la Mansion, 69160 Tassin-la-Demi-Lune",
       ],
       description_4: [
-        "Faremos o nosso melhor para acomodar todos. Se você não puder chegar/partir no mesmo dia/horário que os demais, ajudaremos a organizar outro transporte.",
+        "Na farmácia - 2 Rue Professeur Deperet, 69160 Tassin-la-Demi-Lune",
       ],
       transport_details: {
         arrival: {
-          title: "Sexta-feira, 25 de julho",
+          title: "A cerimônia começa às 16:00",
           desc1: [
-            { bold: true, text: "Aeroporto de Varsóvia (WAW):" },
-            " O ônibus sai por volta das 19:30 - Anaïs estará aguardando na chegada.",
+            { bold: true, text: "Chegue pelo menos 15 minutos ANTES" },
+            " ou você fará parte da entrada de honra!",
           ],
           desc2: [
-            { bold: true, text: "Aeroporto de Katowice:" },
-            " O ônibus sai por volta das 17:00 - Louis estará aguardando na chegada.",
+            { bold: true, text: "A cerimônia durará cerca de 30 minutos. " },
+            "Faremos algumas fotos no final antes de ir para a recepção.",
           ],
         },
         departure: {
-          title: "Segunda-feira, 28 de julho",
+          title: "O coquetel/aperitivo começará por volta das 17:00",
           desc1: [
-            { bold: true, text: "" },
-            " Os ônibus para ambos os aeroportos partem às 12:00",
+            { bold: true, text: "O estacionamento do Chateau de la Croix Laval é grande o suficiente para todos os convidados." },
+            " O estacionamento não é vigiado, então não deixe objetos de valor no carro; haverá guarda-volumes na recepção.",
           ],
         },
       },
     },
     contact: {
       title: "Contate-nos",
-      // Email added on the front end
-      // numbers added on the front end
+      // Email e números adicionados no front-end
     },
   },
   rsvp_section: {
     top_title: "RSVP",
-    title: { main: "Confirme sua", sub: "Presença" },
+    title: { main: "Confirme", sub: "Presença" },
     description_1: [
-      { bold: true, text: "Por favor, confirme sua presença até 26 de maio de 2025!" },
-      " Basta digitar seu nome no formulário e confirmar sua presença.",
+      { bold: true, text: "Responda até 1º de abril! Caso contrário, traga um sanduíche!" },
+      " Procure seu nome no formulário e responda ao nosso convite.",
     ],
-    description_2: "Deixe-nos uma mensagem se tiver pedidos especiais, restrições alimentares ou qualquer outra coisa que queira discutir. Queremos garantir que todos estejam confortáveis e se divirtam!",
-    label: "Procure seu nome na lista de convidados",
-    placeholder: "Digite seu nome",
-    no_found: "Nenhum convidado encontrado com este nome",
+    description_2: "Deixe-nos uma mensagem sobre dieta especial ou intolerância, ou se tiver dúvidas. Queremos que todos se divirtam e se sintam confortáveis!",
+    label: "Procure seu nome",
+    placeholder: "Procure seu nome...",
+    no_found: "Nenhum convidado encontrado com esse nome...",
     multiple_guests_1: {
-      hi: "Oi ",
-      you: "! Você, ",
+      hi: "Olá ",
+      you: " vocês, ",
       and: " e ",
-      are_invited: ", estão calorosamente convidados para nosso dia especial. Celebrar com vocês será inesquecível!",
+      are_invited: ", estão cordialmente convidados a se juntar a nós neste dia especial. Celebrar com vocês tornará tudo inesquecível!",
     },
-    multiple_guests_2: "Selecione quem participará do casamento. Esperamos que todos possam comparecer.",
+    multiple_guests_2: "Escolha quem participará do casamento. Esperamos ver todos lá.",
     single_guest_1: {
-      hi: "Oi ",
-      are_invited: " você está calorosamente convidado para nosso dia especial. Celebrar com você será inesquecível!",
+      hi: "Olá ",
+      are_invited: ", você está cordialmente convidado a se juntar a nós neste dia especial. Celebrar com você tornará tudo inesquecível!",
     },
-    single_guest_2: "Você vai participar do casamento?",
+    single_guest_2: "Você participará do casamento?",
     answers: { yes: "Sim", no: "Não", unknown: "Ainda não sei" },
-    note_placeholder: "Deseja deixar uma mensagem?",
+    note_placeholder: "Quer nos deixar uma mensagem?",
     rsvp_success: {
       thanks: "Obrigado!",
-      submitted: " Sua confirmação foi enviada.",
+      submitted: " Sua resposta foi enviada.",
       change_by: [
-        "Lembre-se que você pode alterar sua presença a qualquer momento até ",
-        { bold: true, text: "26 de maio de 2025" },
+        "Lembre-se que você pode alterar sua disponibilidade até",
+        { bold: true, text: "1º de abril de 2026" },
         ".",
       ],
     },
-    error_enter_name: "Por favor, insira sua resposta antes de enviar",
-    error_submitting: "Erro ao enviar RSVP. Por favor, tente novamente.",
-    button: {
-      submit: "Enviar RSVP",
-      loading: "Carregando...",
-    },
+    error_enter_name: "Insira sua resposta antes de enviar.",
+    error_submitting: "Erro ao enviar. Tente novamente.",
+    button: { submit: "Enviar RSVP", loading: "Carregando..." },
   },
   registry_section: {
-    title: { main: "LISTA", sub: "de Presentes" },
-    description_1: "Sua presença no nosso casamento é o maior presente que poderíamos desejar!",
-    description_2: "No entanto, se desejar nos presentear, apreciaríamos uma contribuição monetária para construir nosso futuro juntos.",
-    description_3: "Em vez de flores, bebidas e outros presentes físicos, adoraríamos receber raspadinhas ou bilhetes de loteria como forma divertida de celebrar nosso novo começo.",
-    description_4: "Pedimos gentilmente aos nossos convidados internacionais que considerem enviar o presente via transferência bancária. Para acessar nossos dados bancários, clique no botão abaixo e insira a senha do convite. Como sempre, entre em contato diretamente se tiver dúvidas!",
-    button: "Acessar Dados Bancários",
-    thanks: "OBRIGADO!",
-    error_from_api: "Houve um problema. Tente novamente mais tarde ou entre em contato conosco",
+    title: { main: "Presentes", sub: "" },
+    description_1: "Sua presença no nosso casamento já é um grande presente, especialmente para quem vem de longe!",
+    description_2: "No entanto, se desejar nos presentear, apreciaríamos uma contribuição para nossa lua de mel.",
+    description_3: "Isso nos permitirá viajar ao Japão e aproveitar a experiência ao máximo.",
+    description_4: "Haverá uma urna na recepção caso queira contribuir.",
+    button: "",
+    thanks: "Obrigado!",
+    error_from_api: "Há um problema. Tente novamente mais tarde ou nos contate",
     error_incorrect_password: "Senha incorreta",
     error_insert_password: "Insira a senha",
     account_holder: "Beneficiário: ",
     iban: "IBAN: ",
     bank_name: "Banco: ",
     bic: "BIC / SWIFT: ",
-    sort_code: "Código Sort: ",
-    account_number: "Número da Conta: ",
+    sort_code: "Código da agência: ",
+    account_number: "Número da conta: ",
     eur: "Euro",
     gbp: "Libra",
-    pln: "Zloty",
+    pln: "Zloty Polonês",
     toast_copied: "Copiado para a área de transferência",
     toast_error: "Não foi possível copiar",
     dialog_title: { before: "Insira a senha", after: "Senha correta" },
     placeholder: "Insira a senha",
     submit_button: { submit: "Enviar", loading: "Verificando..." },
-    copy_all: "Copiar Tudo",
+    copy_all: "Copiar tudo",
   },
   music_section: {
     title: { main: "NOSSA", sub: "Playlist" },
-    description: "Adicione suas músicas favoritas à nossa playlist e nos ajude a criar a trilha sonora perfeita para nosso casamento!",
+    description: "Adicione suas músicas favoritas à nossa playlist da festa! Selecionaremos nossas preferidas!",
     placeholder: "Digite o nome da música",
-    small_note: "* Algumas músicas não podem ser reproduzidas aqui, mas você ainda pode adicioná-las à playlist.",
-    toast_success: {
-      title: "Música adicionada à playlist",
-      description: "Deseja adicionar outra música?",
-    },
-    toast_error: {
-      title: "Não foi possível adicionar a música",
-      description: "Desculpe, algo deu errado. Por favor, tente novamente mais tarde.",
-    },
+    small_note: "* As músicas não podem ser reproduzidas no site, mas você ainda pode adicioná-las à playlist.",
+    toast_success: { title: "Música adicionada à playlist", description: "Tem outra música em mente?" },
+    toast_error: { title: "Não foi possível adicionar a música", description: "Desculpe, ocorreu um erro. Tente novamente mais tarde ou nos contate." },
   },
-  footer: {
-    text_1: "Site criado com ",
-    text_2: "por ",
-    text_3: "Fotos por",
-  },
-  not_found: {
-    message: "A página que você procura não existe.",
-    button: "Voltar",
-  },
+  footer: { text_1: "Site criado com ", text_2: "por ", text_3: "Fotos de" },
+  not_found: { message: "A página que você procura não existe.", button: "Voltar" },
 },
-}
+};
 
 export default translations;
