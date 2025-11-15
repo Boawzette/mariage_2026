@@ -15,10 +15,10 @@ const translations = {
       footer_him: "Louis",
     },
     navbar: {
-      welcome: "Bienvenu",
-      save_the_date: "Notez la date",
+      welcome: "Bienvenue",
+      save_the_date: "Notez bien la date",
       schedule: "Organisation",
-      info: "Details",
+      info: "Détails",
       rsvp: "Réponses",
       registry: "Cadeaux",
       music: "Playlist de la soirée",
@@ -32,17 +32,17 @@ const translations = {
       minutes: "Minutes",
       minute: "Minute",
       seconds: "Secondes",
-      second: "seconde",
+      second: "Seconde",
       button: "Notez la date",
     },
     saveTheDate_section: {
-      title: "SAVE",
-      title_cursive: "The Date",
-      date: "26th of July 2025",
-      place: "in Kolonia Łobudzice, Poland",
+      title: "Notez",
+      title_cursive: "La Date",
+      date: "13 Juin 2026",
+      place: "à Charbonnière-les-Bains, France",
       story_1: "On se rencontre",
       story_2: "On se fiance",
-      story_3_future: "On se marrie",
+      story_3_future: "On se marie",
       story_3_past: "On s'est marié",
     },
     schedule_section: {
@@ -53,59 +53,43 @@ const translations = {
       description:
         "Le mariage prendra place le samedi 13 juin 2026.",
       day_1: {
-        title: "Day 1",
+        title: "Cérémonie",
         events: {
           ceremony: {
-            time: "4h00",
+            time: "16h00",
             title: "Ceremonie à l'église",
           },
-          dinner: {
-            time: "5h00",
-            title: "Cocktail dinatoire",
-          },
-          dance: {
-            time: "6h00",
-            title: "Première dance",
-          },
           photo: {
-            time: "8h00 h 11:00",
+            time: "16h30",
             title: "Photos",
           },
-          pig: {
-            time: "12h00",
-            title: "Plat spécial",
+        },
+      },
+      day_2: {
+        title: "Réception",
+        events: {
+          party_continues: {
+            time: "17h00",
+            title: "Cocktail dinatoire & Vin d'honneur",
+          },
+          dance: {
+            time: "19h00",
+            title: "Jeter de bouquet et de saucissons",
+          },
+          photo: {
+            time: "17h00 à 20h00",
+            title: "Photos",
           },
           cake_cutting: {
-            time: "22h30",
+            time: "23h00",
             title: "Desserts",
-          },
-          games: {
-            time: "12h30",
-            title: "Jeux de soirée",
           },
           party: {
             time: "Toute la nuit",
             title: "Mangez, Buvez, Dancez, on repeat!",
           },
-        },
-      },
-      day_2: {
-        title: "Jour 2",
-        events: {
-          after: {
-            time: "3h00",
-            title: "After Party Starts",
-          },
-          vespa: {
-            time: "3:00 - 8:00 PM",
-            title: "Vespa Bar",
-          },
-          party_continues: {
-            time: "All Day",
-            title: "Eat, Drink, Dance, Repeat!",
-          },
           end: {
-            time: "9:00 PM",
+            time: "4h00",
             title: "The End",
           },
         },
@@ -114,7 +98,7 @@ const translations = {
     info_section: {
       title: {
         main: "LES",
-        sub: "Détails",
+        sub: "DétaAils",
       },
       details: {
         when_where: "Quand & Où",
