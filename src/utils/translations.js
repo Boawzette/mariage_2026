@@ -48,7 +48,7 @@ const translations = {
     schedule_section: {
       title: {
         main: "Mariage",
-        sub: "Organisation",
+        sub: "Organisation" 
       },
       description:
         "Le mariage prendra place le samedi 13 juin 2026.",
@@ -57,36 +57,10 @@ const translations = {
         events: {
           ceremony: {
             time: "16h00",
-            title: "Cérémonie à l'église",
-          },
-          dinner: {
-            time: "5h00",
-            title: "Cocktail dinatoire",
-          },
-          dance: {
-            time: "6h00",
-            title: "Première dance",
-          },
+            title: "Cérémonie à l'église" },
           photo: {
             time: "16h30",
-            title: "Photos",
-          },
-          pig: {
-            time: "12h00",
-            title: "Plat spécial",
-          },
-          cake_cutting: {
-            time: "22h30",
-            title: "Desserts",
-          },
-          games: {
-            time: "12h30",
-            title: "Jeux de soirée",
-          },
-          party: {
-            time: "Toute la nuit",
-            title: "Mangez, Buvez, Dancez, on repeat!",
-          },
+            title: "Photos" },
         },
       },
       day_2: {
@@ -94,21 +68,25 @@ const translations = {
         events: {
           party_continues: {
             time: "17h00",
-            title: "Cocktail dinatoire & Vin d'honneur",
-          },
-          after: {
-            time: "3h00",
-            title: "After Party Starts",
-          },
-          vespa: {
-            time: "3:00 - 8:00 PM",
-            title: "Vespa Bar",
-          },
-
+            title: "Cocktail dinatoire & Vin d'honneur" },
+          dance: { 
+            time: "19h00", 
+            title: "Jeter de bouquet et de saucissons" },
+          photo: { 
+            time: "17h00 à 20h00", 
+            title: "Photos" },
+          dinner: { 
+            time: "20h00", 
+            title: "Dinner" },
+          cake_cutting: { 
+            time: "23h00", 
+            title: "Desserts" },
+          party: {
+             time: "Toute la nuit", 
+             title: "Mangez, Buvez, Dansez, on repeat !" },
           end: {
             time: "4h00",
-            title: "The End",
-          },
+            title: "The End" },
         },
       },
     },
@@ -291,7 +269,7 @@ const translations = {
       toast_error: {
         title: "Impossible d'ajouter la chanson",
         description:
-          "Nous sommes désolés une erreur est apparue de notre côté. Essayez plus tard ou contactez-nous.",
+        "Nous sommes désolés, une erreur est apparue de notre côté. Essayez plus tard ou contactez-nous." 
       },
     },
     footer: {
