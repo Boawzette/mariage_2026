@@ -925,6 +925,6 @@ pt: {
   footer: { text_1: "Site criado com ", text_2: "por ", text_3: "Fotos de" },
   not_found: { message: "A página que você procura não existe.", button: "Voltar" },
     }
-  },
+  }
 
   export default translations;
