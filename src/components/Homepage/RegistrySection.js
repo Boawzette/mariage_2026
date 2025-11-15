@@ -1,129 +1,41 @@
 /**
  * @file RegistrySection.js
- * @description This component handles the Registry section of the wedding website, allowing guests to unlock a dialog via a password. Admin can use a different password that redirects to the admin panel.
- * @author Emanuele Sgroi
- * @date 19 October 2024
+ * @description Simplified version without button, dialog or password.
  */
 
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import images from "@/utils/imagesImport";
 import Image from "next/image";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import translations from "@/utils/translations";
 
 const RegistrySection = ({ language }) => {
-  // Destructure translation strings
   const {
     title,
     description_1,
     description_2,
     description_3,
     description_4,
-    button,
     thanks,
-    error_incorrect_password,
-    error_insert_password,
-    dialog_title,
-    placeholder,
-    submit_button,
   } = translations[language].registry_section;
 
-  // States
-  const [password, setPassword] = useState("");
-  const [viewPassword, setViewPassword] = useState(false);
-  const [isValid, setIsValid] = useState(null); // null means no attempt yet
-  const [loading, setLoading] = useState(false);
-  const [errorText, setErrorText] = useState(""); 
-  const { toast } = useToast(); 
-  const dialogRef = useRef(null); 
-
-  // Animation variants
+  // Animations
   const primaryVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
+
   const secondaryVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.5, delay: 0.1 } },
   };
 
-  // Dialog scroll adjustment
-  const handleInputFocus = () => {
-    if (dialogRef.current) {
-      dialogRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  // Dashed line render
-  const dashedLine = Array(3).fill().map((_, index) => (
-    <div key={index} className="w-[2px] h-[5px] my-[3px] bg-gold" />
-  ));
-
-  // Password submit handler
-  const handlePasswordSubmit = async (event) => {
-    event.preventDefault();
-
-    if (password.length === 0) {
-      setErrorText(error_insert_password);
-      setLoading(false);
-      setIsValid(null);
-      return;
-    }
-
-    setLoading(true);
-
-    if (password === process.env.NEXT_PUBLIC_ADMIN_ACCESS_PASSWORD) {
-      window.open("/admin", "_blank");
-      setLoading(false);
-      setIsValid(false);
-      setErrorText(error_incorrect_password);
-      return;
-    }
-
-    try {
-      const response = await fetch("/api/check-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        setIsValid(true);
-        setErrorText("");
-      } else {
-        setIsValid(false);
-        setErrorText(error_incorrect_password);
-      }
-    } catch (error) {
-      setIsValid(false);
-      setErrorText(error_incorrect_password);
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Effect to handle input focus (mobile)
-  useEffect(() => {
-    const inputElements = document.querySelectorAll("input");
-    inputElements.forEach((input) => input.addEventListener("focus", handleInputFocus));
-    return () => {
-      inputElements.forEach((input) => input.removeEventListener("focus", handleInputFocus));
-    };
-  }, []);
+  // Dashed line
+  const dashedLine = Array(3)
+    .fill()
+    .map((_, index) => (
+      <div key={index} className="w-[2px] h-[5px] my-[3px] bg-gold" />
+    ));
 
   return (
     <section
@@ -146,19 +58,21 @@ const RegistrySection = ({ language }) => {
           quality={100}
           className="mb-4 w-[90px] h-auto brightness-95"
         />
+
         <div className="flex flex-col justify-center items-center">
-          <h3 translate="no" className="text-white font-bold z-20 ">
+          <h3 translate="no" className="text-white font-bold z-20">
             {title.main}
           </h3>
           <h3
             translate="no"
-            className="text-gold text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-8 md:-mt-10"
+            className="text-gold text-6xl sm:text-8xl alex-brush z-10 font-light -mt-8 md:-mt-10"
           >
             {title.sub}
           </h3>
         </div>
       </motion.div>
 
+      {/* Text */}
       <div className="relative w-full max-w-[700px] text-white text-center flex flex-col items-center z-10">
         <motion.p
           initial="hidden"
@@ -170,7 +84,9 @@ const RegistrySection = ({ language }) => {
         >
           {description_1}
         </motion.p>
+
         {dashedLine}
+
         <motion.p
           initial="hidden"
           whileInView="visible"
@@ -181,7 +97,9 @@ const RegistrySection = ({ language }) => {
         >
           {description_2}
         </motion.p>
+
         {dashedLine}
+
         <motion.p
           initial="hidden"
           whileInView="visible"
@@ -192,7 +110,9 @@ const RegistrySection = ({ language }) => {
         >
           {description_3}
         </motion.p>
+
         {dashedLine}
+
         <motion.p
           initial="hidden"
           whileInView="visible"
@@ -204,79 +124,7 @@ const RegistrySection = ({ language }) => {
           {description_4}
         </motion.p>
 
-        {/* Dialog */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={secondaryVariants}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <Dialog>
-            <DialogTrigger
-              translate="no"
-              className="bg-transparent text-gold border border-gold px-3 py-2 rounded-full mt-6 transition-all duration-300 hover:bg-gold hover:text-white"
-            >
-              {button}
-            </DialogTrigger>
-            <DialogContent
-              ref={dialogRef}
-              className="max-h-[90vh] sm:max-w-[580px] max-sm:w-[95%] max-sm:p-2 max-sm:rounded-md"
-            >
-              <DialogHeader>
-                <DialogTitle translate="no" className="text-[22px] md:text-3xl font-bold">
-                  {!isValid ? dialog_title.before : dialog_title.after}
-                </DialogTitle>
-                <DialogDescription className="flex flex-col items-center">
-                  {!isValid && (
-                    <form
-                      onSubmit={handlePasswordSubmit}
-                      className="w-full flex flex-col items-center"
-                    >
-                      <div className="w-full h-[42px] mb-4 flex border py-0 pl-0 pr-2 rounded-lg">
-                        <Input
-                          translate="no"
-                          autoComplete="off"
-                          autoCorrect="off"
-                          spellCheck="false"
-                          type={viewPassword ? "text" : "password"}
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                          placeholder={placeholder}
-                          className="font-serif mb-4 focus:outline-none focus:ring-0 text-lg border-none"
-                        />
-                        <button
-                          type="button"
-                          translate="no"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setViewPassword(!viewPassword);
-                          }}
-                          className="active:bg-zinc-200 rounded-full"
-                        >
-                          {viewPassword ? <FaRegEye size={20} /> : <FaRegEyeSlash size={20} />}
-                        </button>
-                      </div>
-                      <Button
-                        translate="no"
-                        type="submit"
-                        disabled={loading}
-                        className="bg-[#233d74] hover:bg-gold text-lg w-fit"
-                      >
-                        {loading ? submit_button.loading : submit_button.submit}
-                      </Button>
-                      {isValid === false && errorText.length > 0 && (
-                        <span translate="no" className="text-red-500 mt-2 text-lg">
-                          {errorText}
-                        </span>
-                      )}
-                    </form>
-                  )}
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-        </motion.div>
-
+        {/* Divider */}
         <Image
           src={images.divider}
           alt="divider"
@@ -286,6 +134,7 @@ const RegistrySection = ({ language }) => {
           className="w-[160px] h-auto mt-12 mb-8"
         />
 
+        {/* Thanks */}
         <motion.h3
           initial="hidden"
           whileInView="visible"
@@ -298,13 +147,14 @@ const RegistrySection = ({ language }) => {
         </motion.h3>
       </div>
 
+      {/* Decorative line art */}
       <Image
         src={images.la2}
         alt="Line art 1"
         width={650}
         height={0}
         quality={100}
-        className="max-md:hidden absolute w-[250px] md:w-[350px] lg:w-[450px] top-24 xl:top-72 right-0 xl:right-16 z-0 opacity-30 transform rotate-[45deg]"
+        className="max-md:hidden absolute w-[250px] md:w-[350px] lg:w-[450px] top-24 xl:top-72 right-0 xl:right-16 z-0 opacity-30 rotate-[45deg]"
       />
       <Image
         src={images.la3}
@@ -312,7 +162,7 @@ const RegistrySection = ({ language }) => {
         width={650}
         height={0}
         quality={100}
-        className="max-md:hidden w-[250px] md:w-[350px] lg:w-[450px] absolute bottom-20 xl:bottom-32 left-0 z-0 opacity-30 transform scale-x-[-1] rotate-[45deg]"
+        className="max-md:hidden w-[250px] md:w-[350px] lg:w-[450px] absolute bottom-20 xl:bottom-32 left-0 z-0 opacity-30 scale-x-[-1] rotate-[45deg]"
       />
     </section>
   );
