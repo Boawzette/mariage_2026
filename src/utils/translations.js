@@ -187,9 +187,10 @@ const translations = {
         { bold: true, text: "Répondez avant le 1er avril s'il vous plaît ! Sinon venez avec un sandwich !" },
         " Cherchez votre nom dans le formulaire et répondez à notre invitation.",
       ],
-      description_2:
-        "Laissez-nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question. On souhaiterait que tout le monde passe un bon moment et soit à l'aise !",
-      label: "Cherchez votre nom",
+      description_2: [
+        "Laissez-nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question. On souhaiterait que tout le monde passe un bon moment et soit à l'aise !"
+      ],
+      abel: "Cherchez votre nom",
       placeholder: "Cherchez votre nom...",
       no_found: "Pas d'invité trouvé avec ce nom...",
       multiple_guests_1: {
