@@ -345,7 +345,7 @@ const translations = {
         party_continues: { time: "17:00", title: "Cocktail & Aperitivo" },
         dance: { time: "19:00", title: "Lanciatore del bouquet e dei salumi" },
         photo: { time: "17:00-20:00", title: "Foto" },
-        dinner2: { time: "20:00", title: "Cena" },
+        dinner: { time: "20:00", title: "Cena" },
         cake_cutting: { time: "23:00", title: "Dolci" },
         party: { time: "Tutta la notte", title: "Mangiate, Bevete, Ballate, repeat!" },
         end: { time: "4:00", title: "Fine" },
