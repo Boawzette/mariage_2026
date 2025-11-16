@@ -24,7 +24,7 @@ const InfoSection = ({ language }) => {
 
   // --- 🔥 Fonction utilitaire de rendu factorisé ---
   const renderTextArray = (arr, lineBreak = false) => {
-    return arr?.map((item, index) =>
+    return (arr || []).map((item, index) =>
       typeof item === "string" ? (
         <span key={index}>
           {item}
@@ -62,13 +62,13 @@ const InfoSection = ({ language }) => {
         />
         <div className="flex justify-center items-start">
           <h3 translate="no" className="font-bold z-20 -mr-8">
-            {title.main}
+            {title?.main}
           </h3>
           <h3
             translate="no"
             className="text-gold text-6xl sm:text-8xl alex-brush font-light"
           >
-            {title.sub}
+            {title?.sub}
           </h3>
         </div>
       </motion.div>
@@ -79,12 +79,12 @@ const InfoSection = ({ language }) => {
       >
         {/* Top detail */}
         <div className="flex flex-col justify-center items-center">
-          <h5 className="mb-4">{details.when_where}</h5>
+          <h5 className="mb-4">{details?.when_where}</h5>
 
-          <p>{renderTextArray(details.dates)}</p>
+          <p>{renderTextArray(details?.dates)}</p>
 
           {/* Ceremony Location */}
-          <p className="mt-[-16px]">{renderTextArray(details.location)}</p>
+          <p className="mt-[-16px]">{renderTextArray(details?.location)}</p>
 
           <Link
             href="https://maps.app.goo.gl/Dks6L2cjrELejWtZ6"
@@ -92,14 +92,14 @@ const InfoSection = ({ language }) => {
             className="flex justify-center items-center gap-1 border border-gold rounded-lg px-2 py-1 mt-2 font-light text-sm"
           >
             <Image src={images.location} alt="Location" width={25} height={25} />
-            {details.button_loc}
+            {details?.button_loc}
           </Link>
 
           {/* Reception Location */}
-          {details.location_reception && (
+          {details?.location_reception && (
             <>
               <p className="mt-3">
-                {renderTextArray(details.location_reception, true)}
+                {renderTextArray(details?.location_reception, true)}
               </p>
 
               <Link
@@ -113,7 +113,7 @@ const InfoSection = ({ language }) => {
                   width={25}
                   height={25}
                 />
-                {details.button_loc_reception}
+                {details?.button_loc_reception}
               </Link>
             </>
           )}
@@ -123,19 +123,18 @@ const InfoSection = ({ language }) => {
 
         {/* Middle details */}
         <div className="w-full flex flex-col md:flex-row md:justify-evenly max-md:items-center gap-8 md:gap-20">
-          
           {/* Left — accommodations */}
           <div className="w-full md:w-1/2 max-w-[700px] flex flex-col items-center text-center">
-            <h5 className="mb-4">{accommodations.title}</h5>
+            <h5 className="mb-4">{accommodations?.title}</h5>
 
-            <p>{renderTextArray(accommodations.description_1)}</p>
+            <p>{renderTextArray(accommodations?.description_1)}</p>
 
             <p className="mt-3">
-              {renderTextArray(accommodations.breakfast, true)}
+              {renderTextArray(accommodations?.breakfast, true)}
             </p>
 
             <p className="mt-3">
-              {renderTextArray(accommodations.checkout)}
+              {renderTextArray(accommodations?.checkout)}
             </p>
           </div>
 
@@ -143,56 +142,41 @@ const InfoSection = ({ language }) => {
 
           {/* Right — travel transport */}
           <div className="w-full md:w-1/2 max-w-[700px] flex flex-col items-center text-center">
-            <h5 className="mb-4">{travel_transport.title}</h5>
+            <h5 className="mb-4">{travel_transport?.title}</h5>
 
             {/* Descriptions */}
-            <p>{renderTextArray(travel_transport.description_1)}</p>
-
-            {travel_transport.description_2 && (
-              <p>{renderTextArray(travel_transport.description_2)}</p>
-            )}
-
-            {travel_transport.description_3 && (
-              <p>{renderTextArray(travel_transport.description_3)}</p>
-            )}
-
-            {travel_transport.description_4 && (
-              <p>{renderTextArray(travel_transport.description_4)}</p>
-            )}
+            <p>{renderTextArray(travel_transport?.description_1)}</p>
+            <p>{renderTextArray(travel_transport?.description_2)}</p>
+            <p>{renderTextArray(travel_transport?.description_3)}</p>
+            <p>{renderTextArray(travel_transport?.description_4)}</p>
 
             {/* Arrival */}
             <p className="font-bold mb-1">
-              {travel_transport.transport_details.arrival.title}
+              {travel_transport?.transport_details?.arrival?.title}
             </p>
 
             <p className="mb-1">
-              {renderTextArray(
-                travel_transport.transport_details.arrival.desc1
-              )}
+              {renderTextArray(travel_transport?.transport_details?.arrival?.desc1)}
             </p>
 
             <p>
-              {renderTextArray(
-                travel_transport.transport_details.arrival.desc2
-              )}
+              {renderTextArray(travel_transport?.transport_details?.arrival?.desc2)}
             </p>
 
             {/* Departure */}
             <p className="font-bold mb-1 mt-2">
-              {travel_transport.transport_details.departure.title}
+              {travel_transport?.transport_details?.departure?.title}
             </p>
 
             <p>
-              {renderTextArray(
-                travel_transport.transport_details.departure.desc1
-              )}
+              {renderTextArray(travel_transport?.transport_details?.departure?.desc1)}
             </p>
           </div>
         </div>
 
         {/* Contact */}
         <div className="max-w-[700px] flex flex-col justify-center items-center">
-          <h5 className="mb-4">{contact.title}</h5>
+          <h5 className="mb-4">{contact?.title}</h5>
 
           <p>
             <span className="font-bold">Email: </span>{" "}
