@@ -5,7 +5,7 @@
 [Live Demo](https://emanuelekarolina.vercel.app/)
 
 ---  
-
+ 
 ## Technologies Used
 
 - Next.js
