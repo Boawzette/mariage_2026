@@ -22,6 +22,23 @@ const InfoSection = ({ language }) => {
   const herNumber = process.env.NEXT_PUBLIC_K_NUM || "";
   const hisNumberUk = process.env.NEXT_PUBLIC_E_NUM_UK || "";
 
+  // --- 🔥 Fonction utilitaire de rendu factorisé ---
+  const renderTextArray = (arr, lineBreak = false) => {
+    return arr.map((item, index) =>
+      typeof item === "string" ? (
+        <span key={index}>
+          {item}
+          {lineBreak && <br />}
+        </span>
+      ) : (
+        <span key={index} className="font-bold">
+          {item.text}
+          {lineBreak && <br />}
+        </span>
+      )
+    );
+  };
+
   return (
     <section
       id="info-section"
@@ -64,30 +81,10 @@ const InfoSection = ({ language }) => {
         <div className="flex flex-col justify-center items-center">
           <h5 className="mb-4">{details.when_where}</h5>
 
-          <p>
-            {details.dates.map((item, index) =>
-              typeof item === "string" ? (
-                item
-              ) : (
-                <span key={index} className="font-bold">
-                  {item.text}
-                </span>
-              )
-            )}
-          </p>
+          <p>{renderTextArray(details.dates)}</p>
 
           {/* Ceremony Location */}
-          <p className="mt-[-16px]">
-            {details.location.map((item, index) =>
-              typeof item === "string" ? (
-                <span key={index}>{item}</span>
-              ) : (
-                <span key={index} className="font-bold">
-                  {item.text}
-                </span>
-              )
-            )}
-          </p>
+          <p className="mt-[-16px]">{renderTextArray(details.location)}</p>
 
           <Link
             href="https://maps.app.goo.gl/Dks6L2cjrELejWtZ6"
@@ -98,23 +95,10 @@ const InfoSection = ({ language }) => {
             {details.button_loc}
           </Link>
 
-          {/* NEW — Reception Location */}
           {/* Reception Location */}
           {details.location_reception && (
             <>
-              <p className="mt-3">
-                {details.location_reception.map((item, index) =>
-                  typeof item === "string" ? (
-                    <span key={index}>{item}</span>
-                    <span key={index}>{item}<br /></span>
-                  ) : (
-                    <span key={index} className="font-bold">
-                      {item.text}
-                      <br />
-                    </span>
-                  )
-                )}
-              </p>
+              <p className="mt-3">{renderTextArray(details.location_reception, true)}</p>
 
               <Link
                 href="https://maps.app.goo.gl/vLYTxx8TgUNxWVA78"
@@ -137,110 +121,41 @@ const InfoSection = ({ language }) => {
 
         {/* Middle details */}
         <div className="w-full flex flex-col md:flex-row md:justify-evenly max-md:items-center gap-8 md:gap-20">
-          {/* Left */}
+          {/* Left — accommodations */}
           <div className="w-full md:w-1/2 max-w-[700px] flex flex-col items-center text-center">
             <h5 className="mb-4">{accommodations.title}</h5>
 
-            <p>
-              {accommodations.description_1.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
+            <p>{renderTextArray(accommodations.description_1)}</p>
 
-            <p className="mt-3">
-              {accommodations.breakfast.map((item, index) =>
-                typeof item === "string" ? (
-                  <span key={index}>
-                    {item}
-                    <br />
-                  </span>
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                    <br />
-                  </span>
-                )
-              )}
-            </p>
+            <p className="mt-3">{renderTextArray(accommodations.breakfast, true)}</p>
 
-            <p className="mt-3">
-              {accommodations.checkout.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
+            <p className="mt-3">{renderTextArray(accommodations.checkout)}</p>
           </div>
 
           <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
 
-          {/* Right */}
           {/* Right — travel transport */}
           <div className="w-full md:w-1/2 max-w-[700px] flex flex-col items-center text-center">
             <h5 className="mb-4">{travel_transport.title}</h5>
 
-            {/* Description générale */}
-            <p>
-              {travel_transport.description_1.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
-            <p>
-              {travel_transport.description_2.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
-            <p>
-              {travel_transport.description_3.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
-            <p>
-              {travel_transport.description_4.map((item, index) =>
+            {/* Descriptions */}
+            <p>{renderTextArray(travel_transport.description_1)}</p>
+            {travel_transport.description_2 && (
+              <p>{renderTextArray(travel_transport.description_2)}</p>
+            )}
+            {travel_transport.description_3 && (
+              <p>{renderTextArray(travel_transport.description_3)}</p>
+            )}
+            {travel_transport.description_4 && (
+              <p>{renderTextArray(travel_transport.description_4)}</p>
+            )}
 
-            {/* Parkings / Lieux avec gras + retour à la ligne */}
-            <p className="mt-3">
-              {travel_transport.parkings.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                  <span key={index}>- {item}<br /></span>
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                    - {item.text}
-                    <br />
-                  </span>
-                )
-              )}
-            </p>
+            {/* Parkings */}
+            {travel_transport.parkings && (
+              <p className="mt-3">
+                {renderTextArray(travel_transport.parkings, true)}
+              </p>
+            )}
 
             {/* Transport details */}
             <p className="font-bold mb-1">
@@ -248,28 +163,14 @@ const InfoSection = ({ language }) => {
             </p>
 
             <p className="mb-1">
-              {travel_transport.transport_details.arrival.desc1.map(
-                (item, index) =>
-                  typeof item === "string" ? (
-                    item
-                  ) : (
-                    <span key={index} className="font-bold">
-                      {item.text}
-                    </span>
-                  )
+              {renderTextArray(
+                travel_transport.transport_details.arrival.desc1
               )}
             </p>
 
             <p>
-              {travel_transport.transport_details.arrival.desc2.map(
-                (item, index) =>
-                  typeof item === "string" ? (
-                    item
-                  ) : (
-                    <span key={index} className="font-bold">
-                      {item.text}
-                    </span>
-                  )
+              {renderTextArray(
+                travel_transport.transport_details.arrival.desc2
               )}
             </p>
 
@@ -278,15 +179,8 @@ const InfoSection = ({ language }) => {
             </p>
 
             <p>
-              {travel_transport.transport_details.departure.desc1.map(
-                (item, index) =>
-                  typeof item === "string" ? (
-                    item
-                  ) : (
-                    <span key={index} className="font-bold">
-                      {item.text}
-                    </span>
-                  )
+              {renderTextArray(
+                travel_transport.transport_details.departure.desc1
               )}
             </p>
           </div>
