@@ -24,7 +24,7 @@ const InfoSection = ({ language }) => {
 
   // --- 🔥 Fonction utilitaire de rendu factorisé ---
   const renderTextArray = (arr, lineBreak = false) => {
-    return arr.map((item, index) =>
+    return arr?.map((item, index) =>
       typeof item === "string" ? (
         <span key={index}>
           {item}
@@ -98,10 +98,12 @@ const InfoSection = ({ language }) => {
           {/* Reception Location */}
           {details.location_reception && (
             <>
-              <p className="mt-3">{renderTextArray(details.location_reception, true)}</p>
+              <p className="mt-3">
+                {renderTextArray(details.location_reception, true)}
+              </p>
 
               <Link
-                href="https://maps.app.goo.gl/vLYTxx8TgUNxWVA78"
+                href="https://maps.app.goo.gl/vLYTxx8TgUNxWVA789"
                 target="_blank"
                 className="flex justify-center items-center gap-1 border border-gold rounded-lg px-2 py-1 mt-2 font-light text-sm"
               >
@@ -121,15 +123,20 @@ const InfoSection = ({ language }) => {
 
         {/* Middle details */}
         <div className="w-full flex flex-col md:flex-row md:justify-evenly max-md:items-center gap-8 md:gap-20">
+          
           {/* Left — accommodations */}
           <div className="w-full md:w-1/2 max-w-[700px] flex flex-col items-center text-center">
             <h5 className="mb-4">{accommodations.title}</h5>
 
             <p>{renderTextArray(accommodations.description_1)}</p>
 
-            <p className="mt-3">{renderTextArray(accommodations.breakfast, true)}</p>
+            <p className="mt-3">
+              {renderTextArray(accommodations.breakfast, true)}
+            </p>
 
-            <p className="mt-3">{renderTextArray(accommodations.checkout)}</p>
+            <p className="mt-3">
+              {renderTextArray(accommodations.checkout)}
+            </p>
           </div>
 
           <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
@@ -140,24 +147,20 @@ const InfoSection = ({ language }) => {
 
             {/* Descriptions */}
             <p>{renderTextArray(travel_transport.description_1)}</p>
+
             {travel_transport.description_2 && (
               <p>{renderTextArray(travel_transport.description_2)}</p>
             )}
+
             {travel_transport.description_3 && (
               <p>{renderTextArray(travel_transport.description_3)}</p>
             )}
+
             {travel_transport.description_4 && (
               <p>{renderTextArray(travel_transport.description_4)}</p>
             )}
 
-            {/* Parkings */}
-            {travel_transport.parkings && (
-              <p className="mt-3">
-                {renderTextArray(travel_transport.parkings, true)}
-              </p>
-            )}
-
-            {/* Transport details */}
+            {/* Arrival */}
             <p className="font-bold mb-1">
               {travel_transport.transport_details.arrival.title}
             </p>
@@ -174,7 +177,8 @@ const InfoSection = ({ language }) => {
               )}
             </p>
 
-            <p className="font-bold mb-1">
+            {/* Departure */}
+            <p className="font-bold mb-1 mt-2">
               {travel_transport.transport_details.departure.title}
             </p>
 
