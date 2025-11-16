@@ -437,7 +437,7 @@ const translations = {
       { bold: true, text: "Rispondete entro il 1° aprile! Altrimenti venite con un panino!" },
       " Cercate il vostro nome nel modulo e rispondete al nostro invito.",
       ],
-    description_2: "Lasciateci un messaggio in caso di dieta speciale o intolleranza, oppure se avete domande. Vogliamo che tutti si divertano e siano a loro agio!",
+    description_2: ["Lasciateci un messaggio in caso di dieta speciale o intolleranza, oppure se avete domande. Vogliamo che tutti si divertano e siano a loro agio!",]
     label: "Cerca il tuo nome",
     placeholder: "Cerca il tuo nome...",
     no_found: "Nessun ospite trovato con questo nome...",
@@ -653,7 +653,7 @@ pt: {
       { bold: true, text: "Responda até 1º de abril! Caso contrário, traga um sanduíche!" },
       " Procure seu nome no formulário e responda ao nosso convite.",
     ],
-    description_2: "Deixe-nos uma mensagem sobre dieta especial ou intolerância, ou se tiver dúvidas. Queremos que todos se divirtam e se sintam confortáveis!",
+    description_2: ["Deixe-nos uma mensagem sobre dieta especial ou intolerância, ou se tiver dúvidas. Queremos que todos se divirtam e se sintam confortáveis!"],
     label: "Procure seu nome",
     placeholder: "Procure seu nome...",
     no_found: "Nenhum convidado encontrado com esse nome...",
