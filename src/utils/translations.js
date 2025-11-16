@@ -145,16 +145,14 @@ const translations = {
         description_1: [
           "Merci de laisser les places autour de l'église pour les personnes handicapées. Vous trouverez des places :",
         ],
-      
-        parkings: [
-          { bold: true, text: "Parking de la gare de Tassin" },
-          " 1 All. des Tilleuls, 69160 Tassin-la-Demi-Lune",
-      
-          { bold: true, text: "Parking du cimetière" },
-          " 12b Chem. de la Mansion, 69160 Tassin-la-Demi-Lune",
-      
-          { bold: true, text: "Parking de la pharmacie" },
-          " 2 Rue Professeur Deperet, 69160 Tassin-la-Demi-Lune",
+        description_2: [
+          "au parking de la gare de Tassin - 1 All. des Tilleuls, 69160 Tassin-la-Demi-Lune.",
+        ],
+        description_3: [
+          "au parking du cimetière - 12b Chem. de la Mansion, 69160 Tassin-la-Demi-Lune",
+        ],
+        description_4: [
+          "à la pharmacie - 2 Rue Professeur Deperet, 69160 Tassin-la-Demi-Lune",
         ],
         transport_details: {
           arrival: {
@@ -171,10 +169,6 @@ const translations = {
           departure: {
             title: "Le cocktail/vin d'honneur commencera vers 17h00",
             desc1: [
-              { bold: true, text: "Parking Château - Potager" },
-              " 1171 Rte de Marcy, 69280 Marcy-l'Étoile ",
-            ],
-            desc2: [
               { bold: true, text: "Le parking du chateau de la Croix Laval est assez grand pour accueillir tous les invités en voiture." },
               " Le parking n'est pas surveillé donc ne laissez rien de valeur dans vos voitures, un vestiaire sera mis à disposition sur le lieu de réception.",
             ],
@@ -366,9 +360,9 @@ const translations = {
             text: "Luogo della cerimonia religiosa: " 
           },
         "Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.",
-
+      
         ],
-
+        
       location_reception: [
         { bold: true, text: "Luogo del ricevimento: " },
         "Chateau de la Croix Laval, 1171 Av. de Lacroix-Laval, 69280 Marcy-l’Étoile.",
