@@ -437,7 +437,7 @@ const translations = {
       { bold: true, text: "Rispondete entro il 1° aprile! Altrimenti venite con un panino!" },
       " Cercate il vostro nome nel modulo e rispondete al nostro invito.",
       ],
-    description_2: ["Lasciateci un messaggio in caso di dieta speciale o intolleranza, oppure se avete domande. Vogliamo che tutti si divertano e siano a loro agio!",]
+    description_2: ["Lasciateci un messaggio in caso di dieta speciale o intolleranza, oppure se avete domande. Vogliamo che tutti si divertano e siano a loro agio!",],
     label: "Cerca il tuo nome",
     placeholder: "Cerca il tuo nome...",
     no_found: "Nessun ospite trovato con questo nome...",
