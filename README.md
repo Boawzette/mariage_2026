@@ -11,7 +11,7 @@
 - Next.js
 - Tailwind CSS
 - Firebase (Firestore, Authentication)
-- Framer Motion
+- Framer Motion 
 - EmailJS eeeee
 - Spotify
 
