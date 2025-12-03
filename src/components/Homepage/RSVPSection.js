@@ -1,6 +1,7 @@
 /**
  * @file RSVPSection.js
- * @description Complete RSVP section with guest search, selection, and submission
+ * @description This component manages the RSVP section of the wedding website. It allows guests to search their names, select attendance options, and submit special
+ *              requests. The data is retrieved and updated in Firebase Firestore, and email notifications are sent upon submission. Multilingual!
  */
 
 import React, { useState, useEffect, useRef } from "react";
@@ -63,7 +64,6 @@ const RSVPSection = ({ language }) => {
 
   const scale = useTransform(scrollYProgress, [0, 1], [1.5, 1]);
 
-  // Fetch guests
   useEffect(() => {
     const fetchGuests = async () => {
       try {
@@ -81,33 +81,30 @@ const RSVPSection = ({ language }) => {
     fetchGuests();
   }, [submitted]);
 
-  // Filter guests
   useEffect(() => {
     if (searchTerm) {
-      setFilteredGuests(
-        guestsList.filter((guest) =>
-          guest.name.toLowerCase().includes(searchTerm.toLowerCase())
-        )
+      const filtered = guestsList.filter((guest) =>
+        guest.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
-    } else setFilteredGuests([]);
+      setFilteredGuests(filtered);
+    } else {
+      setFilteredGuests([]);
+    }
   }, [searchTerm, guestsList]);
 
-  // Page height for confetti
   useEffect(() => {
     const updatePageHeight = () => {
-      setPageHeight(
-        Math.max(
-          document.body.scrollHeight,
-          document.documentElement.scrollHeight
-        )
+      const height = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight
       );
+      setPageHeight(height);
     };
     updatePageHeight();
     window.addEventListener("resize", updatePageHeight);
     return () => window.removeEventListener("resize", updatePageHeight);
   }, []);
 
-  // Search input change
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
     if (selectedGuest) {
@@ -119,33 +116,87 @@ const RSVPSection = ({ language }) => {
     }
   };
 
-  // Select guest
   const handleGuestSelect = (guest) => {
     setSelectedGuest(guest);
     setSearchTerm("");
     setSubmitted(false);
     setErrorMessage("");
     setSpecialRequests("");
-
     const relatedGuests = guestsList.filter((g) =>
       guest.relationshipIds.includes(g.id)
     );
-
     const guestsWithAttending = [guest, ...relatedGuests].map((g) => ({
       ...g,
       attending: g.attending || "Unknown",
     }));
-
     setGuestsToRsvp(guestsWithAttending);
   };
+
+  const hasAttendingGuests = () =>
+    selectedGuest?.attending === "Yes" ||
+    guestsToRsvp.some((guest) => guest.attending === "Yes");
 
   const isAnyCheckboxSelected = () =>
     selectedGuest?.attending ||
     guestsToRsvp.some((guest) => guest.attending);
 
-  const hasAttendingGuests = () =>
-    selectedGuest?.attending === "Yes" ||
-    guestsToRsvp.some((guest) => guest.attending === "Yes");
+  const handleSubmit = async () => {
+    if (!isAnyCheckboxSelected()) {
+      setErrorMessage(error_enter_name);
+      return;
+    }
+    setErrorMessage("");
+    setIsLoading(true);
+
+    try {
+      for (let guest of guestsToRsvp) {
+        const guestDocRef = doc(db, "guests", String(guest.id));
+        const note =
+          guestsToRsvp.length > 1
+            ? `${specialRequests} ---> RSVP done by ${selectedGuest?.name}`
+            : specialRequests;
+
+        await updateDoc(guestDocRef, {
+          attending: guest.attending,
+          note: note,
+        });
+      }
+
+      const shouldSendEmail = guestsToRsvp.some(
+        (guest) => guest.attending === "Yes" || guest.attending === "No"
+      );
+
+      if (shouldSendEmail) {
+        let emailContent = `${selectedGuest.name} submitted an RSVP.\n\nGuest info:\n- Name: ${selectedGuest.name}\n- Attending: ${guestsToRsvp[0]?.attending}\n- Notes: ${
+          specialRequests || "None"
+        }\n`;
+
+        if (guestsToRsvp.length > 1) {
+          emailContent += `\nRelated Guests:\n`;
+          guestsToRsvp.slice(1).forEach((g) => {
+            emailContent += `- Name: ${g.name}\n  - Attending: ${g.attending}\n\n`;
+          });
+        }
+
+        const emailData = {
+          subject: `New RSVP from ${selectedGuest?.name}`,
+          message: emailContent || "No content provided",
+        };
+
+        sendEmail(emailData)
+          .then((res) => console.log("Email sent:", res.text))
+          .catch((err) => console.error("Error sending email:", err));
+      }
+
+      setIsLoading(false);
+      setSubmitted(true);
+      if (hasAttendingGuests()) setShowConfetti(true);
+    } catch (error) {
+      setErrorMessage(error_submitting);
+      setIsLoading(false);
+      console.error("Error updating Firestore:", error);
+    }
+  };
 
   const formatNames = (names) => {
     if (names.length === 0) return "";
@@ -171,66 +222,8 @@ const RSVPSection = ({ language }) => {
     );
   };
 
-  // Submit RSVP
-  const handleSubmit = async () => {
-    if (!isAnyCheckboxSelected()) {
-      setErrorMessage(error_enter_name);
-      return;
-    }
-    setErrorMessage("");
-    setIsLoading(true);
-    try {
-      for (let guest of guestsToRsvp) {
-        const guestDocRef = doc(db, "guests", String(guest.id));
-        const note =
-          guestsToRsvp.length > 1
-            ? `${specialRequests} ---> RSVP done by ${selectedGuest?.name}`
-            : specialRequests;
-        await updateDoc(guestDocRef, {
-          attending: guest.attending,
-          note,
-        });
-      }
-
-      const shouldSendEmail = guestsToRsvp.some(
-        (guest) => guest.attending === "Yes" || guest.attending === "No"
-      );
-
-      if (shouldSendEmail) {
-        let emailContent = `${selectedGuest.name} submitted an RSVP.\n\nGuest info:\n- Name: ${selectedGuest.name}\n- Attending: ${guestsToRsvp[0]?.attending}\n- Notes: ${
-          specialRequests || "None"
-        }\n`;
-
-        if (guestsToRsvp.length > 1) {
-          emailContent += `\nRelated Guests:\n`;
-          guestsToRsvp.slice(1).forEach((g) => {
-            emailContent += `- Name: ${g.name}\n  - Attending: ${g.attending}\n\n`;
-          });
-        }
-
-        const emailData = {
-          subject: `New RSVP from ${selectedGuest?.name}`,
-          message: emailContent || "No content provided",
-        };
-
-        sendEmail(emailData).catch((err) =>
-          console.error("Error sending email:", err)
-        );
-      }
-
-      setIsLoading(false);
-      setSubmitted(true);
-      if (hasAttendingGuests()) setShowConfetti(true);
-    } catch (error) {
-      setErrorMessage(error_submitting);
-      setIsLoading(false);
-      console.error("Error updating Firestore:", error);
-    }
-  };
-
   return (
     <section id="rsvp-section" className="relative flex flex-col w-full bg-cream">
-      {/* Confetti */}
       {showConfetti && (
         <div className="confetti-wrapper">
           <Confetti
@@ -288,13 +281,11 @@ const RSVPSection = ({ language }) => {
                 )
               )}
             </p>
-            <p translate="no" className="text-left">
-              {description_2}
-            </p>
+            <p translate="no" className="text-left">{description_2}</p>
           </div>
         </div>
 
-        {/* Right */}
+        {/* Right - Search & RSVP */}
         <div className="w-full lg:w-1/2 flex flex-col justify-start items-start">
           <p translate="no">- {label}</p>
           <input
@@ -321,12 +312,81 @@ const RSVPSection = ({ language }) => {
               ))}
             </ul>
           )}
-          {searchTerm && filteredGuests.length === 0 && <p>{no_found}</p>}
+
+          {searchTerm && filteredGuests.length === 0 && (
+            <p translate="no">{no_found}</p>
+          )}
 
           {selectedGuest && (
             <div className="mt-4 w-full flex flex-col justify-start items-start">
-              {/* RSVP Form */}
-              {/* ... ici tu peux garder exactement le code de ton formulaire original ... */}
+              {selectedGuest.relationshipIds.length === 0 ? (
+                <p translate="no" className="text-xl mb-6 text-left">
+                  {single_guest_1.hi} <span className="font-bold">{selectedGuest.name}!</span>{single_guest_1.are_invited}
+                </p>
+              ) : (
+                <p translate="no" className="text-xl mb-6 text-left">
+                  {multiple_guests_1.hi} <span className="font-bold">{selectedGuest.name}!</span>
+                  {multiple_guests_1.you}{formatNames(
+                    guestsList.filter((g) => selectedGuest.relationshipIds.includes(g.id)).map((g) => g.name)
+                  )}{multiple_guests_1.are_invited}
+                </p>
+              )}
+
+              {/* Form for main guest and related guests */}
+              <div className="flex flex-col w-full gap-4">
+                {guestsToRsvp.map((guest, index) => (
+                  <div key={guest.id} className="w-full flex justify-between items-center gap-4">
+                    <h2 translate="no" className="text-xl font-bold">{guest.name}</h2>
+                    <Select
+                      onValueChange={(value) => {
+                        setGuestsToRsvp(prev => prev.map(g => g.id === guest.id ? {...g, attending: value} : g));
+                      }}
+                    >
+                      <SelectTrigger className="w-[215px] px-4 rounded-md bg-neutral-100">
+                        <SelectValue
+                          translate="no"
+                          placeholder={guest.attending === "Unknown" ? answers.unknown : guest.attending === "Yes" ? answers.yes : answers.no}
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="Yes" translate="no">{answers.yes}</SelectItem>
+                        <SelectItem value="No" translate="no">{answers.no}</SelectItem>
+                        <SelectItem value="Unknown" translate="no">{answers.unknown}</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                ))}
+              </div>
+
+              <textarea
+                placeholder={note_placeholder}
+                className="border p-2 rounded w-full max-lg:max-w-[500px] sm:my-4 focus:outline-none"
+                value={specialRequests}
+                translate="no"
+                onChange={(e) => setSpecialRequests(e.target.value)}
+              />
+
+              <button
+                onClick={handleSubmit}
+                disabled={isLoading}
+                translate="no"
+                className="btn2 max-sm:mt-4"
+              >
+                {isLoading ? button.loading : button.submit}
+              </button>
+
+              {errorMessage && <p translate="no" className="text-red-500 mt-4 text-left text-lg">{errorMessage}</p>}
+
+              {submitted && !errorMessage && (
+                <div className="mt-4 w-full flex flex-col justify-start items-start">
+                  <p translate="no" className="text-left"><span className="font-bold">{rsvp_success.thanks}</span> {rsvp_success.submitted}</p>
+                  <p translate="no" className="text-left text-lg -mt-4">
+                    {rsvp_success.change_by.map((item, index) =>
+                      typeof item === "string" ? item : <span key={index} className="font-bold">{item.text}</span>
+                    )}
+                  </p>
+                </div>
+              )}
             </div>
           )}
         </div>
