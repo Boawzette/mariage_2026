@@ -1,4 +1,4 @@
-const guests= [
+const guestsList= [
         {
             "id": 1,
             "name": "NANS",
