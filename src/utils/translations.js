@@ -47,8 +47,8 @@ const translations = {
     },
     schedule_section: {
       title: {
-        main: "Mariage",
-        sub: "Organisation" 
+        main: "Organisation",
+        sub: "du mariage" 
       },
       description:
         "Le mariage prendra place le samedi 13 juin 2026.",
@@ -71,19 +71,19 @@ const translations = {
             title: "Cocktail dinatoire & Vin d'honneur" },
           dance: { 
             time: "19h00", 
-            title: "Jeter de bouquet et de saucissons" },
+            title: "Jeter de bouquet" },
           photo: { 
             time: "17h00 à 20h00", 
             title: "Photos" },
           dinner: { 
             time: "20h00", 
-            title: "Dinner" },
+            title: "Dîner" },
           cake_cutting: { 
             time: "23h00", 
             title: "Desserts" },
           party: {
              time: "Toute la nuit", 
-             title: "Mangez, Buvez, Dansez, on repeat !" },
+             title: "Mangez, Buvez, Dansez, toute la nuit !" },
           end: {
             time: "4h00",
             title: "The End" },
@@ -105,10 +105,7 @@ const translations = {
           "Samedi 13 Juin 2026.",
         ],
         location: [
-          {
-            bold: true,
-            text: "Lieu de cérémonie religieuse : " 
-          },
+          {bold: true,text: "Lieu de cérémonie religieuse : "},
           'Paroisse St Claude Tassin, 83 Av. du Docteur Laurent, 69160 Tassin-la-Demi-Lune.',
         ],
         location_reception: [
@@ -119,7 +116,7 @@ const translations = {
         button_loc_reception: "Voir le lieu de réception",
       },
       accommodations: {
-        title: "Hôtels",
+        title: "Hôtels :",
         description_1: [
           "Pour les invités venant de loin, vous trouverez des hôtels à proximité. ",
           {
@@ -156,7 +153,7 @@ const translations = {
         ],
         transport_details: {
           arrival: {
-            title: "La cérémonie commence à 16h00",
+            title: "La cérémonie commence à 16h00.",
             desc1: [
               { bold: true, text: "Merci d'arriver au moins 15 minutes AVANT" },
               " ou vous ferez partie du cortège d'honneur ! ",
@@ -167,16 +164,16 @@ const translations = {
             ],
           },
           departure: {
-            title: "Le cocktail/vin d'honneur commencera vers 17h00",
+            title: "Le cocktail/vin d'honneur commencera vers 17h00.",
             desc1: [
-              { bold: true, text: "Le parking du chateau de la Croix Laval est assez grand pour accueillir tous les invités en voiture." },
-              " Le parking n'est pas surveillé donc ne laissez rien de valeur dans vos voitures, un vestiaire sera mis à disposition sur le lieu de réception.",
+              { bold: true, text: "Le parking du château de la Croix Laval est assez grand pour accueillir tous les invités en voiture." },
+              " Cependant le parking n'est pas surveillé donc ne laissez rien de valeur dans vos voitures. Un vestiaire sera mis à disposition sur le lieu de réception.",
             ],
           },
         },
       },
       contact: {
-        title: "Contactez-nous",
+        title: "Contacts :",
         // Email and numbers added on the front end
       },
     },
@@ -184,17 +181,22 @@ const translations = {
       top_title: "Réponses",
       title: { main: "Confirmez votre", sub: "Présence" },
       description_1: [
-        { bold: true, text: "Répondez avant le 1er avril s'il vous plaît ! Sinon venez avec un sandwich !" },
-        " Cherchez votre nom dans le formulaire et répondez à notre invitation.",
+        { bold: true, text: "Répondez avant le 1er avril s'il vous plaît ! Sinon venez avec un sandwich et une chaise !" },
+        " Cherchez votre nom dans le formulaire en écrivant votre prénom et répondez à notre invitation.",
       ],
       description_2: [
-        "Laissez-nous un mot en cas de régime alimentaire ou intolérance particulière ainsi que si vous avez une quelconque question. On souhaiterait que tout le monde passe un bon moment et soit à l'aise !"
+        "Laissez-nous un mot en cas de ",
+        { text: "régime alimentaire", bold: true },
+        " ou ",
+        { text: "intolérance particulière", bold: true },
+        " ainsi que si vous avez une quelconque question.",
+        "On souhaiterait que tout le monde passe un bon moment et soit à l'aise !"
       ],
-      abel: "Cherchez votre nom",
+      abel: "Tapez votre nom",
       placeholder: "Cherchez votre nom...",
-      no_found: "Pas d'invité trouvé avec ce nom...",
+      no_found: "Pas d'invité trouvé avec ce nom, cherchez votre surnom ou contactez nous...",
       multiple_guests_1: {
-        hi: "Hey ",
+        hi: "Salut ",
         you: " Vous, ",
         and: " et ",
         are_invited:
@@ -203,18 +205,18 @@ const translations = {
       multiple_guests_2:
         "Choisissez qui se rend au mariage. On espère vous y voir.",
       single_guest_1: {
-        hi: "Bonjour ",
+        hi: "Salut ",
         are_invited:
-        " êtes chaleureusement invité à vous joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable ! ",
+        ", tu es chaleureusement invité à te joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable ! ",
       },
-      single_guest_2: "Participerez-vous au mariage ?",
+      single_guest_2: "Seras-tu présent au mariage ?",
       answers: { yes: "Oui", no: "Non", unknown: "Je ne sais pas encore" },
       note_placeholder: "Souhaiteriez-vous nous laisser un mot ?",
       rsvp_success: {
         thanks: "Merci !",
         submitted: " Votre réponse a été envoyée.",
         change_by: [
-          "Souvenez-vous que vous pouvez changer votre disponibilité jusqu'au",
+          "Souvenez-vous que vous pouvez changer votre disponibilité jusqu'au ",
           { bold: true, text: "1er avril 2026" },
           ".",
         ],
