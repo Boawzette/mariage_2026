@@ -58,10 +58,10 @@ const SaveTheDate = ({ language }) => {
 
   // Group story elements for convenience
   const story = [
-    { Année: 2016, text: story_1, img: "/icons/met.svg" },
-    { Année: 2025, text: story_2, img: "/icons/engaged.svg" },
+    { year: 2016, text: story_1, img: "/icons/met.svg" },
+    { year: 2025, text: story_2, img: "/icons/engaged.svg" },
     {
-      Année: 2026,
+      year: 2026,
       text: countdown.message ? story_3_past : story_3_future,
       img: "/icons/marry.svg",
     },
