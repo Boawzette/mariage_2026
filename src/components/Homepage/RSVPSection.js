@@ -1,6 +1,9 @@
 /**
  * @file RSVPSection.js
- * @description RSVP section component for wedding website. Guests can search, select attendance, leave notes, and data is saved in Firebase Firestore.
+ * @description Corrected version of RSVPSection component to fix React #31 error.
+
+
+
  */
 
 import React, { useState, useEffect, useRef } from "react";
@@ -9,7 +12,13 @@ import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
 import { db } from "@/firebase/config";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import sendEmail from "@/utils/send-email";
 import { motion, useScroll, useTransform } from "framer-motion";
 import translations from "@/utils/translations";
@@ -17,9 +26,23 @@ import Image from "next/image";
 
 const RSVPSection = ({ language }) => {
   const {
-    top_title, title, description_1, description_2, label, placeholder, no_found,
-    multiple_guests_1, multiple_guests_2, single_guest_1, single_guest_2,
-    answers, note_placeholder, rsvp_success, error_enter_name, error_submitting, button
+    top_title,
+    title,
+    description_1,
+    description_2,
+    label,
+    placeholder,
+    no_found,
+    multiple_guests_1,
+    multiple_guests_2,
+    single_guest_1,
+    single_guest_2,
+    answers,
+    note_placeholder,
+    rsvp_success,
+    error_enter_name,
+    error_submitting,
+    button,
   } = translations[language].rsvp_section;
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,7 +56,13 @@ const RSVPSection = ({ language }) => {
   const [submitted, setSubmitted] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [pageHeight, setPageHeight] = useState(0);
-  const { width } = useWindowSize();
+  const { width, height } = useWindowSize();
+
+  const containerVariants = {
+    hidden: { opacity: 1 },
+    visible: { opacity: 1, transition: { delay: 0.2, staggerChildren: 0.2 } },
+  };
+  const letterVariants = { hidden: { opacity: 0 }, visible: { opacity: 1 } };
 
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -44,18 +73,18 @@ const RSVPSection = ({ language }) => {
       try {
         const guestsCollectionRef = collection(db, "guests");
         const querySnapshot = await getDocs(guestsCollectionRef);
-        const guestsArray = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const guestsArray = [];
+        querySnapshot.forEach((doc) => { guestsArray.push({ id: doc.id, ...doc.data() }); });
         setGuestsList(guestsArray);
-      } catch (error) {
-        console.error("Error fetching guests:", error);
-      }
+      } catch (error) { console.error("Error fetching guests:", error); }
     };
     fetchGuests();
   }, [submitted]);
 
   useEffect(() => {
     if (searchTerm) {
-      setFilteredGuests(guestsList.filter(g => g.name.toLowerCase().includes(searchTerm.toLowerCase())));
+      const filtered = guestsList.filter((guest) => guest.name.toLowerCase().includes(searchTerm.toLowerCase()));
+      setFilteredGuests(filtered);
     } else {
       setFilteredGuests([]);
     }
@@ -72,11 +101,13 @@ const RSVPSection = ({ language }) => {
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
-    setSelectedGuest(null);
-    setGuestsToRsvp([]);
-    setSubmitted(false);
-    setErrorMessage("");
-    setSpecialRequests("");
+    if (selectedGuest) {
+      setSelectedGuest(null);
+      setGuestsToRsvp([]);
+      setSubmitted(false);
+      setErrorMessage("");
+      setSpecialRequests("");
+    }
   };
 
   const handleGuestSelect = (guest) => {
@@ -84,103 +115,166 @@ const RSVPSection = ({ language }) => {
     setSearchTerm("");
     setSubmitted(false);
     setErrorMessage("");
-    setSpecialRequests(guest.note || "");
+    setSpecialRequests("");
 
-    const relatedGuests = guestsList.filter(g => guest.relationshipIds.includes(g.id));
-    const guestsWithAttending = [guest, ...relatedGuests].map(g => ({ ...g, attending: g.attending || "Unknown" }));
+    const relatedGuests = guestsList.filter((g) => guest.relationshipIds.includes(g.id));
+    const guestsWithAttending = [guest, ...relatedGuests].map((g) => ({ ...g, attending: g.attending || "Unknown" }));
     setGuestsToRsvp(guestsWithAttending);
   };
 
-  const isAnyCheckboxSelected = () => guestsToRsvp.some(g => g.attending !== null && g.attending !== undefined);
-  const hasAttendingGuests = () => guestsToRsvp.some(g => g.attending === "Yes");
+  const hasAttendingGuests = () => {
+    return (selectedGuest?.attending === "Yes" || guestsToRsvp.some((guest) => guest.attending === "Yes"));
+  };
 
   const handleSubmit = async () => {
     if (!isAnyCheckboxSelected()) {
       setErrorMessage(error_enter_name);
-      return;
-    }
-
-    setIsLoading(true);
-    setErrorMessage("");
-
+      } else {
+      setErrorMessage("");
+      setIsLoading(true);
     try {
       for (let guest of guestsToRsvp) {
-        const guestDocRef = doc(db, "guests", String(guest.id));
-        let note = specialRequests || "";
-        if (guestsToRsvp.length > 1) note += ` ---> RSVP done by ${selectedGuest?.name}`;
-        await updateDoc(guestDocRef, { attending: guest.attending, note });
-      }
+          const guestDocRef = doc(db, "guests", String(guest.id));
+          // Add special request or set note if RSVP done for related guests
+          let note = specialRequests || "";
+          if (guestsToRsvp.length > 1) {note = `${note} ---> RSVP done by ${selectedGuest?.name}`.trim();
+          }
+          await updateDoc(guestDocRef, { attending: guest.attending, note: note,});
+        }
 
-      const shouldSendEmail = guestsToRsvp.some(g => g.attending === "Yes" || g.attending === "No");
+      const shouldSendEmail = guestsToRsvp.some((guest) => guest.attending === "Yes" || guest.attending === "No");
       if (shouldSendEmail) {
-        let emailContent = `${selectedGuest.name} submitted an RSVP from the website.\n\n`;
-        guestsToRsvp.forEach(g => {
-          emailContent += `- Name: ${g.name}\n  - Attending: ${g.attending}\n  - Note: ${g.note || specialRequests || 'None'}\n\n`;
-        });
-        sendEmail({ subject: `New RSVP from ${selectedGuest.name}`, message: emailContent });
+        let emailContent = `${selectedGuest.name} submitted an RSVP from the website.\n\nRSVP Information:\n\nGuest who submitted the RSVP:\n- Name: ${selectedGuest.name}\n- Attending: ${guestsToRsvp[0]?.attending}\n- Notes: ${specialRequests || "None"}\n`;
+        if (guestsToRsvp.length > 1) {
+          emailContent += `\nRelated Guests:\n`;
+          guestsToRsvp.slice(1).forEach((guest) => {
+            emailContent += `- Name: ${guest.name}\n  - Attending: ${guest.attending}\n\n`;
+          });
+        }
+        sendEmail({ subject: `New RSVP from ${selectedGuest?.name || "Guest"}`, message: emailContent|| "No content provided" })
+            .then((result) => {console.log("Email sent successfully:", result.text);})
+            .catch((error) => {console.error("Error sending email:", error); // Do not set error message for the user
+            });
+        
       }
 
       setIsLoading(false);
       setSubmitted(true);
       if (hasAttendingGuests()) setShowConfetti(true);
-
     } catch (error) {
-      console.error(error);
       setErrorMessage(error_submitting);
+      console.error("Error updating Firestore:", error);
       setIsLoading(false);
     }
+  };
+
+  const isAnyCheckboxSelected = () => {
+    return ((selectedGuest?.attending !== null && selectedGuest?.attending !== undefined) || guestsToRsvp.some((guest) => guest.attending !== null && guest.attending !== undefined ))
   };
 
   const formatNames = (names) => {
     if (names.length === 0) return "";
     if (names.length === 1) return <>{multiple_guests_1.and} <span className="font-bold">{names[0]}</span></>;
     if (names.length === 2) return <><span className="font-bold">{names[0]}</span> {multiple_guests_1.and} <span className="font-bold">{names[1]}</span></>;
-    return <><span className="font-bold">{names.slice(0,-1).join(", ")},</span> {multiple_guests_1.and} <span className="font-bold">{names[names.length-1]}</span></>;
+    return <><span className="font-bold">{names.slice(0, -1).join(", ")},</span> {multiple_guests_1.and} <span className="font-bold">{names[names.length - 1]}</span></>;
   };
 
   return (
     <section id="rsvp-section" className="relative flex flex-col w-full bg-cream">
-      {showConfetti && <Confetti width={width} height={pageHeight} colors={["#dcb46d"]} numberOfPieces={1250} recycle={false} gravity={0.1} onConfettiComplete={() => setShowConfetti(false)} />}
-      <div className="w-full py-12 px-4 sm:px-6 xl:px-12 flex flex-col lg:flex-row gap-4 lg:gap-12 xl:gap-44">
-        {/* Left content */}
-        <div className="w-full lg:w-1/2">
-          <h3>{title.main}</h3>
-          <h3>{title.sub}</h3>
-          <p>{description_1.map(i => typeof i === 'string' ? i : <span className="font-bold">{i.text}</span>)}</p>
-          <p>{description_2}</p>
+{showConfetti && (
+        <div className="confetti-wrapper">
+          <Confetti
+            width={width}
+            height={pageHeight}
+            colors={["#dcb46d"]}
+            numberOfPieces={1250}
+            recycle={false}
+            gravity={0.1}
+            onConfettiComplete={() => setShowConfetti(false)}
+          />
         </div>
-        {/* Right content */}
-        <div className="w-full lg:w-1/2">
-          <input type="text" placeholder={placeholder} value={searchTerm} onChange={handleSearch} className="border py-2 px-3 rounded w-full mb-4" />
-          {searchTerm && filteredGuests.length > 0 && <ul className="border p-2 rounded">{filteredGuests.map(g => <li key={g.id} onClick={() => handleGuestSelect(g)}>{g.name}</li>)}</ul>}
-          {searchTerm && filteredGuests.length === 0 && <p>{no_found}</p>}
+      )}
 
-          {selectedGuest && (
-            <div className="mt-4">
-              <p>{selectedGuest.name} {selectedGuest.relationshipIds.length === 0 ? single_guest_1.are_invited : multiple_guests_1.are_invited}</p>
-              {guestsToRsvp.map((g, idx) => (
-                <div key={g.id} className="flex gap-2 items-center">
-                  <h2>{g.name}</h2>
-                  <Select onValueChange={value => setGuestsToRsvp(prev => prev.map(p => p.id === g.id ? {...p, attending: value} : p))}>
-                    <SelectTrigger className="w-[215px] px-4 rounded-md bg-neutral-100">
-                      <SelectValue placeholder={g.attending === "Unknown" ? answers.unknown : g.attending === "Yes" ? answers.yes : answers.no} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="Yes">{answers.yes}</SelectItem>
-                      <SelectItem value="No">{answers.no}</SelectItem>
-                      <SelectItem value="Unknown">{answers.unknown}</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              ))}
-              <textarea placeholder={note_placeholder} value={specialRequests} onChange={e => setSpecialRequests(e.target.value)} className="border p-2 rounded w-full my-4" />
-              <button onClick={handleSubmit} disabled={isLoading}>{isLoading ? button.loading : button.submit}</button>
-              {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
-              {submitted && !errorMessage && <p>{rsvp_success.thanks} {rsvp_success.submitted}</p>}
-            </div>
-          )}
-        </div>
+      {/* Top section */}
+      <div
+        className="max-md:hidden relative w-full h-[500px] brightness-95 bg-cover bg-center bg-no-repeat md:bg-fixed flex justify-center items-center overflow-hidden"
+        style={{
+          backgroundImage: `url(${images.collage.src})`,
+        }}
+      >
+        <motion.h1
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true, amount: 0.4 }}
+          translate="no"
+          className="absolute left-1/2 transform -translate-x-1/2 z-20 transition-transform text-9xl text-gold"
+        >
+          {top_title.split("").map((char, index) => (
+            <motion.span key={index} variants={letterVariants}>
+              {char}
+            </motion.span>
+          ))}
+        </motion.h1>
+        <div className="overlay z-0"></div>
       </div>
+
+      {/* Top section - Mobile */}
+      <div className="md:hidden relative w-full h-[500px] overflow-hidden">
+        <motion.div
+          ref={ref}
+          className="absolute w-full h-full"
+          style={{ scale }}
+        >
+          <Image
+            src={images.collage}
+            alt="Collage"
+            width={500}
+            height={700}
+            quality={100}
+            className="absolute top-0 left-0 w-full h-full object-cover transform "
+          />
+        </motion.div>
+
+        <motion.h1
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true, amount: 0.4 }}
+          translate="no"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 transition-transform text-7xl text-gold"
+        >
+          {top_title.split("").map((char, index) => (
+            <motion.span key={index} variants={letterVariants}>
+              {char}
+            </motion.span>
+          ))}
+        </motion.h1>
+        <div className="overlay z-0"></div>
+      </div>
+
+      {/* main section */}
+      <div className="w-full py-12 px-4 sm:px-6 xl:px-12 bg-cream flex flex-col lg:flex-row justify-center gap-4 lg:gap-12 xl:gap-44">
+        {/* left part*/}
+        <div className="w-full lg:w-1/2 flex justify-start lg:justify-end">
+          <div className="flex flex-col items-start relative w-full max-w-full lg:max-w-lg text-left gap-0 lg:gap-6">
+            <div className="flex flex-col items-start max-sm:w-full max-sm:items-center">
+              <h3 translate="no" className=" font-bold z-20 ml-6 sm:ml-16">
+                {title.main}
+              </h3>
+              <h3
+                translate="no"
+                className="text-gold text-6xl sm:text-8xl alex-brush z-10 transform font-light -mt-10"
+              >
+                {title.sub}
+              </h3>
+            </div>
+      <p translate="no" className="text-left">
+        {description_1.map((item, index) => typeof item === "string" ? item : (item?.text ? <span key={index} className="font-bold">{item.text}</span> : null))}
+      </p>
+      <p translate="no" className="text-left text-lg -mt-4">
+        {rsvp_success.change_by.map((item, index) => typeof item === "string" ? item : (item?.text ? <span key={index} className="font-bold">{item.text}</span> : null))}
+      </p>
     </section>
   );
 };
