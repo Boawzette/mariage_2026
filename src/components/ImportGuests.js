@@ -1,9 +1,7 @@
 import { useEffect } from "react";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { app } from "../firebase"; // ton config Firebase
-import guestsList from "../utils/guestsList";
-
-const db = getFirestore(app);
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/firebase/config"; // ← chemin corrigé
+import guestsList from "@/utils/guestsList";
 
 export default function ImportGuests() {
   useEffect(() => {
