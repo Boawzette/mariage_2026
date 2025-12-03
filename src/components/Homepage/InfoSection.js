@@ -103,7 +103,7 @@ const InfoSection = ({ language }) => {
               </p>
 
               <Link
-                href="https://maps.app.goo.gl/vLYTxx8TgUNxWVA789"
+                href="https://maps.app.goo.gl/CgD2MwhCQEJYnvye9"
                 target="_blank"
                 className="flex justify-center items-center gap-1 border border-gold rounded-lg px-2 py-1 mt-2 font-light text-sm"
               >
