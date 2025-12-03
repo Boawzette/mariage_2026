@@ -84,8 +84,7 @@ const InfoSection = ({ language }) => {
           <p>{renderTextArray(details?.dates)}</p>
 
           {/* Ceremony Location */}
-          <p className="mt-[-16px]">{renderTextArray(details?.location)}</p>
-
+          <p className="mt-[-16px]">{renderTextArray(details?.location, true)}</p>
           <Link
             href="https://maps.app.goo.gl/Dks6L2cjrELejWtZ6"
             target="_blank"
