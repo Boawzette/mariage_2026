@@ -1,4 +1,4 @@
-"guests": [
+const guests= [
         {
             "id": 1,
             "name": "NANS",
