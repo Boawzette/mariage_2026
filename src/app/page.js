@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import AuthGuard from "@/components/AuthGuard";
+import ImportGuests from "@/components/ImportGuests";
+
 
 import {
   SplashScreen,
@@ -44,6 +46,8 @@ export default function Home() {
           setLanguage={setLanguage}
         />
         <WelcomeSection language={language} />
+        {/* Section temporaire pour l'import */}
+        <ImportGuests />
         <div className="relative z-10">
           <SaveTheDate language={language} />
           <ScheduleSection language={language} />
