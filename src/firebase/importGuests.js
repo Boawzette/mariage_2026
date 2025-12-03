@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { db } from "@/firebase/config"; 
 import { doc, setDoc } from "firebase/firestore";
-import guestsList from "@/utils/guestsList";
 
 export default function ImportGuests() {
   useEffect(() => {
