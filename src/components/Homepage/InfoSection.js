@@ -1,5 +1,6 @@
 /**
  * @file InfoSection.js
+ * @description Section with wedding information
  */
 
 import Link from "next/link";
@@ -22,21 +23,26 @@ const InfoSection = ({ language }) => {
   const herNumber = process.env.NEXT_PUBLIC_K_NUM || "";
   const hisNumberUk = process.env.NEXT_PUBLIC_E_NUM_UK || "";
 
-  // --- 🔥 Fonction utilitaire de rendu factorisé ---
+  // --- Fonction utilitaire pour rendre les tableaux texte / objets ---
   const renderTextArray = (arr, lineBreak = false) => {
-    return (arr || []).map((item, index) =>
-      typeof item === "string" ? (
-        <span key={index}>
-          {item}
-          {lineBreak && <br />}
-        </span>
-      ) : (
-        <span key={index} className="font-bold">
-          {item.text}
-          {lineBreak && <br />}
-        </span>
-      )
-    );
+    return (arr || []).map((item, index) => {
+      if (typeof item === "string") {
+        return (
+          <span key={index}>
+            {item}
+            {lineBreak && <br />}
+          </span>
+        );
+      } else if (typeof item === "object" && item.text) {
+        return (
+          <span key={index} className={item.bold ? "font-bold" : ""}>
+            {item.text}
+            {lineBreak && <br />}
+          </span>
+        );
+      }
+      return null;
+    });
   };
 
   return (
@@ -77,14 +83,12 @@ const InfoSection = ({ language }) => {
         translate="no"
         className="w-full text-center flex flex-col items-center gap-8 md:gap-12 z-10"
       >
-        {/* Top detail */}
+        {/* Top details */}
         <div className="flex flex-col justify-center items-center">
           <h5 className="mb-4">{details?.when_where}</h5>
-
           <p>{renderTextArray(details?.dates)}</p>
-
-          {/* Ceremony Location */}
           <p className="mt-[-16px]">{renderTextArray(details?.location, true)}</p>
+
           <Link
             href="https://maps.app.goo.gl/Dks6L2cjrELejWtZ6"
             target="_blank"
@@ -94,13 +98,9 @@ const InfoSection = ({ language }) => {
             {details?.button_loc}
           </Link>
 
-          {/* Reception Location */}
           {details?.location_reception && (
             <>
-              <p className="mt-3">
-                {renderTextArray(details?.location_reception, true)}
-              </p>
-
+              <p className="mt-3">{renderTextArray(details?.location_reception, true)}</p>
               <Link
                 href="https://maps.app.goo.gl/CgD2MwhCQEJYnvye9"
                 target="_blank"
@@ -120,21 +120,14 @@ const InfoSection = ({ language }) => {
 
         <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
 
-        {/* Middle details */}
+        {/* Middle details: accommodations and transport */}
         <div className="w-full flex flex-col md:flex-row md:justify-evenly max-md:items-center gap-8 md:gap-20">
           {/* Left — accommodations */}
           <div className="w-full md:w-1/2 max-w-[700px] flex flex-col items-center text-center">
             <h5 className="mb-4">{accommodations?.title}</h5>
-
             <p>{renderTextArray(accommodations?.description_1)}</p>
-
-            <p className="mt-3">
-              {renderTextArray(accommodations?.breakfast, true)}
-            </p>
-
-            <p className="mt-3">
-              {renderTextArray(accommodations?.checkout)}
-            </p>
+            <p className="mt-3">{renderTextArray(accommodations?.breakfast, true)}</p>
+            <p className="mt-3">{renderTextArray(accommodations?.checkout)}</p>
           </div>
 
           <div className="static md:hidden h-px w-[50px] bg-black opacity-50" />
@@ -142,31 +135,24 @@ const InfoSection = ({ language }) => {
           {/* Right — travel transport */}
           <div className="w-full md:w-1/2 max-w-[700px] flex flex-col items-center text-center">
             <h5 className="mb-4">{travel_transport?.title}</h5>
-
-            {/* Descriptions */}
             <p>{renderTextArray(travel_transport?.description_1)}</p>
             <p>{renderTextArray(travel_transport?.description_2)}</p>
             <p>{renderTextArray(travel_transport?.description_3)}</p>
             <p>{renderTextArray(travel_transport?.description_4)}</p>
 
-            {/* Arrival */}
             <p className="font-bold mb-1">
               {travel_transport?.transport_details?.arrival?.title}
             </p>
-
             <p className="mb-1">
               {renderTextArray(travel_transport?.transport_details?.arrival?.desc1)}
             </p>
-
             <p>
               {renderTextArray(travel_transport?.transport_details?.arrival?.desc2)}
             </p>
 
-            {/* Departure */}
             <p className="font-bold mb-1 mt-2">
               {travel_transport?.transport_details?.departure?.title}
             </p>
-
             <p>
               {renderTextArray(travel_transport?.transport_details?.departure?.desc1)}
             </p>
@@ -176,7 +162,6 @@ const InfoSection = ({ language }) => {
         {/* Contact */}
         <div className="max-w-[700px] flex flex-col justify-center items-center">
           <h5 className="mb-4">{contact?.title}</h5>
-
           <p>
             <span className="font-bold">Email: </span>{" "}
             <a
@@ -187,14 +172,12 @@ const InfoSection = ({ language }) => {
               {coupleEmail || "N/A"}
             </a>
           </p>
-
           <p>
             <span className="font-bold">Anaïs: </span>{" "}
             <a href={`tel:${herNumber.replace(/\s+/g, "")}`} target="_blank">
               {herNumber || "N/A"}
             </a>
           </p>
-
           <p>
             <span className="font-bold">Louis: </span>{" "}
             <a href={`tel:${hisNumberUk.replace(/\s+/g, "")}`} target="_blank">
