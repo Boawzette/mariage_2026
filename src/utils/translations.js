@@ -192,7 +192,7 @@ const translations = {
         " ainsi que si vous avez une quelconque question.",
         "On souhaiterait que tout le monde passe un bon moment et soit à l'aise !"
       ],
-      abel: "Tapez votre nom",
+      label: "Tapez votre nom",
       placeholder: "Cherchez votre nom...",
       no_found: "Pas d'invité trouvé avec ce nom, cherchez votre surnom ou contactez nous...",
       multiple_guests_1: {
