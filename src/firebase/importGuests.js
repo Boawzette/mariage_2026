@@ -1,52 +1,24 @@
-/**
- * @file importGuests.js
- * @description This script is used to push the guest list into Firestore from a local file.
- * To run the import process, execute the command: `node src/firebase/importGuests.js`.
- *
- * Example of how the guests list from utils should look like:
- *
- * const guestsList = [
- *   {
- *     id: 1,
- *     name: "John Doe",
- *     guestSide: "Emanuele",
- *     relationshipIds: [2, 3],
- *     attending: "Unknown",
- *     note: "",
- *   },
- *   {
- *     id: 2,
- *     name: "Jane Doe",
- *     guestSide: "Emanuele",
- *     relationshipIds: [1, 3],
- *     attending: "Yes",
- *     note: "",
- *   },
- *   // and so on...
- * ];
- *
- * @author Emanuele Sgroi
- * @date 19 October 2024
- */
+import { useEffect } from "react";
+import { db } from "../firebase/config"; // ← utiliser ton config existante
+import { doc, setDoc } from "firebase/firestore";
+import guestsList from "../utils/guestsList";
 
-const { db } = require("./adminPush");
-const guestsList = require("../utils/guestsList");
+export default function ImportGuests() {
+  useEffect(() => {
+    const importGuests = async () => {
+      try {
+        for (const guest of guestsList) {
+          let attendingValue = guest.attending === "Yes" ? true : guest.attending === "No" ? false : null;
+          await setDoc(doc(db, "guests", `${guest.id}`), { ...guest, attending: attendingValue });
+        }
+        alert("Import terminé !");
+      } catch (error) {
+        console.error("Erreur lors de l'import :", error);
+        alert("Erreur lors de l'import. Vérifie la console.");
+      }
+    };
+    importGuests();
+  }, []);
 
-// Function to add guests to Firestore
-const importGuests = async () => {
-  const batch = db.batch(); // Using batch for bulk writes
-
-  guestsList.forEach((guest) => {
-    const docRef = db.collection("guests").doc(`${guest.id}`); // Use guest id as document ID
-    batch.set(docRef, guest); // Add each guest to Firestore
-  });
-
-  try {
-    await batch.commit(); // Commit the batch write
-    console.log("Guests successfully added!");
-  } catch (error) {
-    console.error("Error adding guests: ", error);
-  }
-};
-
-importGuests();
+  return <div>Import des invités en cours...</div>;
+}
