@@ -1,5 +1,4 @@
-{
-    "guests": [
+"guests": [
         {
             "id": 1,
             "name": "NANS",
@@ -1815,5 +1814,6 @@
             "vinHonneur": "1",
             "soiree": "0"
         }
-    ]
-}
+    ];
+
+export default guestsList;
