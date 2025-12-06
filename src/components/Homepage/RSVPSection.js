@@ -275,7 +275,16 @@ const RSVPSection = ({ language }) => {
       )
     );
   };
-
+// Fonction pour déterminer le texte d'invitation selon soiree et vinHonneur
+  const getInvitationText = (guest) => {
+    if (guest.soiree === "1") {
+      return translations[language].rsvp_section.invitation_text.soiree;
+    } else if (guest.soiree === "0" && guest.vinHonneur === 1) {
+      return translations[language].rsvp_section.invitation_text.vinHonneur;
+    } else {
+      return translations[language].rsvp_section.invitation_text.none;
+    }
+  };
   // Helper function to format names
   const formatNames = (names) => {
     if (names.length === 0) {
