@@ -475,7 +475,7 @@ const translations = {
       invitation_text: {
         soiree: "Siete invitati alla cena e al vin d'onore!",
         vinHonneur: "Siete invitati solo al vin d'onore.",
-        none: "Non siete invitati alla serata."
+        none: "Siete invitati al brindisi. Anche se il pranzo è limitato nel numero di persone, ci piacerebbe comunque avervi al nostro fianco!"
       }
     },
     
@@ -697,7 +697,7 @@ pt: {
     invitation_text: {
         soiree: "Você está convidado para o jantar e o coquetel!",
         vinHonneur: "Você está convidado apenas para o coquetel.",
-        none: "Você não está convidado para a festa."
+        none: "Vocês estão convidados para o coquetel. Embora o jantar seja limitado em número de pessoas, gostaríamos de tê-los ao nosso lado!"
       }
   },
   registry_section: {
