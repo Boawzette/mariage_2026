@@ -642,7 +642,7 @@ const RSVPSection = ({ language }) => {
                     <p translate="no" className="text-left text-lg -mt-4">
                       {rsvp_success.change_by.map((item, index) =>
                         typeof item === "string" ? (
-                          item
+                          <span key={index}>{item}</span>
                         ) : (
                           <span key={index} className="font-bold">
                             {item.text}
