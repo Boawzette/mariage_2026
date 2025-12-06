@@ -495,6 +495,9 @@ const RSVPSection = ({ language }) => {
                     {multiple_guests_1.are_invited}
                   </p>
                 )}
+                <p className="text-lg font-medium mt-2">
+                  {getInvitationText(selectedGuest)}
+                </p>
 
                 {/* Main Guest */}
                 <div className=" flex flex-col items-start">
