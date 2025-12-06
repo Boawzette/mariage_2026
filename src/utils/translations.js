@@ -138,7 +138,7 @@ const translations = {
         ],
       },
       travel_transport: {
-        title: "Pour l'église",
+        title: "Parking et organisation :",
         description_1: [
           "Merci de laisser les places autour de l'église pour les personnes handicapées. Vous trouverez des places :",
         ],
@@ -173,7 +173,7 @@ const translations = {
         },
       },
       contact: {
-        title: "Contacts :",
+        title: "Contacts",
         // Email and numbers added on the front end
       },
     },
@@ -190,7 +190,7 @@ const translations = {
         " ou ",
         { text: "intolérance particulière", bold: true },
         " ainsi que si vous avez une quelconque question.",
-        "On souhaiterait que tout le monde passe un bon moment et soit à l'aise !"
+        " On souhaiterait que tout le monde passe un bon moment et soit à l'aise !"
       ],
       label: "Tapez votre nom",
       placeholder: "Cherchez votre nom...",
@@ -207,7 +207,7 @@ const translations = {
       single_guest_1: {
         hi: "Salut ",
         are_invited:
-        ", tu es chaleureusement invité à te joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable ! ",
+        " Tu es chaleureusement invité à te joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable ! ",
       },
       single_guest_2: "Seras-tu présent au mariage ?",
       answers: { yes: "Oui", no: "Non", unknown: "Je ne sais pas encore" },
