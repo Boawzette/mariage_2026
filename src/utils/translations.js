@@ -227,6 +227,11 @@ const translations = {
         submit: "Envoyer RSVP",
         loading: "Chargement..." 
       },
+      invitation_text: {
+        soiree: "Vous êtes invités au repas et au vin d'honneur !",
+        vinHonneur: "Vous êtes invités au vin d'honneur seulement.",
+        none: "Vous n'êtes pas invités à la soirée."
+      }
     },
     registry_section: {
       title: { main: "Cadeaux", sub: "" },
@@ -467,7 +472,13 @@ const translations = {
     error_enter_name: "Inserisci la tua risposta prima di inviare.",
     error_submitting: "Errore nell'invio. Riprova.",
     button: { submit: "Invia RSVP", loading: "Caricamento..." },
+      invitation_text: {
+        soiree: "Siete invitati alla cena e al vin d'onore!",
+        vinHonneur: "Siete invitati solo al vin d'onore.",
+        none: "Non siete invitati alla serata."
+      }
     },
+    
     registry_section: {
     title: { main: "Regali", sub: "" },
     description_1: "La tua presenza al nostro matrimonio è già un grande regalo, soprattutto da chi viene da lontano!",
@@ -683,6 +694,11 @@ pt: {
     error_enter_name: "Insira sua resposta antes de enviar.",
     error_submitting: "Erro ao enviar. Tente novamente.",
     button: { submit: "Enviar RSVP", loading: "Carregando..." },
+    invitation_text: {
+        soiree: "Você está convidado para o jantar e o coquetel!",
+        vinHonneur: "Você está convidado apenas para o coquetel.",
+        none: "Você não está convidado para a festa."
+      }
   },
   registry_section: {
     title: { main: "Presentes", sub: "" },
