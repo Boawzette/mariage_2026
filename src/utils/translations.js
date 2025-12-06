@@ -230,7 +230,7 @@ const translations = {
       invitation_text: {
         soiree: "Vous êtes invités au repas et au vin d'honneur !",
         vinHonneur: "Vous êtes invités au vin d'honneur seulement.",
-        none: "Vous n'êtes pas invités à la soirée."
+        none: "Vous êtes conviés au vin d'honneur. Bien que le repas soit limité en nombre de personnes nous souhaiterions quand même vous avoir à nos côtés !"
       }
     },
     registry_section: {
