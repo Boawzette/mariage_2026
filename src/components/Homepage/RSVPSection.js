@@ -399,16 +399,16 @@ const RSVPSection = ({ language }) => {
               </h3>
             </div>
             <p translate="no" className="text-left">
-              {description_1.map((item, index) =>
-                typeof item === "string" ? (
-                  item
-                ) : (
-                  <span key={index} className="font-bold">
-                    {item.text}
-                  </span>
-                )
-              )}
-            </p>
+            {description_1.map((item, index) =>
+              typeof item === "string" ? (
+                <span key={index}>{item}</span>
+              ) : (
+                <span key={index} className="font-bold">
+                  {item.text}
+                </span>
+              )
+            )}
+          </p>
             <p translate="no" className="text-left">
               {description_2}
             </p>
