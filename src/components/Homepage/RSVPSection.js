@@ -410,7 +410,19 @@ const RSVPSection = ({ language }) => {
             )}
           </p>
             <p translate="no" className="text-left">
-              {description_2}
+              {typeof description_2 === "string"
+                ? description_2
+                : Array.isArray(description_2)
+                ? description_2.map((item, i) =>
+                    typeof item === "string" ? (
+                      <span key={i}>{item}</span>
+                    ) : (
+                      <span key={i} className="font-bold">
+                        {item.text}
+                      </span>
+                    )
+                  )
+                : description_2?.text || ""}
             </p>
           </div>
         </div>
