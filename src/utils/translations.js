@@ -39,7 +39,7 @@ const translations = {
       title: "Notez",
       title_cursive: "La Date",
       date: "13 Juin 2026",
-      place: "à Charbonnière-les-Bains, France",
+      place: "à Tassin-la-demi-lune, France",
       story_1: "On se rencontre",
       story_2: "On se fiance",
       story_3_future: "On se marie",
@@ -51,7 +51,7 @@ const translations = {
         sub: "du mariage" 
       },
       description:
-        "Le mariage prendra place le samedi 13 juin 2026.",
+        "Le mariage aura lieu le samedi 13 juin 2026.",
       day_1: {
         title: "Cérémonie",
         events: {
@@ -71,7 +71,7 @@ const translations = {
             title: "Cocktail dinatoire & Vin d'honneur" },
           dance: { 
             time: "19h00", 
-            title: "Jeter de bouquet" },
+            title: "Jeté de bouquet" },
           photo: { 
             time: "17h00 à 20h00", 
             title: "Photos" },
@@ -200,7 +200,7 @@ const translations = {
         you: " Vous, ",
         and: " et ",
         are_invited:
-          ", êtes chaleureusement invité à vous joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable !",
+          ", êtes chaleureusement invités à vous joindre à nous pour ce jour spécial. Le célébrer avec vous tous le rendra inoubliable !",
       },
       multiple_guests_2:
         "Choisissez qui se rend au mariage. On espère vous y voir.",
@@ -325,7 +325,7 @@ const translations = {
     title: "Segnate",
     title_cursive: "La Data",
     date: "13 Giugno 2026",
-    place: "a Charbonnière-les-Bains, Francia",
+    place: "a Tassin-la-demi-lune, Francia",
     story_1: "Ci incontriamo",
     story_2: "Ci fidanzamo",
     story_3_future: "Ci sposiamo",
@@ -550,7 +550,7 @@ pt: {
     title: "Reserve",
     title_cursive: "A Data",
     date: "13 de Junho de 2026",
-    place: "em Charbonnière-les-Bains, França",
+    place: "em Tassin-la-demi-lune, França",
     story_1: "Nós nos conhecemos",
     story_2: "Noivamos",
     story_3_future: "Vamos nos casar",
